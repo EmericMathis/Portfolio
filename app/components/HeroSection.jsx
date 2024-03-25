@@ -14,13 +14,13 @@ export const HeroSection = () => {
                         <TypeAnimation
                             sequence={[
                                 'Emeric',
-                                2000,
+                                3000,
                                 'Web Developer',
-                                2000,
+                                3000,
                                 'Mobile Developer',
-                                2000,
+                                3000,
                                 'UI/UX Designer',
-                                2000
+                                3000
                             ]}
                             wrapper="span"
                             speed={40}

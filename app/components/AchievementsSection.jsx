@@ -9,26 +9,37 @@ const AnimatedNumbers = dynamic(
   { ssr: false }
 );
 
+function getYearsAndMonthsSince(date) {
+  const now = new Date();
+  let years = now.getFullYear() - date.getFullYear();
+  let months = now.getMonth() - date.getMonth();
+
+  if (months < 0 || (months === 0 && now.getDate() < date.getDate())) {
+    years--;
+    months += 12;
+  }
+
+  return `${years} years and ${months} months`;
+}
+
+import { projectsData } from "./ProjectsSection";
+
 const achievementsList = [
   {
     metric: "Projects",
-    value: "100",
-    postfix: "+",
+    value: projectsData.length,
+    postfix: "",
   },
   {
-    prefix: "~",
-    metric: "Users",
-    value: "100,000",
+    metric: "Years experience",
+    value: getYearsAndMonthsSince(new Date(2023, 2, 3)),
   },
   {
-    metric: "Awards",
-    value: "7",
-  },
-  {
-    metric: "Years",
-    value: "5",
+    metric: "Hairs",
+    value: "0",
   },
 ];
+
 
 const AchievementsSection = () => {
   return (

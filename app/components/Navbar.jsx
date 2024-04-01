@@ -30,7 +30,7 @@ const Navbar = () => {
                     href={"/"}
                     className="text-2xl md:text-5xl text-white font-semibold"
                 >
-                    <div class="w-0 h-0 
+                    <div className="w-0 h-0 
   border-l-[50px] border-l-transparent
   border-b-[75px] border-b-purple-500
   border-r-[50px] border-r-transparent">

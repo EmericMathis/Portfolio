@@ -7,12 +7,21 @@ import { motion, useInView } from "framer-motion";
 export const projectsData = [
   {
     id: 1,
-    title: "NextJS Portfolio Website",
-    description: "I built this portfolio website using NextJS and TailwindCSS. First time using these technologies !",
+    title: "NextJS Portfolio",
+    description: "I built this portfolio website using NextJS and TailwindCSS. First time using these technologies ! (hosted on vercel)",
     image: "/images/projects/NextJS-portfolio.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/EmericMathis/Portfolio",
     previewUrl: "/",
+  },
+  {
+    id: 2,
+    title: "Wordpress theme",
+    description: "I created the website of an association for the visually impaired during my study internship. I learned php to create the theme",
+    image: "/images/projects/mahvu.png",
+    tag: ["All", "Mobile"],
+    gitUrl: "https://github.com/EmericMathis/Site-web-association-Mahvu",
+    previewUrl: "https://mahvu.org/",
   },
 
 ];

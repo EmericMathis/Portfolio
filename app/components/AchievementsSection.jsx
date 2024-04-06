@@ -31,11 +31,11 @@ const achievementsList = [
     postfix: "",
   },
   {
-    metric: "Years experience",
+    metric: "years of coding",
     value: getYearsAndMonthsSince(new Date(2023, 2, 3)),
   },
   {
-    metric: "Hairs",
+    metric: "Hair",
     value: "0",
   },
 ];

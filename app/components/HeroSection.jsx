@@ -28,7 +28,7 @@ export const HeroSection = () => {
                         />
                     </h1>
                     <p className="text-[#ADB7BE] text-base md:text-lg mb-6 lg:text-xl">
-                        I bring your ideas to life and improve them with my creativity and expertise I'm using the latest technologies to build your website or mobile app.
+                        I bring your ideas to life and improve them with my creativity and expertise. I'm using the latest technologies to build your website or mobile app.
                     </p>
                     <div>
                         <button className='px-6 py-3 w-full md:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-200 text-white'>

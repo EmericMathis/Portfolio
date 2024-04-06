@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
@@ -22,9 +22,23 @@ const navLinks = [
 
 const Navbar = () => {
     const [navbarOpen, setNavbarOpen] = useState(false);
+    const [lastScrollTop, setLastScrollTop] = useState(0);
+    const [isScrollingUp, setIsScrollingUp] = useState(true);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollTop = window.scrollY;
+            setIsScrollingUp(currentScrollTop < lastScrollTop);
+            setLastScrollTop(currentScrollTop);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [lastScrollTop]);
 
     return (
-        <nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100">
+        <nav className={`fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100 transform transition-transform duration-200 ${isScrollingUp ? '' : '-translate-y-full'}`}>
+
             <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
                 <Link
                     href={"/"}

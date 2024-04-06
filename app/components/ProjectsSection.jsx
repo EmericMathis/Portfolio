@@ -19,7 +19,7 @@ export const projectsData = [
     title: "Wordpress theme",
     description: "I created the website of an association for the visually impaired during my study internship. I learned php to create the theme",
     image: "/images/projects/mahvu.png",
-    tag: ["All", "Mobile"],
+    tag: ["All", "Web"],
     gitUrl: "https://github.com/EmericMathis/Site-web-association-Mahvu",
     previewUrl: "https://mahvu.org/",
   },

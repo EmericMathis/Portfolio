@@ -5,7 +5,7 @@ import { TypeAnimation } from 'react-type-animation';
 
 export const HeroSection = () => {
     return (
-        <section>
+        <section className='pt-2'>
             <div className='grid grid-cols-1 md:grid-cols-12'>
                 <div className='col-span-7 place-self-center text-center md:text-left '>
                     <h1 className="text-white mb-4 text-4xl md:text-5xl lg:text-6xl font-extrabold">
@@ -39,7 +39,7 @@ export const HeroSection = () => {
                         </button>
                     </div>
                 </div>
-                <div className="col-span-5 place-self-center mt-4 lg:mt-0">
+                <div className="col-span-5 justify-self-end mt-4 lg:mt-0">
                     <div className='rounded-full bg-[#181818] w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] relative'>
                         <img
                             src="/images/Ermic.png"

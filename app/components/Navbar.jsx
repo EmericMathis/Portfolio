@@ -39,15 +39,15 @@ const Navbar = () => {
         <nav className={`flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2 bg-[#121212] fixed top-0 left-0 right-0 z-10  ${isScrollingUp ? '' : '-translate-y-full'}`}>
             <Link href={"/"} className="text-2xl md:text-5xl text-white font-semibold">
                 <div className="w-0 h-0 
-                border-l-[50px] border-l-transparent
-                border-b-[75px] border-b-purple-500
-                border-r-[50px] border-r-transparent">
+                border-l-[40px] border-l-transparent
+                border-b-[60px] border-b-purple-500
+                border-r-[40px] border-r-transparent">
                 </div>
             </Link>
             <div className="mobile-menu block md:hidden">
                 <Hamburger toggled={navbarOpen} toggle={setNavbarOpen} />
             </div>
-            <div className={`menu w-full transform origin-top text-center overflow-hidden transition-all duration-200 ease-in-out ${navbarOpen ? 'max-h-[100vh]' : 'max-h-0'} md:max-h-full md:block md:w-auto`} id="navbar">
+            <div className={`menu w-full transform origin-top text-center overflow-hidden transition-all duration-300 ease-in-out ${navbarOpen ? 'max-h-[100vh]' : 'max-h-0'} md:max-h-full md:block md:w-auto`} id="navbar">
                 <ul className={`flex flex-col p-4 md:p-0 md:flex-row md:space-x-8 mt-0 md:flex md:items-center transition-opacity duration-300 ease-in-out ${navbarOpen ? 'opacity-100' : 'opacity-0'}`}>
                     {navLinks.map((link, index) => (
                         <li key={index}>

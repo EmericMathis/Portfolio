@@ -31,7 +31,7 @@ const achievementsList = [
     postfix: "",
   },
   {
-    metric: "years of coding",
+    metric: "year of coding",
     value: getYearsAndMonthsSince(new Date(2023, 2, 3)),
   },
   {

@@ -36,11 +36,11 @@ const Navbar = () => {
     }, [lastScrollTop]);
 
     return (
-        <nav className={`flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2 bg-[#121212] fixed top-0 left-0 right-0 z-10  ${isScrollingUp ? '' : '-translate-y-full'}`}>
+        <nav className={`flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2 bg-[#121212] fixed top-0 left-0 right-0 z-10 transition-transform duration-500 ease-in-out ${isScrollingUp ? '' : '-translate-y-full'}`}>
             <Link href={"/"} className="text-2xl md:text-5xl text-white font-semibold">
                 <div className="w-0 h-0 
             border-l-[40px] border-l-transparent
-            border-b-[60px] border-b-purple-500
+            border-b-[60px] border-b-purple-600
             border-r-[40px] border-r-transparent">
                 </div>
             </Link>

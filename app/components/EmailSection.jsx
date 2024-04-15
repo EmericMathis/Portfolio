@@ -83,7 +83,7 @@ const EmailSection = () => {
                 id="email"
                 required
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="johndodo@gmail.com"
+                placeholder="jacob@google.com"
               />
             </div>
             <div className="mb-6">
@@ -99,7 +99,7 @@ const EmailSection = () => {
                 id="subject"
                 required
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="Money"
+                placeholder="Just saying hi"
               />
             </div>
             <div className="mb-6">
@@ -112,8 +112,8 @@ const EmailSection = () => {
               <textarea
                 name="message"
                 id="message"
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 h-32"
-                placeholder="Hey Emeric, I want to give you a lot of money, please respond to me as soon as possible."
+                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                placeholder="Let's talk about..."
               />
             </div>
             <button

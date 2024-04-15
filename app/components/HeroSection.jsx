@@ -31,12 +31,16 @@ export const HeroSection = () => {
                         I bring your ideas to life and improve them with my creativity and expertise. I'm using the latest technologies to build your website or mobile app.
                     </p>
                     <div>
-                        <button className='px-6 py-3 w-full md:w-fit rounded-full mr-4 bg-purple-700 hover:bg-purple-900 text-white'>
-                            Hire Me
-                        </button>
-                        <button className='px-1 py-1 w-full md:w-fit rounded-full bg-purple-500  hover:bg-purple-900 text-white mt-3' >
-                            <span className='block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2'>Download CV</span>
-                        </button>
+                        <a href="https://www.malt.fr/profile/emericemeric" target="_blank" rel="noopener noreferrer">
+                            <button className='px-6 py-3 w-full md:w-fit rounded-full mr-4 bg-purple-700 hover:bg-purple-900 text-white'>
+                                Hire Me
+                            </button>
+                        </a>
+                        <a href='https://cvdesignr.com/p/6520128bf0657' target='blank' rel='noopener noreferrer'>
+                            <button className='px-1 py-1 w-full md:w-fit rounded-full bg-purple-500  hover:bg-purple-900 text-white mt-3' >
+                                <span className='block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2'>Download CV</span>
+                            </button>
+                        </a>
                     </div>
                 </div>
                 <div className="col-span-5 lg:justify-self-end mt-4 lg:mt-0 mx-auto">

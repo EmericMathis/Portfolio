@@ -10,8 +10,8 @@ const TAB_DATA = [
         content: (
             <ul className="list-disc pl-2">
                 <li>React & Next.js</li>
-                <li>JavaScript</li>
-                <li>Node.js</li>
+                <li>JavaScript, Node.js</li>
+                <li>Wordpress & php</li>
                 <li>Express.js</li>
                 <li>PostgreSQL, Sequelize</li>
             </ul>
@@ -58,12 +58,7 @@ const AboutSection = () => {
                 <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
                     <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
                     <p className="text-base lg:text-lg">
-                        I am have a passion for creating beautiful and responsive web applications. I have experience
-                        working with JavaScript, React, Next.js, Node.js, Express, PostgreSQL,
-                        Sequelize, HTML, CSS, and Github.
-                        I am a quick learner and I am always
-                        looking to expand my knowledge and skill set. My imagination and creativity
-                        are my biggest assets.
+                        Passionate about creating beautiful, responsive web apps. Experienced with JavaScript, React, Next.js, Wordpress, Node.js, Express, PostgreSQL, Sequelize, HTML, CSS, and Github. Quick learner, always seeking to expand my skills. Imagination and creativity are my key assets.
                     </p>
                     <div className="flex flex-row justify-start mt-8">
                         <TabButton

@@ -17,24 +17,26 @@ const EmailSection = () => {
     const JSONdata = JSON.stringify(data);
     const endpoint = "/api/send";
 
-    // Form the request for sending data to the server.
     const options = {
-      // The method is POST because we are sending data.
       method: "POST",
-      // Tell the server we're sending JSON.
       headers: {
         "Content-Type": "application/json",
       },
-      // Body of the request is the JSON data we created above.
       body: JSONdata,
     };
+
+    console.log('Sending request:', endpoint, options);
 
     const response = await fetch(endpoint, options);
     const resData = await response.json();
 
+    console.log('Received response:', response, resData);
+
     if (response.status === 200) {
       console.log("Message sent.");
       setEmailSubmitted(true);
+    } else {
+      console.log('Failed to send message:', resData);
     }
   };
 

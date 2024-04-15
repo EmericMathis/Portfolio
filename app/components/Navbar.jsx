@@ -45,7 +45,7 @@ const Navbar = () => {
    transform hover:scale-105 hover:translate-y-1 hover:rotate-180">
             </div>
             <div className="mobile-menu block md:hidden">
-                <Hamburger toggled={navbarOpen} toggle={setNavbarOpen} size={30} />
+                <Hamburger toggled={navbarOpen} toggle={setNavbarOpen} size={20} />
             </div>
             <div className={`menu w-full transform origin-top text-center overflow-hidden transition-all duration-300 ease-in-out ${navbarOpen ? 'max-h-[100vh]' : 'max-h-0'} md:max-h-none md:flex md:w-auto`} id="navbar">
                 <ul className={`flex flex-col p-4 md:p-0 md:flex-row md:space-x-8 mt-0 md:flex md:items-center transition-opacity duration-300 ease-in-out ${navbarOpen ? 'opacity-100' : 'opacity-0'} md:opacity-100`}>

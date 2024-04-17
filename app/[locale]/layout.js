@@ -30,6 +30,7 @@ export default function RootLayout({ children }) {
         <meta property="twitter:image" content={metadata.image} />
         <meta name="author" content={metadata.author} />
         <meta name="publishdate" content={metadata.publishdate} />
+        <link rel="preload" as="image" href={metadata.image}></link>
       </Head>
       <body className={inter.className}>{children}</body>
     </html>

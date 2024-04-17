@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Emeric Mathis - Portfolio",
   description: "Web developer portfolio of Emeric Mathis.",
-  image: "/images/projects/NextJS-portfolio.png",
+  image: "/images/image.png",
   author: "Emeric Mathis",
   publishdate: "17-04-2024",
 
@@ -30,7 +30,6 @@ export default function RootLayout({ children }) {
         <meta property="twitter:image" content={metadata.image} />
         <meta name="author" content={metadata.author} />
         <meta name="publishdate" content={metadata.publishdate} />
-        <link rel="preload" as="image" href={metadata.image}></link>
       </Head>
       <body className={inter.className}>{children}</body>
     </html>

@@ -30,6 +30,10 @@ export default function RootLayout({ children }) {
         <meta name="author" content={metadata.author} />
         <meta name="publishdate" content={metadata.publishdate} />
         <link rel="preload" as="image" href="/images/image.jpg"></link>
+        <meta property="og:image" content="https://www.emericmathis.com/images/image.jpg" />
+        <meta property="og:image:type" content="<generated>" />
+        <meta property="og:image:width" content="<generated>" />
+        <meta property="og:image:height" content="<generated>" />
       </Head>
       <body className={inter.className}>{children}</body>
     </html>

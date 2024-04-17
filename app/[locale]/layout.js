@@ -10,7 +10,6 @@ export const metadata = {
   image: "/images/image.jpg",
   author: "Emeric Mathis",
   publishdate: "17-04-2024",
-
 };
 
 export default function RootLayout({ children }) {

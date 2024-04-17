@@ -8,6 +8,13 @@ import AchievementsSection from "../components/AchievementsSection";
 import dynamic from "next/dynamic";
 import initTranslations from '../i18n';
 import TranslationsProvider from '../components/TranslationsProvider';
+import Head from 'next/head';
+
+const metadata = {
+  title: "Emeric Mathis - Developer",
+  description: "Web developer portfolio of Emeric Mathis.",
+  image: "/images/home.jpg",
+};
 
 const ScrollTopBtn = dynamic(
   () => {
@@ -28,6 +35,13 @@ export default async function Home({ params: { locale } }) {
       locale={locale}
       resources={resources}>
       <main className="flex min-h-screen flex-col bg-[#121212]">
+        <Head>
+          <title>{metadata.title}</title>
+          <meta name="description" content={metadata.description} />
+          <meta property="og:title" content={metadata.title} />
+          <meta property="og:description" content={metadata.description} />
+          <meta property="og:image" content={metadata.image} />
+        </Head>
         <Navbar />
         <ScrollTopBtn />
         <div className="container mt-24 mx-auto px-12 py-4">

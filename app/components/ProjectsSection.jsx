@@ -3,30 +3,32 @@ import React, { useState, useRef } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
-
-export const projectsData = [
-  {
-    id: 1,
-    title: "NextJS Portfolio",
-    description: "I built this portfolio website using NextJS and TailwindCSS. First time using these technologies ! (hosted on vercel)",
-    image: "/images/projects/NextJS-portfolio.png",
-    tag: ["All", "Web"],
-    gitUrl: "https://github.com/EmericMathis/Portfolio",
-    previewUrl: "/",
-  },
-  {
-    id: 2,
-    title: "Wordpress theme",
-    description: "I created the website of an association for the visually impaired during my study internship. I learned php to create the theme",
-    image: "/images/projects/mahvu.png",
-    tag: ["All", "Web"],
-    gitUrl: "https://github.com/EmericMathis/Site-web-association-Mahvu",
-    previewUrl: "https://mahvu.org/",
-  },
-
-];
+import { useTranslation } from "react-i18next";
 
 const ProjectsSection = () => {
+  const { t } = useTranslation('projects');
+
+  const projectsData = [
+    {
+      id: 1,
+      title: t('title1'),
+      description: t('description1'),
+      image: "/images/projects/NextJS-portfolio.png",
+      tag: ["All", "Web"],
+      gitUrl: "https://github.com/EmericMathis/Portfolio",
+      previewUrl: "/",
+    },
+    {
+      id: 2,
+      title: t('title2'),
+      description: t('description2'),
+      image: "/images/projects/mahvu.png",
+      tag: ["All", "Web"],
+      gitUrl: "https://github.com/EmericMathis/Site-web-association-Mahvu",
+      previewUrl: "https://mahvu.org/",
+    },
+  ];
+
   const [tag, setTag] = useState("All");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -47,22 +49,25 @@ const ProjectsSection = () => {
   return (
     <section id="projects">
       <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
-        My Projects
+        {t('my projects')}
       </h2>
       <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
         <ProjectTag
           onClick={handleTagChange}
-          name="All"
+          name={t('all')}
+          value="All"
           isSelected={tag === "All"}
         />
         <ProjectTag
           onClick={handleTagChange}
           name="Web"
+          value={"Web"}
           isSelected={tag === "Web"}
         />
         <ProjectTag
           onClick={handleTagChange}
           name="Mobile"
+          value={"Mobile"}
           isSelected={tag === "Mobile"}
         />
       </div>

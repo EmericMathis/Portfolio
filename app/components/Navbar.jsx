@@ -1,25 +1,31 @@
 "use client";
-import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import NavLink from "./NavLink";
 import { Squeeze as Hamburger } from 'hamburger-react'
+import LanguageChanger from "../components/LanguageChanger"
+import { useTranslation } from 'react-i18next';
 
-const navLinks = [
-    {
-        title: "About",
-        path: "#about",
-    },
-    {
-        title: "Projects",
-        path: "#projects",
-    },
-    {
-        title: "Contact",
-        path: "#contact",
-    },
-];
+
 
 const Navbar = () => {
+
+    const { t } = useTranslation('navbar');
+
+    const navLinks = [
+        {
+            title: t('1'),
+            path: "#about",
+        },
+        {
+            title: t('2'),
+            path: "#projects",
+        },
+        {
+            title: t('3'),
+            path: "#contact",
+        },
+    ];
+
     const [navbarOpen, setNavbarOpen] = useState(false);
     const [lastScrollTop, setLastScrollTop] = useState(0);
     const [isScrollingUp, setIsScrollingUp] = useState(true);
@@ -49,6 +55,7 @@ const Navbar = () => {
             </div>
             <div className={`menu w-full transform origin-top text-center overflow-hidden transition-all duration-300 ease-in-out ${navbarOpen ? 'max-h-[100vh]' : 'max-h-0'} md:max-h-none md:flex md:w-auto`} id="navbar">
                 <ul className={`flex flex-col p-4 md:p-0 md:flex-row md:space-x-8 mt-0 md:flex md:items-center transition-opacity duration-300 ease-in-out ${navbarOpen ? 'opacity-100' : 'opacity-0'} md:opacity-100`}>
+                    <li><LanguageChanger /></li>
                     {navLinks.map((link, index) => (
                         <li key={index}>
                             <NavLink href={link.path} title={link.title} />

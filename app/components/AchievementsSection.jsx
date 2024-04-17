@@ -1,6 +1,9 @@
 "use client";
 import React from "react";
 import dynamic from "next/dynamic";
+import { useTranslation } from 'react-i18next';
+
+
 
 const AnimatedNumbers = dynamic(
   () => {
@@ -22,26 +25,36 @@ function getYearsAndMonthsSince(date) {
   return `${years} years and ${months} months`;
 }
 
-import { projectsData } from "./ProjectsSection";
 
-const achievementsList = [
-  {
-    metric: "Projects",
-    value: projectsData.length,
-    postfix: "",
-  },
-  {
-    metric: "year of coding",
-    value: getYearsAndMonthsSince(new Date(2023, 2, 3)),
-  },
-  {
-    metric: "Hair",
-    value: "0",
-  },
-];
+
 
 
 const AchievementsSection = () => {
+
+
+  const { t } = useTranslation('home');
+  const Text = [
+    t('Projects'),
+    t('year of coding'),
+    t('Hair'),
+  ];
+
+  const achievementsList = [
+    {
+      metric: Text[0],
+      value: "2",
+      postfix: "",
+    },
+    {
+      metric: Text[1],
+      value: getYearsAndMonthsSince(new Date(2023, 2, 3)),
+    },
+    {
+      metric: Text[2],
+      value: "0",
+    },
+  ];
+
   return (
     <div className="py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
       <div className="sm:border-[#33353F] sm:border rounded-md py-8 px-16 flex flex-col sm:flex-row items-center justify-between">

@@ -2,44 +2,39 @@
 "use client";
 import React, { useTransition, useState } from "react";
 import TabButton from "./TabButton";
+import { useTranslation } from "react-i18next";
 
-const TAB_DATA = [
-    {
-        title: "Skills",
-        id: "skills",
-        content: (
-            <ul className="list-disc pl-2">
-                <li>React & Next.js</li>
-                <li>JavaScript, Node.js</li>
-                <li>Wordpress & php</li>
-                <li>Express.js</li>
-                <li>PostgreSQL, Sequelize</li>
-            </ul>
-        ),
-    },
-    {
-        title: "Education",
-        id: "education",
-        content: (
-            <ul className="list-disc pl-2">
-                <li>Professional full-stack web and mobile developer title</li>
-                <li>O'clock School in distance learning</li>
-            </ul>
-        ),
-    },
-    {
-        title: "Certifications",
-        id: "certifications",
-        content: (
-            <ul className="list-disc pl-2">
-                <li>Professional full-stack web and mobile developer title (Bac+2)</li>
-                <li>My mom said I'm very intelligent</li>
-            </ul>
-        ),
-    },
-];
 
 const AboutSection = () => {
+
+    const { t } = useTranslation('about')
+
+    const TAB_DATA = [
+        {
+            title: "Skills",
+            id: "skills",
+            content: (
+                <ul className="list-disc pl-2">
+                    <li>React & Next.js</li>
+                    <li>JavaScript, Node.js</li>
+                    <li>Wordpress & php</li>
+                    <li>Express.js</li>
+                    <li>PostgreSQL, Sequelize</li>
+                </ul>
+            ),
+        },
+        {
+            title: "Education",
+            id: "education",
+            content: (
+                <ul className="list-disc pl-2">
+                    <li>{t('education-1')}</li>
+                    <li>{t('education-2')}</li>
+                </ul>
+            ),
+        },
+    ];
+
     const [tab, setTab] = useState("skills");
     const [isPending, startTransition] = useTransition();
 
@@ -56,9 +51,9 @@ const AboutSection = () => {
                     <img src="/images/about-image.jpg" alt="about" className="absolute top-0 left-0 w-full h-full object-cover rounded-xl" />
                 </div>
                 <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-                    <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
+                    <h2 className="text-4xl font-bold text-white mb-4">{t('about me')}</h2>
                     <p className="text-base lg:text-lg">
-                        Passionate about creating beautiful, responsive web apps. Experienced with JavaScript, React, Next.js, Wordpress, Node.js, Express, PostgreSQL, Sequelize, HTML, CSS, and Github. Quick learner, always seeking to expand my skills. Imagination and creativity are my key assets.
+                        {t('description')}
                     </p>
                     <div className="flex flex-row justify-start mt-8">
                         <TabButton
@@ -73,17 +68,10 @@ const AboutSection = () => {
                             active={tab === "education"}
                         >
                             {" "}
-                            Education{" "}
-                        </TabButton>
-                        <TabButton
-                            selectTab={() => handleTabChange("certifications")}
-                            active={tab === "certifications"}
-                        >
-                            {" "}
-                            Certifications{" "}
+                            {t('education')}{" "}
                         </TabButton>
                     </div>
-                    <div className="mt-8">
+                    <div className="mt-1">
                         {TAB_DATA.find((t) => t.id === tab).content}
                     </div>
                 </div>

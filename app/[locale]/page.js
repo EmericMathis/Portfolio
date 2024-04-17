@@ -12,8 +12,8 @@ import Head from 'next/head';
 
 const metadata = {
   title: "Emeric Mathis - Developer",
-  description: "Web developer portfolio of Emeric Mathis.",
-  image: "/images/home.jpg",
+  description: "Fullstack Web developer.",
+  image: "/images/image.jpg",
 };
 
 const ScrollTopBtn = dynamic(

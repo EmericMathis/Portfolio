@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Emeric Mathis - Portfolio",
   description: "Web developer portfolio of Emeric Mathis.",
-  image: "/images/projects/NextJS-portfolio.png",
+  image: "https://www.emericmathis.com/images/projects/NextJS-portfolio.png",
   author: "Emeric Mathis",
   publishdate: "17-04-2024",
 
@@ -23,6 +23,7 @@ export default function RootLayout({ children }) {
         <meta property="og:title" content={metadata.title} />
         <meta property="og:description" content={metadata.description} />
         <meta property="og:image" content={metadata.image} />
+        <meta property="og:image:alt" content={metadata.description} />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content={metadata.title} />
         <meta property="twitter:description" content={metadata.description} />

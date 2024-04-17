@@ -31,9 +31,9 @@ export default function RootLayout({ children }) {
         <meta name="publishdate" content={metadata.publishdate} />
         <link rel="preload" as="image" href="/images/image.jpg"></link>
         <meta property="og:image" content="https://www.emericmathis.com/images/image.jpg" />
-        <meta property="og:image:type" content="<generated>" />
-        <meta property="og:image:width" content="<generated>" />
-        <meta property="og:image:height" content="<generated>" />
+        <meta property="og:image:type" content="jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="628" />
       </Head>
       <body className={inter.className}>{children}</body>
     </html>

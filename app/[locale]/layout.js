@@ -8,6 +8,9 @@ export const metadata = {
   title: "Emeric Mathis - Portfolio",
   description: "Web developer portfolio of Emeric Mathis.",
   image: "/images/projects/NextJS-portfolio.png",
+  author: "Emeric Mathis",
+  publishdate: "17-04-2024",
+
 };
 
 export default function RootLayout({ children }) {
@@ -24,6 +27,8 @@ export default function RootLayout({ children }) {
         <meta property="twitter:title" content={metadata.title} />
         <meta property="twitter:description" content={metadata.description} />
         <meta property="twitter:image" content={metadata.image} />
+        <meta name="author" content={metadata.author} />
+        <meta name="publishdate" content={metadata.publishdate} />
       </Head>
       <body className={inter.className}>{children}</body>
     </html>

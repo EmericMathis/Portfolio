@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 const EmailSection = () => {
 
-  const { t } = useTranslation('emailsection');
+  const { t, i18n } = useTranslation('emailsection');
 
   const [emailSubmitted, setEmailSubmitted] = useState(false);
 
@@ -18,6 +18,7 @@ const EmailSection = () => {
       email: e.target.email.value,
       subject: e.target.subject.value,
       message: e.target.message.value,
+      lang: i18n.language,
     };
     const JSONdata = JSON.stringify(data);
     const endpoint = "/api/send";

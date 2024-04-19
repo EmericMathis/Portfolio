@@ -1,13 +1,12 @@
 import { Inter } from "next/font/google";
 import "../globals.css";
-import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Emeric Mathis - Portfolio",
   description: "Web developer portfolio of Emeric Mathis.",
-  images: { url: "https://www.emericmathis.com/images/image.png" },
+  images: { url: "https://www.emericmathis.com/images/image2.png" },
 };
 
 export default function RootLayout({ children }) {

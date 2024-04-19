@@ -11,18 +11,21 @@ export async function POST(req, res) {
     const { email, subject, message } = await req.json();
     console.log(email, subject, message);
 
+    const thankYouMessage = i18next.t('emailsection:thank you');
+    const submittedMessage = i18next.t('emailsection:submitted');
+
+    const emailContent = `
+      <p>${thankYouMessage}</p>
+      <p>${submittedMessage}</p>
+      <h1>${subject}</h1>
+      <p>${message}</p>
+    `;
+
     const data = await resend.emails.send({
       from: fromEmail,
       to: [fromEmail, email],
       subject: subject,
-      react: (
-        <>
-          <p>{i18next.t('emailsection:thank you')}</p>
-          <p>{i18next.t('emailsection:submitted')}</p>
-          <h1>{subject}</h1>
-          <p>{message}</p>
-        </>
-      ),
+      react: emailContent,
     });
 
     return NextResponse.json(data);

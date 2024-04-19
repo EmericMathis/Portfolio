@@ -13,12 +13,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <title>{metadata.title}</title>
-      <meta name="description" content={metadata.description} />
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content={metadata.title} />
-      <meta property="og:description" content={metadata.description} />
-      <meta property="og:image" content={metadata.images.url} />
+      <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={metadata.title} />
+        <meta property="og:description" content={metadata.description} />
+        <meta property="og:image" content={metadata.images.url} />
+      </Head>
       <body className={inter.className}>{children}</body>
     </html>
   );

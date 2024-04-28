@@ -3,6 +3,8 @@
 import React, { useTransition, useState } from "react";
 import TabButton from "./TabButton";
 import { useTranslation } from "react-i18next";
+import Eye from "./eye/Eye";
+
 
 
 const AboutSection = () => {
@@ -46,9 +48,11 @@ const AboutSection = () => {
 
     return (
         <section className="text-white" id="about">
-            <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-                <div className="w-full h-64 md:h-96 lg:h-128 relative">
-                    <img src="/images/about-image.jpg" alt="about" className="absolute top-0 left-0 w-full h-full object-cover rounded-xl" />
+            <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16 mb-auto">
+                <div className="w-full h-64 md:h-96 lg:h-128 border border-zinc-700 rounded-lg flex flex-col justify-around bg-zinc-900">
+                    <h3 className="text-3xl max-sm:text-xl font-bold text-white text-center mx-5">{t('eye-title')}</h3>
+                    <div ><Eye className="mx-auto" /></div>
+                    <p className="text-center p-4 ">{t('eye-p')}</p>
                 </div>
                 <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
                     <h2 className="text-4xl font-bold text-white mb-4">{t('about me')}</h2>
@@ -71,7 +75,7 @@ const AboutSection = () => {
                             {t('education')}{" "}
                         </TabButton>
                     </div>
-                    <div className="mt-1">
+                    <div className="mt-1 max-h-16">
                         {TAB_DATA.find((t) => t.id === tab).content}
                     </div>
                 </div>

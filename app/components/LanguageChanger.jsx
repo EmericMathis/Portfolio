@@ -41,7 +41,7 @@ export default function LanguageChanger() {
 
         <form className="max-w-sm mx-auto">
             <div style={{ position: 'relative', display: 'inline-block' }}>
-                <select onChange={handleChange} value={currentLocale} id="countries" className="border text-sm rounded-lg block w-full p-2.5 bg-gray-900 border-gray-600 placeholder-gray-400 text-white focus:outline-none appearance-none pr-6" style={{ width: '100%', boxSizing: 'border-box' }}>
+                <select onChange={handleChange} value={currentLocale} id="countries" className="border text-sm rounded-lg block w-full p-2.5 bg-zinc-900 border-zinc-600 placeholder-zinc-400 text-white focus:outline-none appearance-none pr-6" style={{ width: '100%', boxSizing: 'border-box' }}>
                     <option value="en">english</option>
                     <option value="fr">français</option>
                 </select>

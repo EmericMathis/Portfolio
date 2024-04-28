@@ -44,7 +44,7 @@ const Navbar = () => {
     }, [lastScrollTop]);
 
     return (
-        <nav className={`flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2 bg-[#121212] fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ease-in-out ${isScrollingUp ? '' : '-translate-y-full'}`}>
+        <nav className={`flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2 bg-zinc-950 fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ease-in-out ${isScrollingUp ? '' : '-translate-y-full'}`}>
             <div className="w-0 h-0 
             border-l-[20px] border-l-transparent
             border-b-[35px] border-b-purple-600

@@ -20,7 +20,7 @@ const i18nNamespaces = ['home', 'about', 'projects', 'emailsection', 'navbar'];
 
 export default async function Home({ params: { locale } }) {
 
-  const { t, resources } = await initTranslations(locale, i18nNamespaces);
+  const { resources } = await initTranslations(locale, i18nNamespaces);
 
   return (
     <TranslationsProvider

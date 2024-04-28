@@ -19,7 +19,7 @@ export const HeroSection = () => {
         <section className='pt-2'>
             <div className='grid grid-cols-1'>
                 <div className='col-span-7 place-self-center text-center md:text-left'>
-                    <h1 className="text-white mb-4 text-4xl md:text-5xl lg:text-6xl font-extrabold">
+                    <h1 className="text-white mb-4 text-3xl md:text-5xl lg:text-6xl font-extrabold">
                         <span className='text-transparent bg-clip-text bg-purple-500'>{helloText[0]}</span>
                         <br />
                         <TypeAnimation
@@ -36,6 +36,7 @@ export const HeroSection = () => {
                             wrapper="span"
                             speed={40}
                             repeat={Infinity}
+                            style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '100%' }}
                         />
                     </h1>
                     <p className="text-[#ADB7BE] text-base md:text-lg mb-6 lg:text-xl">
@@ -43,12 +44,12 @@ export const HeroSection = () => {
                     </p>
                     <div>
                         <a href="https://www.malt.fr/profile/emericemeric" target="_blank" rel="noopener noreferrer">
-                            <button className='px-6 py-3 w-full md:w-fit rounded-full mr-4 bg-purple-700 hover:bg-purple-900 text-white'>
+                            <button className='md:mr-2 px-5 py-3 w-80  md:w-fit rounded-full bg-purple-700 hover:bg-purple-900 text-white'>
                                 {t('Hire Me')}
                             </button>
                         </a>
                         <a href='https://cvdesignr.com/p/6520128bf0657' target='blank' rel='noopener noreferrer'>
-                            <button className='px-1 py-1 w-full md:w-fit rounded-full bg-purple-500  hover:bg-purple-900 text-white mt-3' >
+                            <button className='px-1 py-1 w-80 md:w-fit rounded-full bg-purple-500  hover:bg-purple-900 text-white mt-3' >
                                 <span className='block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2'>{t('Download CV')}</span>
                             </button>
                         </a>

@@ -40,10 +40,17 @@ export default function LanguageChanger() {
     return (
 
         <form className="max-w-sm mx-auto">
-            <select onChange={handleChange} value={currentLocale} id="countries" className=" border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 bg-gray-900 border-gray-600 placeholder-gray-400 text-white focus:outline-none">
-                <option value="en">english</option>
-                <option value="fr">français</option>
-            </select>
+            <div style={{ position: 'relative', display: 'inline-block' }}>
+                <select onChange={handleChange} value={currentLocale} id="countries" className="border text-sm rounded-lg block w-full p-2.5 bg-gray-900 border-gray-600 placeholder-gray-400 text-white focus:outline-none appearance-none pr-6" style={{ width: '100%', boxSizing: 'border-box' }}>
+                    <option value="en">english</option>
+                    <option value="fr">français</option>
+                </select>
+                <div style={{ position: 'absolute', top: '50%', right: '8px', pointerEvents: 'none', transform: 'translateY(-50%)' }}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down w-4 h-4">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+            </div>
         </form>
     );
 }

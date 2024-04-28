@@ -33,7 +33,9 @@ const Navbar = () => {
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollTop = window.scrollY;
-            setIsScrollingUp(currentScrollTop < lastScrollTop);
+            if (currentScrollTop > 100) {
+                setIsScrollingUp(currentScrollTop < lastScrollTop);
+            }
             setLastScrollTop(currentScrollTop);
         };
 
@@ -44,12 +46,13 @@ const Navbar = () => {
     return (
         <nav className={`flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2 bg-[#121212] fixed top-0 left-0 right-0 z-50 transition-transform duration-500 ease-in-out ${isScrollingUp ? '' : '-translate-y-full'}`}>
             <div className="w-0 h-0 
-   border-l-[20px] border-l-transparent
-   border-b-[35px] border-b-purple-600
-   border-r-[20px] border-r-transparent
-   transition-transform duration-500 ease-in-out
-   transform hover:scale-105 hover:translate-y-1 hover:rotate-180">
+            border-l-[20px] border-l-transparent
+            border-b-[35px] border-b-purple-600
+            border-r-[20px] border-r-transparent
+            transition-transform duration-500 ease-in-out
+            transform hover:scale-105 hover:translate-y-1 hover:rotate-180">
             </div>
+
             <div className="mobile-menu block md:hidden">
                 <Hamburger toggled={navbarOpen} toggle={setNavbarOpen} size={20} />
             </div>

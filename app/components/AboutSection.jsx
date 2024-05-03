@@ -48,11 +48,7 @@ const AboutSection = () => {
 
     return (
         <section className="text-white" id="about">
-            <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16 mb-auto">
-                <div className="w-full h-64 md:h-96 lg:h-128 flex flex-col space-y-10">
-                    <h3 className="text-2xl max-sm:text-xl font-bold text-white mx-5">{t('eye-title')}</h3>
-                    <div ><Eye className="mx-auto" /></div>
-                </div>
+            <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16 ">
                 <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
                     <h2 className="text-4xl font-bold text-white mb-4">{t('about me')}</h2>
                     <p className="text-base lg:text-lg">
@@ -74,12 +70,26 @@ const AboutSection = () => {
                             {t('education')}{" "}
                         </TabButton>
                     </div>
-                    <div className="mt-1 max-h-16">
+                    <div className="mt-1 min-h-40">
                         {TAB_DATA.find((t) => t.id === tab).content}
                     </div>
                 </div>
+                <div className="h-full max-md:h-64">
+                    <h3 className="text-sm font-bold text-white">{t('eye-title')}</h3>
+                    <div className="h-[80%] rounded-xl overflow-hidden bg-zinc-900 space-y-5">
+                        <iframe
+                            src="https://mahvu.org/"
+                            style={{
+                                width: '200%',
+                                height: '200%',
+                                transform: 'scale(0.5)',
+                                transformOrigin: 'top left',
+                            }}
+                        />
+                    </div>
+                </div>
             </div>
-        </section>
+        </section >
     );
 };
 

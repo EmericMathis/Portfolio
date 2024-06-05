@@ -42,7 +42,7 @@ const AchievementsSection = () => {
   const achievementsList = [
     {
       metric: Text[0],
-      value: "2",
+      value: "3",
       postfix: "",
     },
     {

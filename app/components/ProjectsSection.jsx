@@ -27,6 +27,15 @@ const ProjectsSection = () => {
       gitUrl: "https://github.com/EmericMathis/Site-web-association-Mahvu",
       previewUrl: "https://mahvu.org/",
     },
+    {
+      id: 3,
+      title: t('title3'),
+      description: t('description3'),
+      image: "/images/projects/intuitivibes.png",
+      tag: ["All", "Web"],
+      gitUrl: "",
+      previewUrl: "https://www.intuitivibes.fr/",
+    },
   ];
 
   const [tag, setTag] = useState("All");
@@ -72,7 +81,7 @@ const ProjectsSection = () => {
         />
       </div>
       <ul ref={ref} className="grid lg:grid-cols-3 gap-8 lg:gap-12">
-        {filteredProjects.map((project, index) => (
+        {filteredProjects.reverse().map((project, index) => (
           <motion.li
             key={index}
             variants={cardVariants}

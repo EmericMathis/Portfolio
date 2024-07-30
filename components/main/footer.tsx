@@ -1,6 +1,4 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ThemeToggle } from "../ui/ModeToggle";
 import Logo from "../ui/logo";
 
 

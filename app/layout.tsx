@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Jost } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/lib/providers";
 import Header from "@/components/main/header";
+import Footer from "@/components/main/footer";
+import MenuContext from "@/components/main/MenuContext";
 
-const inter = Inter({ subsets: ["latin"] });
+const jost = Jost({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Emeric MATHIS web developer",
@@ -18,9 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} `}>
+      <body className={`${jost.className} flex flex-col min-h-screen`}>
         <Header />
-        {children}
+        <MenuContext >
+          <main>
+            {children}
+          </main>
+        </MenuContext>
+        <Footer />
       </body>
     </html>
   );

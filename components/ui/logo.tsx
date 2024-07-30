@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
-const Logo = () => {
+const Logo = ({ className }: any) => {
 
     return (
-        <Link href="/" className='my-auto'>
+        <Link href="/" className={`my-auto font-bold text-xl ${className}`}>
             EMERIC MATHIS
         </Link>
     );

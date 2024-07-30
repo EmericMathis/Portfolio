@@ -12,8 +12,8 @@ const Burger: React.FC<BurgerProps> = ({ onToggle, className }) => {
         <div className={className}>
             <Hamburger
                 size={25}
-                easing='ease'
                 onToggle={onToggle}
+
             />
         </div>
     );

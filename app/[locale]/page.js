@@ -1,10 +1,10 @@
-import { HeroSection } from "../components/HeroSection";
-import Navbar from "../components/Navbar";
+import { HeroSection } from "../../components/blocks/HeroSection";
+import Navbar from "../../components/main/Navbar";
 import AboutSection from "../components/AboutSection";
 import ProjectsSection from "../components/ProjectsSection";
 import EmailSection from "../components/EmailSection";
 import Footer from "../components/Footer";
-import AchievementsSection from "../components/AchievementsSection";
+import AchievementsSection from "../../components/blocks/AchievementsSection";
 import dynamic from "next/dynamic";
 import initTranslations from '../i18n';
 import TranslationsProvider from '../components/TranslationsProvider';
@@ -27,7 +27,7 @@ export default async function Home({ params: { locale } }) {
       namespaces={i18nNamespaces}
       locale={locale}
       resources={resources}>
-      <main className="flex min-h-screen flex-col bg-zinc-950">
+      <main className="flex min-h-screen flex-col bg-background">
         <Navbar />
         <ScrollTopBtn />
         <div className="container mt-24 mx-auto px-12 py-4">

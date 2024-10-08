@@ -1,18 +1,21 @@
 "use client"
+
 import React, { useState, useEffect } from "react"
 import { useTranslation } from 'react-i18next'
 import Link from "next/link"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle, } from "@/components/ui/navigation-menu"
-import LanguageChanger from "../components/LanguageChanger"
-import { Sling as Hamburger } from 'hamburger-react'
+import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu"
+import LanguageChanger from "../blocks/LanguageChanger"
 import ThemeToggle from "@/components/ui/ThemeToggle"
+import { MenuIcon } from "lucide-react"
+import HyperText from "../ui/hyper-text"
+
 
 export default function Navbar() {
     const { t } = useTranslation('navbar')
     const [lastScrollTop, setLastScrollTop] = useState(0)
-    const [isScrollingUp, setIsScrollingUp] = useState(true)
+    const [isScrolled, setIsScrolled] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
 
     const navLinks = [
@@ -24,9 +27,7 @@ export default function Navbar() {
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollTop = window.scrollY
-            if (currentScrollTop > 100) {
-                setIsScrollingUp(currentScrollTop < lastScrollTop)
-            }
+            setIsScrolled(currentScrollTop > 100)
             setLastScrollTop(currentScrollTop)
         }
 
@@ -40,33 +41,36 @@ export default function Navbar() {
     }
 
     return (
-        <nav className={`fixed top-0 left-0 right-0 z-50 bg-background transition-transform duration-500 ease-in-out ${isScrollingUp ? '' : '-translate-y-full'}`}>
-            <div className="container mx-auto px-4 py-2 lg:py-4 flex items-center justify-between">
-                <div className="w-0 h-0 border-l-[20px] border-l-transparent border-b-[35px] border-b-purple-600 border-r-[20px] border-r-transparent transition-transform duration-500 ease-in-out transform hover:scale-105 hover:translate-y-1 hover:rotate-180"></div>
-
-                <NavigationMenu className="hidden md:flex">
-                    <NavigationMenuList>
+        <nav className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-lg bg-background/70 transition-all duration-500 ease-in-out ${isScrolled ? 'py-2' : 'py-4'}`}>
+            <div className="container mx-auto px-4 flex items-center justify-between">
+                <HyperText
+                    className={`text-2xl font-extrabold transition-all duration-500 ${isScrolled ? 'text-lg' : 'text-2xl'}`}
+                    text="Emeric mathis"
+                    framerProps={{}}
+                    tabIndex={0}
+                    aria-label="Emeric Mathis, web developer"
+                />
+                <NavigationMenu className="hidden md:flex ml-auto">
+                    <NavigationMenuList className="flex space-x-8">
                         <NavigationMenuItem>
                             <LanguageChanger />
                         </NavigationMenuItem>
                         {navLinks.map((link, index) => (
-                            <NavigationMenuItem key={index}>
-                                <Link href={link.path} legacyBehavior passHref>
-                                    <NavigationMenuLink className={navigationMenuTriggerStyle()} onClick={(e) => handleLinkClick(e, link.path)}>
-                                        {link.title}
-                                    </NavigationMenuLink>
+                            <NavigationMenuItem key={index} className="mx-4">
+                                <Link href={link.path} onClick={(e) => handleLinkClick(e, link.path)}>
+                                    {link.title}
                                 </Link>
                             </NavigationMenuItem>
                         ))}
                     </NavigationMenuList>
                 </NavigationMenu>
 
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-4 ml-4">
                     <ThemeToggle />
                     <Sheet>
                         <SheetTrigger asChild className="md:hidden">
                             <Button variant="ghost" size="icon">
-                                <Hamburger toggled={isOpen} toggle={setIsOpen} />
+                                <MenuIcon toggled={isOpen} toggle={setIsOpen} />
                                 <span className="sr-only">Toggle menu</span>
                             </Button>
                         </SheetTrigger>

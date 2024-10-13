@@ -1,50 +1,49 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect } from "react"
-import { useTranslation } from 'react-i18next'
-import Link from "next/link"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Button } from "@/components/ui/button"
-import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu"
-import LanguageChanger from "../../app/components/LanguageChanger"
-import ThemeToggle from "@/components/ui/ThemeToggle"
-import { MenuIcon } from "lucide-react"
-import HyperText from "../ui/hyper-text"
-
+import React, { useState, useEffect } from "react";
+import { useTranslation } from 'react-i18next';
+import Link from "next/link";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu";
+import LanguageChanger from "../blocks/LanguageChanger";
+import ThemeToggle from "@/components/ui/ThemeToggle";
+import { MenuIcon } from "lucide-react";
+import HyperText from "../ui/hyper-text";
 
 export default function Navbar() {
-    const { t } = useTranslation('navbar')
-    const [lastScrollTop, setLastScrollTop] = useState(0)
-    const [isScrolled, setIsScrolled] = useState(false)
-    const [isOpen, setIsOpen] = useState(false)
+    const { t } = useTranslation('navbar');
+    const [lastScrollTop, setLastScrollTop] = useState(0);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     const navLinks = [
         { title: t('1'), path: "#about" },
         { title: t('2'), path: "#projects" },
         { title: t('3'), path: "#contact" },
-    ]
+    ];
 
     useEffect(() => {
         const handleScroll = () => {
-            const currentScrollTop = window.scrollY
-            setIsScrolled(currentScrollTop > 100)
-            setLastScrollTop(currentScrollTop)
-        }
+            const currentScrollTop = window.scrollY;
+            setIsScrolled(currentScrollTop > 100);
+            setLastScrollTop(currentScrollTop);
+        };
 
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [lastScrollTop])
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [lastScrollTop]);
 
     const handleLinkClick = (e, path) => {
-        e.preventDefault()
-        document.querySelector(path).scrollIntoView({ behavior: 'smooth' })
-    }
+        e.preventDefault();
+        document.querySelector(path).scrollIntoView({ behavior: 'smooth' });
+    };
 
     return (
         <nav className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-lg bg-background/70 transition-all duration-500 ease-in-out ${isScrolled ? 'py-2' : 'py-4'}`}>
             <div className="container mx-auto px-4 flex items-center justify-between">
                 <HyperText
-                    className={`text-2xl font-extrabold transition-all duration-500 ${isScrolled ? 'text-lg' : 'text-2xl'}`}
+                    className={`font-extrabold transition-all duration-500 ${isScrolled ? 'text-lg' : 'text-2xl'}`}
                     text="Emeric mathis"
                     framerProps={{}}
                     tabIndex={0}
@@ -70,7 +69,7 @@ export default function Navbar() {
                     <Sheet>
                         <SheetTrigger asChild className="md:hidden">
                             <Button variant="ghost" size="icon">
-                                <MenuIcon toggled={isOpen} toggle={setIsOpen} />
+                                <MenuIcon onClick={() => setIsOpen(!isOpen)} />
                                 <span className="sr-only">Toggle menu</span>
                             </Button>
                         </SheetTrigger>
@@ -88,5 +87,5 @@ export default function Navbar() {
                 </div>
             </div>
         </nav>
-    )
+    );
 }

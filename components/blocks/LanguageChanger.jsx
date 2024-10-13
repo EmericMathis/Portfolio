@@ -31,18 +31,18 @@ export default function LanguageChanger() {
             <Image
                 src="/images/en.svg"
                 alt="English"
-                width={24}
+                width={22}
                 height={24}
-                className={`object-cover h-5 border border-primary rounded ${currentLocale === 'en' ? 'border-2 border-primary' : 'brightness-50'}`}
+                className={`object-cover h-5 border border-primary rounded cursor-pointer hover:border-primary-foreground hover:brightness-100 ${currentLocale === 'en' ? 'border-2 border-primary' : 'brightness-50'}`}
 
                 onClick={() => handleChange('en')}
             />
             <Image
                 src="/images/fr.svg"
                 alt="Français"
-                width={24}
+                width={22}
                 height={10}
-                className={`object-cover h-5 border border-primary rounded ${currentLocale === 'fr' ? 'border-2 border-primary' : 'brightness-50'}`}
+                className={`object-cover h-5 border border-primary rounded cursor-pointer hover:border-primary-foreground hover:brightness-100 ${currentLocale === 'fr' ? 'border-2 border-primary' : 'brightness-50'}`}
                 onClick={() => handleChange('fr')}
             />
         </div>

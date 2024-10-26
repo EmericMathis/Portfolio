@@ -1,13 +1,12 @@
 import Link from "next/link"
+import HyperText from "../ui/hyper-text"
 
 export function Footer() {
     return (
         <footer className="bg-muted py-8 md:py-12">
             <div className="container mx-auto grid grid-cols-1 gap-8 px-4 sm:grid-cols-2 md:grid-cols-4 md:px-6 lg:max-w-7xl">
                 <div className="flex flex-col items-start gap-4">
-                    <Link href="/" className="flex items-center gap-2" prefetch={false}>
-                        <span className="text-lg font-semibold">Emeric Mathis</span>
-                    </Link>
+                    <HyperText className="font-bold text-xl text-primary" text={"Emeric Mathis"} />
                     <p className="text-muted-foreground">
                         Développeur web spécialisé en accessibilité, performance et SEO (référencement naturel).
                     </p>

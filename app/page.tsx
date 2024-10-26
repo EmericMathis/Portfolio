@@ -1,15 +1,11 @@
 "use client"
-
-import Divider from "@/components/ui/Divider";
-import { FadeIn } from "@/lib/motion";
-import ContactForm from "@/components/ContactForm"
+import Marquee from "@/components/others/Marquee";
+import Image from "next/image";
 
 export default function Home() {
-
   return (
-    <>
-      <Divider />
-      <FadeIn delay={0.2}> <ContactForm /> </FadeIn>
-    </>
+    <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+      <Marquee />
+    </main>
   );
 }

@@ -1,35 +1,60 @@
-import Link from "next/link";
-import Logo from "../ui/logo";
+import Link from "next/link"
 
-const Footer = () => {
+export function Footer() {
     return (
-        <>
-            <footer className="z-10 border-t">
-                <nav className="flex text-sm justify-between w-full mx-auto container py-10 max-sm:flex-col">
-                    <div className="pb-2">
-                        <Logo />
-                    </div>
-                    <div className="flex w-2/3 justify-between max-sm:flex-col max-sm:mx-auto">
-                        <div className="flex flex-col max-sm:flex-row  max-sm:gap-3">
-                            <h4 className="pb-2">Social</h4>
-                            <Link className="text-muted hover:text-primary" href="/">LinkedIn</Link>
-                            <Link className="text-muted hover:text-primary" href="/">Youtube</Link>
-                        </div>
-                        <div className="flex flex-col max-sm:flex-row max-sm:gap-3  ">
-                            <h4 className="pb-2">legal</h4>
-                            <Link className="text-muted hover:text-primary" href="/">Privacy</Link>
-                            <Link className="text-muted hover:text-primary" href="/">Terms</Link>
-                        </div>
-                        <div className="flex flex-col max-sm:flex-row max-sm:gap-3  ">
-                            <h4 className="pb-2">About</h4>
-                            <Link className="text-muted hover:text-primary" href="/">About me</Link>
-                            <Link className="text-muted hover:text-primary" href="/">Contact</Link>
-                        </div>
-                    </div>
-                </nav>
-            </footer>
-        </>
-    );
-};
-
-export default Footer;
+        <footer className="bg-muted py-8 md:py-12">
+            <div className="container mx-auto grid grid-cols-1 gap-8 px-4 sm:grid-cols-2 md:grid-cols-4 md:px-6 lg:max-w-7xl">
+                <div className="flex flex-col items-start gap-4">
+                    <Link href="/" className="flex items-center gap-2" prefetch={false}>
+                        <span className="text-lg font-semibold">Emeric Mathis</span>
+                    </Link>
+                    <p className="text-muted-foreground">
+                        Développeur web spécialisé en accessibilité, performance et SEO (référencement naturel).
+                    </p>
+                </div>
+                <div className="grid gap-2">
+                    <h4 className="text-sm font-semibold">Liens rapides</h4>
+                    <Link href="/" className="text-sm hover:underline" prefetch={false}>
+                        Accueil
+                    </Link>
+                    <Link href="/projets" className="text-sm hover:underline" prefetch={false}>
+                        Projets
+                    </Link>
+                    <Link href="/services" className="text-sm hover:underline" prefetch={false}>
+                        Services
+                    </Link>
+                    <Link href="/contact" className="text-sm hover:underline" prefetch={false}>
+                        Contact
+                    </Link>
+                </div>
+                <div className="grid gap-2">
+                    <h4 className="text-sm font-semibold">Ressources</h4>
+                    <Link href="/blog" className="text-sm hover:underline" prefetch={false}>
+                        Blog
+                    </Link>
+                    <Link href="/support" className="text-sm hover:underline" prefetch={false}>
+                        Support
+                    </Link>
+                    <Link href="/faq" className="text-sm hover:underline" prefetch={false}>
+                        FAQ
+                    </Link>
+                </div>
+                <div className="grid gap-2">
+                    <h4 className="text-sm font-semibold">Légal</h4>
+                    <Link href="/mentions-legales" className="text-sm hover:underline" prefetch={false}>
+                        Mentions légales
+                    </Link>
+                    <Link href="/politique-confidentialite" className="text-sm hover:underline" prefetch={false}>
+                        Politique de confidentialité
+                    </Link>
+                    <Link href="/politique-cookies" className="text-sm hover:underline" prefetch={false}>
+                        Politique des cookies
+                    </Link>
+                </div>
+            </div>
+            <div className="mt-8 border-t pt-4 text-center text-xs text-muted-foreground md:mt-12 md:pt-6">
+                <p>&copy; 2024 Emeric Mathis. Tous droits réservés.</p>
+            </div>
+        </footer>
+    )
+}

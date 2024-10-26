@@ -1,15 +1,24 @@
 import type { Metadata } from "next";
-import { Jost } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/main/header";
-import Footer from "@/components/main/footer";
-import MenuContext from "@/components/main/MenuContext";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import Header from "@/components/main/Header";
+import { Footer } from "@/components/main/Footer";
 
-const jost = Jost({ subsets: ["latin"] });
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+});
 
 export const metadata: Metadata = {
-  title: "Emeric MATHIS web developer",
-  description: "I create and maintain websites and web applications.",
+  title: "Développeur web freelance - création de sites internet - Emeric MATHIS",
+  description: "Développeur web freelance et créateur de site internet, création ou refonte de sites web sur mesure, accessibles, performants, SEO (référencement naturel), travaille en remote sur toute la france.",
 };
 
 export default function RootLayout({
@@ -18,15 +27,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${jost.className} flex flex-col min-h-screen`}>
-        <Header />
-        <MenuContext >
-          <main>
-            {children}
-          </main>
-        </MenuContext>
-        <Footer />
+    <html lang="fr" suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased container mx-auto`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

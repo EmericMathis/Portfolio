@@ -31,14 +31,12 @@ export default function TechMarquee() {
         { name: 'Github', icon: <GithubSVG className="w-12 h-12" /> },
         { name: 'Gitlab', icon: <GitlabSVG className="w-12 h-12" /> },
         { name: 'Copilot', icon: <GithubCopilotSVG className="w-12 h-12" /> },
-
-
     ]
 
     return (
-        <div className="w-full py-12 bg-background">
+        <div className="w-screen overflow-hidden py-12 bg-background">
             <div className="marquee" role="marquee">
-                <div className="marquee-content">
+                <div className="marquee-content flex whitespace-nowrap">
                     {technologies.concat(technologies).map((tech, index) => (
                         <div key={index} className="inline-block mx-8">
                             <div className="flex flex-col items-center justify-center">

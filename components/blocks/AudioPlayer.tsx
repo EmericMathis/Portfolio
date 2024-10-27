@@ -93,12 +93,12 @@ export default function MusicPlayer({ className = "" }: { className?: string }) 
         size="icon"
         variant="ghost"
         onClick={toggleExpand}
-        className="rounded-full"
+        className={`rounded-full p-0 ${isExpanded && "border border-primary"}`}
       >
         {!isPlaying ? <Volume /> : <Volume2 />}
       </Button>
       {isExpanded && (
-        <div className="absolute md:top-full -translate-x-48 mt-5 w-72 max-w-[calc(100vw-2rem)]">
+        <div className="absolute -translate-x-52 mt-3 w-72 max-w-[calc(100vw-2rem)]">
           <div className="bg-background border rounded-3xl p-4 shadow-lg">
             <div className="flex flex-col space-y-4">
               <div className="flex justify-center space-x-2">

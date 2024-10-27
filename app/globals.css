@@ -24,7 +24,7 @@ body {
     --border: 243 15% 89.52%;
     --input: 243 15% 89.52%;
 
-    --primary: 243 100% 13%;
+    --primary: 224, 72%, 58%;
     --primary-foreground: 243 2% 91.3%;
 
     --secondary: 243 44% 100%;
@@ -78,10 +78,12 @@ body {
 @layer base {
   * {
     @apply border-border;
+    transition: font-size 0.2s ease-in-out;
   }
 
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
   }
 }
 

@@ -4,7 +4,7 @@ import { Hero } from "@/components/blocks/Hero";
 import Tarifs from "@/components/blocks/Tarifs";
 import Apropos from "@/components/blocks/Apropos";
 import Contact from "@/components/blocks/Contact";
-import { LinkPreview } from "@/components/ui/link-preview";
+// import { LinkPreview } from "@/components/ui/link-preview";
 import { MesServices } from "@/components/blocks/MesServices";
 import BackToTopBtn from "@/components/blocks/BackToTopBtn";
 import Skills from "@/components/blocks/Skills";

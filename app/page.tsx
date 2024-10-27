@@ -10,13 +10,10 @@ import BackToTopBtn from "@/components/blocks/BackToTopBtn";
 import Skills from "@/components/blocks/Skills";
 import Divider from "@/components/blocks/Divider";
 import Title from "@/components/blocks/Title";
-import { Footer } from "@/components/main/Footer";
-import { Header } from "@/components/main/Header";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen space-y-20">
-      <Header />
       <main className="mx-auto">
 
         {/* HERO */}
@@ -47,7 +44,6 @@ export default function Home() {
           Tailwind CSS
         </LinkPreview>
       </div>
-      <Footer />
       <BackToTopBtn />
     </div>
   );

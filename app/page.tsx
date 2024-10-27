@@ -1,26 +1,42 @@
 "use client"
 
-import { Footer } from "@/components/main/Footer";
-import Header from "@/components/main/Header";
-import Marquee from "@/components/blocks/Marquee";
 import { Hero } from "@/components/blocks/Hero";
 import Tarifs from "@/components/blocks/Tarifs";
 import Apropos from "@/components/blocks/Apropos";
 import Contact from "@/components/blocks/Contact";
-import Skills from "@/components/blocks/Skills";
 import { LinkPreview } from "@/components/ui/link-preview";
 import { MesServices } from "@/components/blocks/MesServices";
+import BackToTopBtn from "@/components/blocks/BackToTopBtn";
+import Skills from "@/components/blocks/Skills";
+import Divider from "@/components/blocks/Divider";
+import Title from "@/components/blocks/Title";
+import { Footer } from "@/components/main/Footer";
+import Header from "@/components/main/Header";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen space-y-20">
       <Header />
       <main className="mx-auto">
+
+        {/* HERO */}
         <Hero />
+        <Divider />
+
+        {/* SERVICES */}
+        <Title title="Mes services" subtitle="Des prestations adaptées à vos besoins" />
         <MesServices />
+        <Divider />
+
+        {/* SKILLS */}
+        <Title title="Mes compétences" subtitle="Des compétences variées pour répondre à vos besoins" />
         <Skills />
-        <Marquee />
+        <Divider />
+
+        {/* TARIFS */}
         <Tarifs />
+        <Divider />
+
         <div>Des solutions adaptées à votre domaine d'activité !</div>
         <Apropos />
         <div>Un interlocuteur unique pour un site internet réussi !</div>
@@ -32,6 +48,7 @@ export default function Home() {
         </LinkPreview>
       </div>
       <Footer />
+      <BackToTopBtn />
     </div>
   );
 }

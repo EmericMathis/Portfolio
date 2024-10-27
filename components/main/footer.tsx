@@ -1,6 +1,7 @@
 import Link from "next/link"
 import HyperText from "../ui/hyper-text"
 import LinkedinSVG from "../svg/LinkedIn"
+import GithubSVG from "../svg/Github"
 
 export function Footer() {
     return (
@@ -11,9 +12,14 @@ export function Footer() {
                     <p className="text-muted-foreground">
                         Développeur web spécialisé en accessibilité, performance et SEO (référencement naturel).
                     </p>
-                    <a href="https://www.linkedin.com/in/emeric-mathis/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                        <LinkedinSVG className="w-8 h-8 text-primary cursor-pointer" />
-                    </a>
+                    <div className="flex space-x-2">
+                        <a href="https://www.linkedin.com/in/emeric-mathis/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                            <LinkedinSVG className="w-8 h-8 text-primary cursor-pointer" />
+                        </a>
+                        <a href="">
+                            <GithubSVG className="w-8 h-8 text-primary cursor-pointer" />
+                        </a>
+                    </div>
                 </div>
                 <div className="grid gap-2">
                     <h4 className="text-sm font-semibold">Liens rapides</h4>

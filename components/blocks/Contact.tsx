@@ -16,7 +16,7 @@ const Contact = () => {
                         <CardTitle className="text-2xl font-bold">Formulaire de contact</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <form>
+                        <form id='contact'>
                             <div className="mb-4">
                                 <label className="block text-sm font-medium mb-1" htmlFor="name">Nom / Prénom *</label>
                                 <Input id="name" type="text" required />

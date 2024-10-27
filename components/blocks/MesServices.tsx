@@ -4,6 +4,10 @@ import Image from 'next/image'
 import { Card, CardContent } from "@/components/ui/card"
 import { ChevronRight } from "lucide-react"
 import clsx from 'clsx'
+import { Button } from '../ui/button'
+import Link from 'next/link'
+import { TypographyH2 } from '../typography/TypographyH2'
+import { TypographyH3 } from '../typography/TypographyH3'
 
 export function MesServices() {
     const services = [
@@ -44,13 +48,10 @@ export function MesServices() {
     return (
         <section className="py-16 px-4 md:px-6">
             <div className="max-w-7xl mx-auto">
-                <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-primary">Mes services</h2>
-                <p className="text-xl text-center mb-12 text-muted-foreground">Des prestations adaptées à vos besoins</p>
-
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 items-center mt-8">
                     <div className="space-y-6 flex flex-col items-center justify-center">
                         {services.slice(0, 4).map((service, index) => (
-                            <ServiceCard key={index} {...service} className="w-full h-28 lg:h-36" />
+                            <ServiceCard key={index} {...service} className="w-full md:h-28 lg:h-36" />
                         ))}
                     </div>
 
@@ -68,17 +69,14 @@ export function MesServices() {
 
                     <div className="space-y-6 flex flex-col items-center justify-center">
                         {services.slice(4).map((service, index) => (
-                            <ServiceCard key={index + 4} {...service} className="w-full h-28 lg:h-36" />
+                            <ServiceCard key={index + 4} {...service} className="w-full md:h-28 lg:h-36" />
                         ))}
                     </div>
                 </div>
                 <div className="mt-16 text-center">
-                    <a
-                        href="#devis"
-                        className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    >
-                        Demander un devis 100% gratuit
-                    </a>
+                    <Button size="lg" asChild className="">
+                        <Link href="#contact">Demander un devis 100% gratuit</Link>
+                    </Button>
                 </div>
             </div>
         </section>

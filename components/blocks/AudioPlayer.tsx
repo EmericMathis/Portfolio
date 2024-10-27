@@ -18,69 +18,85 @@ export default function MusicPlayer({ className = "" }: { className?: string }) 
   const [volume, setVolume] = useState(0.5)
   const [progress, setProgress] = useState(0)
   const [isExpanded, setIsExpanded] = useState(false)
-  const audioRef = useRef(new Audio(songs[currentSong].url))
+  const audioRef = useRef<HTMLAudioElement | null>(null)
 
   useEffect(() => {
-    // Charger les données du localStorage
-    const savedState = localStorage.getItem('musicPlayerState')
-    if (savedState) {
-      const { currentSong, volume, progress } = JSON.parse(savedState)
-      setCurrentSong(currentSong)
-      setVolume(volume)
-      setProgress(progress)
-      audioRef.current.src = songs[currentSong].url
-      audioRef.current.currentTime = progress
-      audioRef.current.volume = volume
+    if (typeof window !== 'undefined') {
+      audioRef.current = new Audio(songs[currentSong].url)
+
+      // Charger les données du localStorage
+      const savedState = localStorage.getItem('musicPlayerState')
+      if (savedState) {
+        const { currentSong, volume, progress } = JSON.parse(savedState)
+        setCurrentSong(currentSong)
+        setVolume(volume)
+        setProgress(progress)
+        audioRef.current.src = songs[currentSong].url
+        audioRef.current.currentTime = progress
+        audioRef.current.volume = volume
+      }
+
+      // Mettre à jour la progression toutes les secondes
+      const interval = setInterval(() => {
+        if (audioRef.current) {
+          setProgress(audioRef.current.currentTime)
+        }
+      }, 1000)
+
+      return () => clearInterval(interval)
     }
-
-    // Mettre à jour la progression toutes les secondes
-    const interval = setInterval(() => {
-      setProgress(audioRef.current.currentTime)
-    }, 1000)
-
-    return () => clearInterval(interval)
   }, [])
 
   useEffect(() => {
-    // Sauvegarder l'état dans le localStorage
-    localStorage.setItem('musicPlayerState', JSON.stringify({
-      currentSong,
-      volume,
-      progress
-    }))
+    if (audioRef.current) {
+      // Sauvegarder l'état dans le localStorage
+      localStorage.setItem('musicPlayerState', JSON.stringify({
+        currentSong,
+        volume,
+        progress
+      }))
+    }
   }, [currentSong, volume, progress])
 
   useEffect(() => {
-    const handleEnded = () => {
-      changeSong(1)
-    }
+    if (audioRef.current) {
+      const handleEnded = () => {
+        changeSong(1)
+      }
 
-    audioRef.current.addEventListener('ended', handleEnded)
-    return () => {
-      audioRef.current.removeEventListener('ended', handleEnded)
+      audioRef.current.addEventListener('ended', handleEnded)
+      return () => {
+        audioRef.current?.removeEventListener('ended', handleEnded)
+      }
     }
   }, [currentSong])
 
   const togglePlay = () => {
-    if (isPlaying) {
-      audioRef.current.pause()
-    } else {
-      audioRef.current.play()
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause()
+      } else {
+        audioRef.current.play()
+      }
+      setIsPlaying(!isPlaying)
     }
-    setIsPlaying(!isPlaying)
   }
 
   const changeSong = (direction: number) => {
-    let newSong = (currentSong + direction + songs.length) % songs.length
-    setCurrentSong(newSong)
-    audioRef.current.src = songs[newSong].url
-    audioRef.current.play()
-    setIsPlaying(true)
+    if (audioRef.current) {
+      let newSong = (currentSong + direction + songs.length) % songs.length
+      setCurrentSong(newSong)
+      audioRef.current.src = songs[newSong].url
+      audioRef.current.play()
+      setIsPlaying(true)
+    }
   }
 
   const handleVolumeChange = (newVolume: number[]) => {
-    setVolume(newVolume[0])
-    audioRef.current.volume = newVolume[0]
+    if (audioRef.current) {
+      setVolume(newVolume[0])
+      audioRef.current.volume = newVolume[0]
+    }
   }
 
   const toggleExpand = () => {
@@ -113,10 +129,10 @@ export default function MusicPlayer({ className = "" }: { className?: string }) 
                 </Button>
               </div>
               <h3 className="text-sm font-semibold truncate text-center">{songs[currentSong].title}</h3>
-              <Slider value={[progress]} max={audioRef.current.duration || 100} step={1} onValueChange={(value) => { audioRef.current.currentTime = value[0]; setProgress(value[0]); }} />
-              <div className="flex items-center space-x-2 mx-auto">
+              <Slider value={[progress]} max={audioRef.current?.duration || 100} step={1} onValueChange={(value) => { if (audioRef.current) { audioRef.current.currentTime = value[0]; setProgress(value[0]); } }} />
+              <div className="flex items-center space-x-2 ">
                 <Volume2 className="h-4 w-4" />
-                <Slider className="w-14" value={[volume]} max={1} step={0.01} onValueChange={handleVolumeChange} />
+                <Slider className="w-32" value={[volume]} max={0.5} step={0.01} onValueChange={handleVolumeChange} />
               </div>
             </div>
           </div>

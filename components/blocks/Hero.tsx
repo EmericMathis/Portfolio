@@ -5,7 +5,7 @@ import { TypographyLead } from "../typography/TypographyLead";
 
 export function Hero() {
     return (
-        <div className="relative flex flex-col space-y-2 h-[60vh] w-full items-center justify-center text-center rounded-lg md:shadow-xl">
+        <div className="relative flex flex-col space-y-2 h-[60vh] w-full items-center justify-center text-center rounded-lg">
             <TypographyLead>
                 Emeric MATHIS
             </TypographyLead>

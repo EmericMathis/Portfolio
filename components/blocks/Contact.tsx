@@ -8,7 +8,7 @@ const Contact = () => {
     return (
         <div className="container mx-auto p-6">
             <h1 className="text-3xl font-bold mb-6 text-center">CONTACTEZ-MOI</h1>
-            <p className="mb-4 text-center">Une idée ? Un projet ? N'hésitez pas à demander un devis ! <strong>[GRATUIT]</strong></p>
+            <p className="mb-4 text-center">Une idée ? Un projet ? N&apos;hésitez pas à demander un devis ! <strong>[GRATUIT]</strong></p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <Card className="p-6 lg:order-2 order-1">
@@ -35,7 +35,7 @@ const Contact = () => {
                             </div>
                             <div className="mb-4">
                                 <label className="block text-sm font-medium mb-1">
-                                    <input type="checkbox" required /> En soumettant ce formulaire, j'accepte que les informations saisies soient exploitées dans le cadre de la demande de contact et de la relation commerciale qui peut en découler.
+                                    <input type="checkbox" required /> En soumettant ce formulaire, j&apos;accepte que les informations saisies soient exploitées dans le cadre de la demande de contact et de la relation commerciale qui peut en découler.
                                 </label>
                             </div>
                             <Button type="submit" className="w-full">Envoyer</Button>

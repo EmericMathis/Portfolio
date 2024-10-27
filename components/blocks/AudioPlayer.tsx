@@ -84,7 +84,7 @@ export default function MusicPlayer({ className = "" }: { className?: string }) 
 
   const changeSong = (direction: number) => {
     if (audioRef.current) {
-      let newSong = (currentSong + direction + songs.length) % songs.length
+      const newSong = (currentSong + direction + songs.length) % songs.length
       setCurrentSong(newSong)
       audioRef.current.src = songs[newSong].url
       audioRef.current.play()

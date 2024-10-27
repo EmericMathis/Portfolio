@@ -4,22 +4,22 @@ const Apropos = () => {
     return (
         <div className="container mx-auto p-6">
             <h1 className="text-3xl font-bold mb-6">À PROPOS</h1>
-            <p className="mb-4">Je suis développeur web freelance et j'aime ça !</p>
+            <p className="mb-4">Je suis développeur web freelance et j&apos;aime ça !</p>
             <h2 className="text-2xl font-bold mb-4">Un développeur web passionné !</h2>
             <p className="mb-4">
-                Ma passion pour le développement web commence en 2003 et m'a demandé un changement radical de cursus afin de pouvoir pleinement l'exploiter.
+                Ma passion pour le développement web commence en 2003 et m&apos;a demandé un changement radical de cursus afin de pouvoir pleinement l&apos;exploiter.
             </p>
             <p className="mb-4">
                 Dès lors, je mis tout en oeuvre pour percer dans cette voie, tout en prenant du plaisir sur les divers projets développés.
             </p>
             <p className="mb-4">
-                En Mai 2009, je décide de devenir développeur web indépendant après plusieurs postes en tant que développeur web « full-stack » réussis, qui me conforteront dans cette idée afin de toucher un plus large panel de domaines d'activités, voir du pays et conquérir le monde !
+                En Mai 2009, je décide de devenir développeur web indépendant après plusieurs postes en tant que développeur web « full-stack » réussis, qui me conforteront dans cette idée afin de toucher un plus large panel de domaines d&apos;activités, voir du pays et conquérir le monde !
             </p>
             <p className="mb-4 font-bold">Développeur Web Freelance - Mathieu CRÉVOULIN</p>
 
             <h2 className="text-2xl font-bold mb-4">Expérience en développement</h2>
             <p className="mb-4">
-                Mon expérience acquise au fil des projets me permet de mieux comprendre les attentes d'un client et de répondre précisement au besoin demandé en fonction du domaine d'activité.
+                Mon expérience acquise au fil des projets me permet de mieux comprendre les attentes d&apos;un client et de répondre précisement au besoin demandé en fonction du domaine d&apos;activité.
             </p>
             <p className="mb-4">
                 Du site vitrine au projet plus complexe, je vous propose une expertise et un développement web qui correspond à vos attentes & à vos besoins.
@@ -35,7 +35,7 @@ const Apropos = () => {
                     <CardHeader>
                         <CardTitle className="text-4xl font-bold">17</CardTitle>
                     </CardHeader>
-                    <CardContent>Années d'expérience</CardContent>
+                    <CardContent>Années d&apos;expérience</CardContent>
                 </Card>
                 <Card className="text-center">
                     <CardHeader>

@@ -85,7 +85,7 @@ const Tarifs = () => {
             </div>
 
             <p className="mt-6 text-sm">
-                L&apos;ensemble des tarifs indiqués sont H.T. * Prix à titre informatif : Changement possible selon les demandes et les choix du client. ** Estimation du temps de travail appuyé par un devis. *** Maintenance annuelle (engagement 12 mois). Droit d&apos;auteur & propriété intellectuelle : Vous êtes à la fin du projet, propriétaire de l'ensemble des sources (fichiers) composant celui-ci. Paiement possible en plusieurs fois.
+                L&apos;ensemble des tarifs indiqués sont H.T. * Prix à titre informatif : Changement possible selon les demandes et les choix du client. ** Estimation du temps de travail appuyé par un devis. *** Maintenance annuelle (engagement 12 mois). Droit d&apos;auteur & propriété intellectuelle : Vous êtes à la fin du projet, propriétaire de l'&apos;ensemble des sources (fichiers) composant celui-ci. Paiement possible en plusieurs fois.
             </p>
         </div>
     );

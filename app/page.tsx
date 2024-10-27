@@ -34,7 +34,7 @@ export default function Home() {
         <Tarifs />
         <Divider />
 
-        <div>Des solutions adaptées à votre domaine d'activité !</div>
+        <div>Des solutions adaptées à votre domaine d&apos;activité !</div>
         <Apropos />
         <div>Un interlocuteur unique pour un site internet réussi !</div>
         <Contact />

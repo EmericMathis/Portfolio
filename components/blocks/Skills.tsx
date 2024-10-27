@@ -68,10 +68,10 @@ export default function Skills() {
 
     useEffect(() => {
         if (isVisible) {
-            competencesDeveloppement.forEach((_, index) => {
+            competencesDeveloppement.forEach(() => {
                 controls.start(i => ({
                     width: `${competencesDeveloppement[i].niveau}%`,
-                    transition: { delay: i * 0.3, duration: 1, ease: "easeInOut" }
+                    transition: { delay: i * 0.1, duration: 2, ease: "easeInOut" }
                 }))
             })
         }
@@ -82,7 +82,7 @@ export default function Skills() {
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8">
                 <div className="lg:w-2/3 flex flex-col">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-grow">
-                        {domainesCompetences.map((competence, index) => (
+                        {domainesCompetences.map((competence) => (
                             <Card key={competence.categorie} className="h-full bg-card hover:bg-accent transition-colors duration-300">
                                 <CardContent className="p-6">
                                     <div className="flex items-center mb-4">
@@ -135,7 +135,7 @@ export default function Skills() {
             <div className="max-w-7xl mx-auto w-full bg-primary text-primary-foreground p-8 rounded-lg shadow-lg">
                 <div className="container mx-auto text-center">
                     <h3 className="text-2xl font-bold mb-4">Une idée ? Un projet ?</h3>
-                    <p className="text-xl mb-6">N'hésitez pas à demander un devis !</p>
+                    <p className="text-xl mb-6">N&apos;hésitez pas à demander un devis !</p>
                     <Button
                         size="lg"
                         variant="secondary"

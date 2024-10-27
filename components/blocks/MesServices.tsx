@@ -6,8 +6,6 @@ import { ChevronRight } from "lucide-react"
 import clsx from 'clsx'
 import { Button } from '../ui/button'
 import Link from 'next/link'
-import { TypographyH2 } from '../typography/TypographyH2'
-import { TypographyH3 } from '../typography/TypographyH3'
 
 export function MesServices() {
     const services = [

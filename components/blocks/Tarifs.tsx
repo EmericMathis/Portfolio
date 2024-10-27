@@ -3,7 +3,7 @@ const Tarifs = () => {
         <div className="container mx-auto p-6">
             <h1 className="text-3xl font-bold mb-6">TARIFS</h1>
             <p className="mb-4">Un tarif adapté à un site internet de qualité !</p>
-            <p className="mb-4">Une idée ? Un projet ? N'hésitez pas à demander un devis ! <strong>[GRATUIT]</strong></p>
+            <p className="mb-4">Une idée ? Un projet ? N&apos;hésitez pas à demander un devis ! <strong>[GRATUIT]</strong></p>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 <div className="p-6 border rounded-lg shadow-md">
@@ -11,8 +11,8 @@ const Tarifs = () => {
                     <p className="text-xl mb-2">À partir de <strong>1299€ *</strong></p>
                     <ul className="list-disc pl-5">
                         <li>Développé sous WORDPRESS (Outil de gestion de contenu)</li>
-                        <li>Charte graphique à partir d'une maquette pré-définie</li>
-                        <li>Sélection d'une palette de couleur</li>
+                        <li>Charte graphique à partir d&apos;une maquette pré-définie</li>
+                        <li>Sélection d&apos;une palette de couleur</li>
                         <li>Domaine + hébergement + e-mail pendant 12 mois</li>
                         <li>Interface administrateur STANDARD</li>
                         <li>Site responsive (adapté tous supports)</li>
@@ -85,7 +85,7 @@ const Tarifs = () => {
             </div>
 
             <p className="mt-6 text-sm">
-                L'ensemble des tarifs indiqués sont H.T. * Prix à titre informatif : Changement possible selon les demandes et les choix du client. ** Estimation du temps de travail appuyé par un devis. *** Maintenance annuelle (engagement 12 mois). Droit d'auteur & propriété intellectuelle : Vous êtes à la fin du projet, propriétaire de l'ensemble des sources (fichiers) composant celui-ci. Paiement possible en plusieurs fois.
+                L&apos;ensemble des tarifs indiqués sont H.T. * Prix à titre informatif : Changement possible selon les demandes et les choix du client. ** Estimation du temps de travail appuyé par un devis. *** Maintenance annuelle (engagement 12 mois). Droit d&apos;auteur & propriété intellectuelle : Vous êtes à la fin du projet, propriétaire de l'ensemble des sources (fichiers) composant celui-ci. Paiement possible en plusieurs fois.
             </p>
         </div>
     );

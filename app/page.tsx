@@ -10,8 +10,8 @@ import BackToTopBtn from "@/components/blocks/BackToTopBtn";
 import Skills from "@/components/blocks/Skills";
 import Divider from "@/components/blocks/Divider";
 import Title from "@/components/blocks/Title";
-import Header from "@/components/main/Header";
-import Footer from "@/components/main/Footer";
+import { Footer } from "@/components/main/Footer";
+import { Header } from "@/components/main/Header";
 
 export default function Home() {
   return (

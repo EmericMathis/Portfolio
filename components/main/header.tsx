@@ -4,7 +4,7 @@ import { NavigationMenu } from "@/components/ui/navigation-menu";
 import ThemeToggle from "../blocks/ThemeToggle";
 import AudioPlayer from "../blocks/AudioPlayer";
 
-export default function Header() {
+export function Header() {
 
     return (
         <>

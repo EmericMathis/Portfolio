@@ -3,7 +3,7 @@ import HyperText from "../ui/hyper-text"
 import LinkedinSVG from "../svg/LinkedIn"
 import GithubSVG from "../svg/Github"
 
-export default function Footer() {
+export function Footer() {
     return (
         <footer className="bg-muted py-8 md:py-12">
             <div className="container mx-auto grid grid-cols-1 gap-8 px-4 sm:grid-cols-2 md:grid-cols-4 md:px-6 lg:max-w-7xl">

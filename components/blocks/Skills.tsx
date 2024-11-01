@@ -4,46 +4,46 @@ import { useEffect, useState } from 'react'
 import { motion, useAnimation } from 'framer-motion'
 import { Code, Palette, Globe, Database, Layout } from 'lucide-react'
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { TypographyMuted } from '../typography/TypographyMuted'
 
 const domainesCompetences = [
     {
-        categorie: "Gestion de projets web",
+        categorie: "Développement Web",
         icon: <Globe className="h-6 w-6" />,
-        description: "Site vitrine, corporate, évènementiel, e-commerce, intranet, application mobile.",
-        sousCompetences: ["Site vitrine", "Corporate", "Évènementiel", "E-commerce", "Intranet", "Application mobile"]
+        description: "Développement de sites web modernes, e-commerce, plateformes interactives et applications mobiles.",
+        sousCompetences: ["Site vitrine", "E-commerce", "Application Next.js", "Application mobile"]
     },
     {
-        categorie: "Conception graphique & Webdesign",
+        categorie: "UX Design",
         icon: <Palette className="h-6 w-6" />,
-        description: "Logos, templates Web, plaquettes publicitaires, cartes de visite, newsletters...",
-        sousCompetences: ["Logos", "Templates Web", "Plaquettes publicitaires", "Cartes de visite", "Newsletters"]
+        description: "Création de designs modernes et responsives, accessibles et optimisés pour l'expérience utilisateur.",
+        sousCompetences: ["Designs modernes", "Accessibilité", "Responsive", "Optimisation UX"]
     },
     {
-        categorie: "CMS & Intégration",
+        categorie: "CMS & Intégration Web",
         icon: <Layout className="h-6 w-6" />,
-        description: "Wordpress, Joomla, Prestashop, phpBB, IPBoard, Intégration (X)HTML / CSS",
-        sousCompetences: ["Wordpress", "Joomla", "Prestashop", "phpBB", "IPBoard", "Intégration (X)HTML / CSS"]
+        description: "Intégration sur Wordpress et autres CMS, développement sur mesure, intégration HTML/CSS/React.",
+        sousCompetences: ["Wordpress", "CMS sur mesure", "Intégration HTML/CSS", "Intégration React"]
     },
     {
-        categorie: "Conception graphique",
+        categorie: "DevOps & Bases de données",
         icon: <Database className="h-6 w-6" />,
-        description: "Photoshop, Illustrator, InDesign, After Effects",
-        sousCompetences: ["Photoshop", "Illustrator", "InDesign", "After Effects"]
+        description: "Déploiement et gestion de docker et docker-compose sur serveur, bases de données, déploiement continu (CI/CD).",
+        sousCompetences: ["Docker", "BDD SQL & MongoDB", "CI/CD", "Versionning Git"]
     }
-]
+];
+
 
 const competencesDeveloppement = [
-    { nom: "(X)HTML - CSS", niveau: 90 },
     { nom: "Accessibilité web", niveau: 70 },
     { nom: "Javascript", niveau: 70 },
-    { nom: "React - jsx", niveau: 80 },
+    { nom: "React - jsx", niveau: 85 },
     { nom: "Next.js - fullstack app", niveau: 70 },
     { nom: "CSS - SASS - Tailwind", niveau: 80 },
     { nom: "Node.js - Express", niveau: 60 },
     { nom: "MongoDB - Mongoose", niveau: 50 },
     { nom: "SEO - Performance", niveau: 70 },
-    { nom: "Wordpress - Joomla", niveau: 70 },
+    { nom: "Wordpress &/ou Divi", niveau: 70 },
 ]
 
 export default function Skills() {
@@ -78,12 +78,12 @@ export default function Skills() {
     }, [isVisible, controls])
 
     return (
-        <div className="py-16 px-4 md:px-6 space-y-10">
+        <div className="pt-16 px-4 md:px-6 space-y-10">
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8">
                 <div className="lg:w-2/3 flex flex-col">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-grow">
                         {domainesCompetences.map((competence) => (
-                            <Card key={competence.categorie} className="h-full bg-card hover:bg-accent transition-colors duration-300">
+                            <Card key={competence.categorie} className="h-full bg-inherit lg:bg-card border-none lg:border-solid hover:border-primary transition-colors duration-300">
                                 <CardContent className="p-6">
                                     <div className="flex items-center mb-4">
                                         <div className="mr-4 p-3 bg-primary/10 rounded-full">
@@ -105,21 +105,21 @@ export default function Skills() {
                     </div>
                 </div>
                 <div className="lg:w-1/3 lg:flex lg:flex-col">
-                    <Card className="bg-card h-full">
+                    <Card className="bg-inherit lg:bg-card border-none lg:border-solid hover:border-primary h-full">
                         <CardContent className="p-6 flex flex-col h-full">
                             <h2 className="text-2xl font-semibold mb-6 text-primary flex items-center">
                                 <Code className="h-6 w-6 mr-2" />
                                 Compétences en développement
                             </h2>
-                            <div id="competences-dev" className="space-y-6 flex-grow">
+                            <div id="competences-dev" className="space-y-4 flex-grow">
                                 {competencesDeveloppement.map((comp, index) => (
                                     <div key={comp.nom}>
                                         <div className="mb-2">
-                                            <span className="text-sm font-medium text-foreground">{comp.nom}</span>
+                                            <TypographyMuted className="">{comp.nom}</TypographyMuted>
                                         </div>
-                                        <div className="h-2 bg-secondary rounded-full overflow-hidden">
+                                        <div className="h-3 bg-secondary rounded overflow-hidden">
                                             <motion.div
-                                                className="h-full bg-primary"
+                                                className="h-full bg-primary/80"
                                                 initial={{ width: 0 }}
                                                 animate={controls}
                                                 custom={index}
@@ -130,24 +130,6 @@ export default function Skills() {
                             </div>
                         </CardContent>
                     </Card>
-                </div>
-            </div>
-            <div className="max-w-7xl mx-auto w-full bg-primary text-primary-foreground p-8 rounded-lg shadow-lg">
-                <div className="container mx-auto text-center">
-                    <h3 className="text-2xl font-bold mb-4">Une idée ? Un projet ?</h3>
-                    <p className="text-xl mb-6">N&apos;hésitez pas à demander un devis !</p>
-                    <Button
-                        size="lg"
-                        variant="secondary"
-                        onClick={() => {
-                            const contactSection = document.getElementById('contact')
-                            if (contactSection) {
-                                contactSection.scrollIntoView({ behavior: 'smooth' })
-                            }
-                        }}
-                    >
-                        Devis GRATUIT
-                    </Button>
                 </div>
             </div>
         </div>

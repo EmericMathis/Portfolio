@@ -43,7 +43,7 @@ export default function TechMarquee() {
     }
 
     return (
-        <div className="w-screen text-center bg-background overflow-hidden pt-4">
+        <div className="w-screen text-center bg-background overflow-hidden py-16">
             <div className="marquee" role="marquee">
                 {repeatArray(technologies, 3).map((tech, index) => (
                     <div key={index} className="mx-9 w-16">

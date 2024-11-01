@@ -1,64 +1,93 @@
-import React from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
+'use client'
 
-const Contact = () => {
+import { useState } from 'react'
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Label } from "@/components/ui/label"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { MapPin, Phone, Mail, Clock } from 'lucide-react'
+import { TypographyP } from '../typography/TypographyP'
+
+export default function Contact() {
+    const [file, setFile] = useState<File | null>(null)
+
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
+        // Handle form submission here
+        console.log('Form submitted')
+    }
+
     return (
-        <div className="container mx-auto p-6">
-            <h1 className="text-3xl font-bold mb-6 text-center">CONTACTEZ-MOI</h1>
-            <p className="mb-4 text-center">Une idée ? Un projet ? N&apos;hésitez pas à demander un devis ! <strong>[GRATUIT]</strong></p>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <Card className="p-6 lg:order-2 order-1">
+        <div className="container mx-auto px-4 py-8">
+            <div className="grid md:grid-cols-2 gap-8">
+                <Card>
                     <CardHeader>
-                        <CardTitle className="text-2xl font-bold">Formulaire de contact</CardTitle>
+                        <CardTitle>Formulaire de contact</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <form id='contact'>
-                            <div className="mb-4">
-                                <label className="block text-sm font-medium mb-1" htmlFor="name">Nom / Prénom *</label>
-                                <Input id="name" type="text" required />
+                        <form onSubmit={handleSubmit} className="space-y-4">
+                            <div>
+                                <Label htmlFor="name">Nom / Prénom *</Label>
+                                <Input id="name" required />
                             </div>
-                            <div className="mb-4">
-                                <label className="block text-sm font-medium mb-1" htmlFor="email">E-mail *</label>
+                            <div>
+                                <Label htmlFor="email">E-mail *</Label>
                                 <Input id="email" type="email" required />
                             </div>
-                            <div className="mb-4">
-                                <label className="block text-sm font-medium mb-1" htmlFor="phone">Téléphone</label>
+                            <div>
+                                <Label htmlFor="phone">Téléphone</Label>
                                 <Input id="phone" type="tel" />
                             </div>
-                            <div className="mb-4">
-                                <label className="block text-sm font-medium mb-1" htmlFor="message">Merci de détailler le plus possible votre besoin afin de faciliter nos futurs échanges. *</label>
+                            <div>
+                                <Label htmlFor="message">Message</Label>
                                 <Textarea id="message" required />
                             </div>
-                            <div className="mb-4">
-                                <label className="block text-sm font-medium mb-1">
-                                    <input type="checkbox" required /> En soumettant ce formulaire, j&apos;accepte que les informations saisies soient exploitées dans le cadre de la demande de contact et de la relation commerciale qui peut en découler.
-                                </label>
+                            <div>
+                                <Label htmlFor="file">Pièce jointe</Label>
+                                <Input
+                                    id="file"
+                                    type="file"
+                                    onChange={(e) => setFile(e.target.files?.[0] || null)}
+                                />
                             </div>
                             <Button type="submit" className="w-full">Envoyer</Button>
                         </form>
                     </CardContent>
                 </Card>
 
-                <div className="order-1 lg:order-2">
-                    <h2 className="text-2xl font-bold mb-4">Adresse</h2>
-                    <p>45, allée des Grives 83390 Cuers</p>
-                    <h2 className="text-2xl font-bold mt-6 mb-4">Téléphone</h2>
-                    <p>(+33) 6.15.42.10.45</p>
-                    <h2 className="text-2xl font-bold mt-6 mb-4">E-mail</h2>
-                    <p>contact@mcrevoulin.com</p>
-                    <h2 className="text-2xl font-bold mt-6 mb-4">Horaires</h2>
-                    <p>Lundi - Vendredi</p>
-                    <p>09H00 - 18H00</p>
-                    <h2 className="text-2xl font-bold mt-6 mb-4">S.I.R.E.N</h2>
-                    <p>522 491 000</p>
-                </div>
+                <Card className='bg-inherit border-none'>
+                    <CardHeader>
+                        <CardTitle>Coordonnées</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                        <div className="flex items-center space-x-2">
+                            <MapPin className="h-5 w-5 flex-shrink-0" />
+                            <p>43330 Pont-Salomon FRANCE, Auvergne-Rhône-Alpes, Haute-loire</p>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                            <Phone className="h-5 w-5 flex-shrink-0" />
+                            <p>(+33) 6.09.13.82.79</p>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                            <Mail className="h-5 w-5 flex-shrink-0" />
+                            <p>contact@emericmathis.com</p>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                            <Clock className="h-5 w-5 flex-shrink-0" />
+                            <div>
+                                <p>Lundi - Vendredi</p>
+                                <p>12H00 - 18H00</p>
+                            </div>
+                        </div>
+                        <TypographyP className='text-sm' >(De préférence, premier contact par mail c'est plus pratique pour mon organisation)</TypographyP>
+                        <div>
+                            <p>S.I.R.E.N</p>
+                            <p>932 467 939</p>
+                        </div>
+                    </CardContent>
+                </Card>
             </div>
         </div>
-    );
-};
-
-export default Contact;
+    )
+}

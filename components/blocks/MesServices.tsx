@@ -4,55 +4,56 @@ import Image from 'next/image'
 import { Card, CardContent } from "@/components/ui/card"
 import { ChevronRight } from "lucide-react"
 import clsx from 'clsx'
-import { Button } from '../ui/button'
-import Link from 'next/link'
 
 export function MesServices() {
     const services = [
         {
-            title: "Gestion de projets web",
-            description: "Site vitrine, corporate, évènementiel, e-commerce, intranet, application mobile."
+            title: "Création de sites web",
+            description: "Développement de sites vitrine, d’e-commerce, et de plateformes interactives sur mesure."
         },
         {
-            title: "Intégration Web",
-            description: "Des intégrations (X)HTML / CSS respectueuses des standards du Web."
-        },
-        {
-            title: "Développements spécifiques",
-            description: "Des outils adaptés à votre coeur de métier, applications & solutions personnalisées."
-        },
-        {
-            title: "Référencement naturel",
-            description: "Affichage sémantique des informations, des pages propres pour un référencement optimal."
-        },
-        {
-            title: "Conception graphique et développement",
-            description: "Blog, Site vitrine, Template"
-        },
-        {
-            title: "Dynamisme des pages",
-            description: "Des animations de contenu non intrusives pour embellir votre projet."
-        },
-        {
-            title: "Interface d'administration",
-            description: "Outils spécifiques au bon fonctionnement de votre entreprise."
+            title: "Accessibilité",
+            description: "Adapter le site pour les personnes en situation de handicap, pour lecteurs d'écran, navigation clavier."
         },
         {
             title: "Responsive design",
-            description: "Compatible tous supports, tablette & application mobile."
-        }
-    ]
+            description: "Optimisation pour tous les supports, téléphone tablette pc."
+        },
+        {
+            title: "Dernières technologies",
+            description: "Conception de solutions personnalisées basées sur Next.js, la techno la plus performante et sécurisée du moment."
+        },
+        {
+            title: "Optimisation SEO",
+            description: "Optimisation de la structure sémantique et des performances pour un meilleur positionnement dans les moteurs de recherche."
+        },
+        {
+            title: "Conception et design de sites",
+            description: "Création de designs modernes et épurés, autrement je vous suggère de me donner une maquette préparée par un UI/UX designer afin que je la reproduise."
+        },
+        {
+            title: "Expérience utilisateur animée",
+            description: "Animations subtiles pour améliorer l’interaction utilisateur sans compromettre la performance."
+        },
+        {
+            title: "Interface d'administration",
+            description: "Développement de panneaux d’administration faciles à utiliser pour une gestion simplifiée du contenu."
+        },
+    ];
 
     return (
         <section className="py-16 px-4 md:px-6">
             <div className="max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 items-center mt-8">
-                    <div className="space-y-6 flex flex-col items-center justify-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 lg:gap-6 items-center mt-8">
+
+                    {/* première colonne */}
+                    <div className="lg:space-y-6 flex flex-col items-center justify-center">
                         {services.slice(0, 4).map((service, index) => (
                             <ServiceCard key={index} {...service} className="w-full md:h-28 lg:h-36" />
                         ))}
                     </div>
 
+                    {/* illustration */}
                     <div className="hidden xl:flex xl:items-center xl:justify-center">
                         <div className="sticky top-8">
                             <Image
@@ -65,16 +66,12 @@ export function MesServices() {
                         </div>
                     </div>
 
-                    <div className="space-y-6 flex flex-col items-center justify-center">
+                    {/* seconde colonne */}
+                    <div className="lg:space-y-6 flex flex-col items-center justify-center">
                         {services.slice(4).map((service, index) => (
                             <ServiceCard key={index + 4} {...service} className="w-full md:h-28 lg:h-36" />
                         ))}
                     </div>
-                </div>
-                <div className="mt-16 text-center">
-                    <Button size="lg" asChild className="">
-                        <Link href="#contact">Demander un devis 100% gratuit</Link>
-                    </Button>
                 </div>
             </div>
         </section>
@@ -89,10 +86,10 @@ interface ServiceCardProps {
 
 function ServiceCard({ title, description, className }: ServiceCardProps) {
     return (
-        <Card className={clsx(`group hover:shadow-lg transition-shadow duration-300 overflow-hidde`, className)}>
-            <CardContent className="p-6 h-36">
+        <Card className={clsx(`group hover:border-primary flex justify-center bg-inherit lg:bg-card border-none lg:border-solid shadow-none`, className)}>
+            <CardContent className="p-4 w-full flex items-center">
                 <div className="flex items-center space-x-4">
-                    <div className="bg-primary/10 rounded-full p-3 group-hover:bg-primary/20 transition-colors duration-300 my-auto">
+                    <div className="my-auto">
                         <ChevronRight className="w-6 h-6 text-primary" />
                     </div>
                     <div>

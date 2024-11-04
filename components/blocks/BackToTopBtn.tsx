@@ -31,7 +31,7 @@ const BackToTopBtn = () => {
     return (
         <Button
             onClick={scrollToTop}
-            className={`fixed bottom-4 right-4 p-2 border rounded-full transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+            className={`fixed bottom-24 md:bottom-4 right-4 p-2 border rounded-full transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             aria-label="remonter en haut de page"
         >
             <ArrowUpSVG />

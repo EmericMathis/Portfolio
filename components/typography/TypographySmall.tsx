@@ -1,5 +1,7 @@
-export function TypographySmall({ children }: { children: React.ReactNode }) {
+import clsx from "clsx";
+
+export function TypographySmall({ children, className }: { children: React.ReactNode, className?: string }) {
     return (
-        <small className="text-sm font-medium leading-none">{children}</small>
+        <small className={clsx("text-xs font-medium leading-none", className)}>{children}</small>
     )
 }

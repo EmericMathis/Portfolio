@@ -1,6 +1,8 @@
-export function TypographyBlockquote({ children }: { children: React.ReactNode }) {
+import clsx from "clsx";
+
+export function TypographyBlockquote({ children, className }: { children: React.ReactNode, className?: string }) {
     return (
-        <blockquote className="mt-6 border-l-2 pl-6 italic">
+        <blockquote className={clsx("mt-1 border-l pl-3 italic text-muted-foreground", className)}>
             {children}
         </blockquote>
     )

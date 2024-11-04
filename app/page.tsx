@@ -3,7 +3,6 @@
 import { Hero } from "@/components/blocks/Hero";
 import Contact from "@/components/blocks/Contact";
 import { MesServices } from "@/components/blocks/MesServices";
-import BackToTopBtn from "@/components/blocks/BackToTopBtn";
 import Skills from "@/components/blocks/Skills";
 import Divider from "@/components/blocks/Divider";
 import Title from "@/components/blocks/Title";
@@ -17,12 +16,12 @@ import About from "@/components/blocks/Apropos";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <>
       <Header />
       <main className="mx-auto">
 
         {/* HERO */}
-        <Hero />
+        <Hero textLead="Emeric MATHIS" textSubLead="Développeur web" textSublead2="indépendant" />
         <Divider />
 
         {/* SERVICES */}
@@ -49,12 +48,12 @@ export default function Home() {
         <Divider />
 
         {/* CONTACT */}
-        <Title title="Contact" subtitle="Une question, un projet ? Contactez-moi !" />
+        <Title id="contact" title="Contact" subtitle="Une question, un projet ? Contactez-moi !" />
         <Contact />
         <Divider />
+
       </main>
       <Footer />
-      <BackToTopBtn />
-    </div>
+    </>
   );
 }

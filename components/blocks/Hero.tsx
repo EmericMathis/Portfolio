@@ -1,17 +1,16 @@
 import { cn } from "@/lib/utils";
 import AnimatedGridPattern from "../ui/animated-grid-pattern";
-import { TypographyH1 } from "../typography/TypographyH1";
 import { TypographyLead } from "../typography/TypographyLead";
 import SparklesText from "../ui/sparkles-text";
 
-export function Hero() {
+export function Hero({ textLead, textSubLead, textSublead2 }: { textLead: string, textSubLead: string, textSublead2: string }) {
     return (
-        <div className="relative flex flex-col space-y-2 h-[80vh] w-full items-center justify-center text-center rounded-lg">
+        <div className="relative flex flex-col space-y-2 h-[70vh] w-full items-center justify-center text-center rounded-lg">
             <TypographyLead>
-                Emeric MATHIS
+                {textLead}
             </TypographyLead>
-            <SparklesText text="Développeur web" sparklesCount={3} colors={{ first: "hsl(var(--primary))", second: "hsl(var(--primary))" }} />
-            <SparklesText text="indépendant" sparklesCount={3} colors={{ first: "hsl(var(--primary))", second: "hsl(var(--primary))" }} />
+            <SparklesText text={textSubLead} sparklesCount={3} colors={{ first: "hsl(var(--primary))", second: "hsl(var(--primary))" }} />
+            <SparklesText text={textSublead2} sparklesCount={3} colors={{ first: "hsl(var(--primary))", second: "hsl(var(--primary))" }} />
 
             <AnimatedGridPattern
                 numSquares={30}

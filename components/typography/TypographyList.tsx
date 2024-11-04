@@ -4,9 +4,9 @@
 
 export function TypographyList({ items }: { items: string[] }) {
     return (
-        <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
+        <ul className="m-1 [&>li]:mt-1 text-sm">
             {items.map((item, index) => (
-                <li key={index}>{item}</li>
+                <li key={index}>- {item}</li>
             ))}
         </ul>
     );

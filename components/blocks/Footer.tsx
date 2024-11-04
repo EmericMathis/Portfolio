@@ -1,11 +1,14 @@
+"use client"
+
 import Link from "next/link"
 import HyperText from "../ui/hyper-text"
 import LinkedinSVG from "../svg/LinkedIn"
 import GithubSVG from "../svg/Github"
+import BackToTopBtn from "./BackToTopBtn"
 
 export function Footer() {
     return (
-        <footer className="bg-card border border-t py-12">
+        <footer className="bg-card border-t py-12">
             <div className="container flex flex-col gap-10 lg:flex-row mx-auto md:px-6 lg:max-w-7xl">
                 <div className="flex flex-col items-start gap-4 max-w-96">
                     <HyperText className="font-bold text-xl text-primary" text={"Emeric Mathis"} />
@@ -36,6 +39,7 @@ export function Footer() {
             <div className="mt-8 pt-4 text-center text-xs text-muted-foreground md:mt-12 md:pt-6">
                 <p>&copy; 2024 Emeric Mathis. Tous droits réservés.</p>
             </div>
+            <BackToTopBtn />
         </footer>
     )
 }

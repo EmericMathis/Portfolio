@@ -5,12 +5,11 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
 import { TypographyP } from '../typography/TypographyP'
 
 export default function Contact() {
-    const [file, setFile] = useState<File | null>(null)
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -45,11 +44,6 @@ export default function Contact() {
                             </div>
                             <div>
                                 <Label htmlFor="file">Pièce jointe</Label>
-                                <Input
-                                    id="file"
-                                    type="file"
-                                    onChange={(e) => setFile(e.target.files?.[0] || null)}
-                                />
                             </div>
                             <Button type="submit" className="w-full">Envoyer</Button>
                         </form>
@@ -80,7 +74,7 @@ export default function Contact() {
                                 <p>12H00 - 18H00</p>
                             </div>
                         </div>
-                        <TypographyP className='text-sm' >(De préférence, premier contact par mail c'est plus pratique pour mon organisation)</TypographyP>
+                        <TypographyP className='text-sm' >(De préférence, premier contact par mail c&apos;est plus pratique pour mon organisation)</TypographyP>
                         <div>
                             <p>S.I.R.E.N</p>
                             <p>932 467 939</p>

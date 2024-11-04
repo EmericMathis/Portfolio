@@ -1,7 +1,6 @@
 import { AccessibilityIcon } from "@radix-ui/react-icons";
 import {
     BookOpenIcon,
-    MessagesSquareIcon,
     Settings2Icon,
     TabletSmartphoneIcon,
 } from "lucide-react";

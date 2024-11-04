@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useMemo, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Slider } from "@/components/ui/slider"
@@ -80,7 +80,7 @@ export function Pricing() {
         window.location.href = '#contact';
     }, [options, calculatedPrice]);
 
-    const handleOptionChange = (key: keyof Options, value: any) => {
+    const handleOptionChange = (key: keyof Options, value: unknown) => {
         setOptions((prevOptions) => ({ ...prevOptions, [key]: value }));
     };
 

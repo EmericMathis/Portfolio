@@ -9,7 +9,7 @@ export default function Portfolio() {
     return (
         <div>
             <Header />
-            <main className="mx-auto">
+            <main>
 
                 {/* HERO */}
                 <Hero textLead="Portfolio" textSubLead="Découvrez" textSublead2="mes réalisations" />

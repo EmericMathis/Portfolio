@@ -1,44 +1,60 @@
+import Link from "next/link";
 import HomeSVG from "../svg/Home";
 import MessageSVG from "../svg/Message";
 import PortfolioSVG from "../svg/Portfolio";
 import TimelineSVG from "../svg/Timeline";
 import { TypographySmall } from "../typography/TypographySmall";
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "../ui/navigation-menu";
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink } from "../ui/navigation-menu";
 
-export function MobileNavigation({ className }: { className?: string }) {
+export function MobileNavigation({ className, currentPath }: { className?: string, currentPath: string }) {
+
     return (
-        <NavigationMenu className={className}>
-            <NavigationMenuList className="gap-10">
-
+        <NavigationMenu className={className} >
+            <div className="flex justify-around w-full list-none">
                 <NavigationMenuItem>
-                    <NavigationMenuLink href="/" className="flex flex-col items-center gap-1 hover:text-primary w-14">
+                    <Link
+                        href="/"
+                        className={`flex flex-col items-center gap-1 hover:text-primary w-14 ${currentPath === "/" ? "text-primary/80" : ""}`}
+                        tabIndex={-1}
+                    >
                         <HomeSVG className="w-6 h-6" />
                         <TypographySmall>Accueil</TypographySmall>
-                    </NavigationMenuLink>
+                    </Link>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                    <NavigationMenuLink href="/portfolio" className="flex flex-col items-center gap-1 hover:text-primary w-14">
+                    <Link
+                        href="/portfolio"
+                        className={`flex flex-col items-center gap-1 hover:text-primary w-14 ${currentPath === "/portfolio" ? "text-primary/80" : ""}`}
+                        tabIndex={-1}
+                    >
                         <PortfolioSVG className="w-6 h-6" />
                         <TypographySmall>Portfolio</TypographySmall>
-                    </NavigationMenuLink>
+                    </Link>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                    <NavigationMenuLink href="/parcours" className="flex flex-col items-center gap-1 hover:text-primary w-14">
+                    <Link
+                        href="/parcours"
+                        className={`flex flex-col items-center gap-1 hover:text-primary w-14 ${currentPath === "/parcours" ? "text-primary/80" : ""}`}
+                        tabIndex={-1}
+                    >
                         <TimelineSVG className="w-6 h-6" />
-                        <TypographySmall className="text-nowrap">mon parcours</TypographySmall>
-                    </NavigationMenuLink>
+                        <TypographySmall className="whitespace-nowrap">mon parcours</TypographySmall>
+                    </Link>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                    <NavigationMenuLink href="/#contact" className="flex flex-col items-center gap-1 hover:text-primary w-14">
+                    <Link
+                        href="/#contact"
+                        className={`flex flex-col items-center gap-1 hover:text-primary w-14 ${currentPath === "/#contact" ? "text-primary/80" : ""}`}
+                        tabIndex={-1}
+                    >
                         <MessageSVG className="w-6 h-6" />
                         <TypographySmall>Contact</TypographySmall>
-                    </NavigationMenuLink>
+                    </Link>
                 </NavigationMenuItem>
-
-            </NavigationMenuList>
+            </div>
         </NavigationMenu>
     );
 }

@@ -46,7 +46,7 @@ body {
     /* CSS: .bg-gradient { background: var(--gradient) } */
     --gradient: #fbed96;
 
-    --background: 90 60.45% 3%;
+    --background: 90 60.45% 1%;
     --foreground: 90 9.3% 98.95%;
 
     --muted: 90 46.5% 23.700000000000003%;
@@ -55,10 +55,10 @@ body {
     --popover: 90 46.4% 10.27%;
     --popover-foreground: 90 9.3% 98.95%;
 
-    --card: 90 46.4% 3%;
+    --card: 90 46.4% 4%;
     --card-foreground: 90 9.3% 98.95%;
 
-    --border: 90 46.5% 15%;
+    --border: 90 46.5% 10%;
     --input: 90 46.5% 23.700000000000003%;
 
     --primary: 90 80% 65%;
@@ -85,11 +85,13 @@ body {
   }
 
   /* globals.css */
+
   body {
     @apply bg-background text-foreground;
     overflow-x: hidden;
     display: flex;
     justify-content: center;
+    min-height: 100vh;
   }
 }
 
@@ -106,7 +108,8 @@ body {
 
   .marquee {
     display: flex;
-    animation: marquee 9s linear infinite;
+    animation: marquee 15s linear infinite;
+    user-select: none;
   }
 
   /***  ***  ***/
@@ -123,4 +126,19 @@ body {
     background-size: 40px 40px;
   }
   /***  ***  ***/
+
+  /** Personnalisation de la scrollbar */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--primary-foreground));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--primary));
+    border-radius: 6px;
+    border: 3px solid hsl(var(--background));
+  }
 }

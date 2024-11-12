@@ -86,7 +86,7 @@ export function Pricing() {
 
     return (
         <div className="w-full max-w-7xl mx-auto px-4 py-8">
-            <Card className="bg-inherit border-none lg:border-solid lg:bg-card">
+            <Card className="bg-inherit border-none">
                 <CardHeader><h3 className='mx-auto text-xl font-extrabold'>Estimez votre projet rapidement</h3></CardHeader>
                 <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
                     <div className="space-y-4">

@@ -38,7 +38,7 @@ export default function MusicPlayer({ className = "" }: { className?: string }) 
 
       // Mettre à jour la progression toutes les secondes
       const interval = setInterval(() => {
-        if (audioRef.current) {
+        if (audioRef.current && !audioRef.current.paused) {
           setProgress(audioRef.current.currentTime)
         }
       }, 1000)
@@ -118,13 +118,13 @@ export default function MusicPlayer({ className = "" }: { className?: string }) 
           <div className="bg-background border rounded-3xl p-4 shadow-lg">
             <div className="flex flex-col space-y-4">
               <div className="flex justify-center space-x-2">
-                <Button size="icon" variant="secondary" className="rounded-full" onClick={() => changeSong(-1)}>
+                <Button size="icon" variant="outline" className="rounded-full" onClick={() => changeSong(-1)}>
                   <SkipBack className="h-4 w-4" />
                 </Button>
                 <Button size="icon" className="rounded-full" onClick={togglePlay}>
                   {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
                 </Button>
-                <Button size="icon" variant="secondary" className="rounded-full" onClick={() => changeSong(1)}>
+                <Button size="icon" variant="outline" className="rounded-full" onClick={() => changeSong(1)}>
                   <SkipForward className="h-4 w-4" />
                 </Button>
               </div>
@@ -132,7 +132,7 @@ export default function MusicPlayer({ className = "" }: { className?: string }) 
               <Slider value={[progress]} max={audioRef.current?.duration || 100} step={1} onValueChange={(value) => { if (audioRef.current) { audioRef.current.currentTime = value[0]; setProgress(value[0]); } }} />
               <div className="flex items-center space-x-2 ">
                 <Volume2 className="h-4 w-4" />
-                <Slider className="w-32" value={[volume]} max={0.5} step={0.01} onValueChange={handleVolumeChange} />
+                <Slider className="w-32" value={[volume]} max={1} step={0.01} onValueChange={handleVolumeChange} />
               </div>
             </div>
           </div>

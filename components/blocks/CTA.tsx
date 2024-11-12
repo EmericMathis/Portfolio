@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 const CTA = () => {
     return (
 
-        <div className="relative flex w-full items-center justify-center overflow-hidden rounded-lg border bg-background p-20">
+        <div className="relative flex w-full items-center justify-center overflow-hidden border-y bg-background p-20">
             <div className="z-10 whitespace-pre-wrap text-center text-5xl">
                 <h3 className="text-2xl font-bold mb-4">Une idée ? Un projet ?</h3>
                 <p className="text-xl mb-6">N&apos;hésitez pas à demander un devis !</p>

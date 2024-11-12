@@ -29,38 +29,39 @@ export default function About() {
     }, [])
 
     return (
-        <Card className="w-full max-w-7xl mx-auto overflow-hidden mt-10 bg-inhérit border-none lg:border-solid lg:bg-card">
+        <Card className="w-screen max-w-7xl mx-auto mt-10 border-none bg-inherit">
             <CardContent className="p-8">
                 <div className="grid gap-8 md:grid-cols-2">
                     <div>
-                        <TypographyH4 >Je suis développeur web freelance et j&apos;aime ça !</TypographyH4>
-                        <TypographyP >
-                            Ma passion pour le développement web commence en 2003 et m&apos;a demandé un changement radical de cursus afin de pouvoir pleinement l&apos;exploiter.
+                        <TypographyH4>Ma passion</TypographyH4>
+                        <TypographyP>
+                            Ma passion pour le développement web est née bien lorsque j&apos;ai créé un site shopify, limité par les fonctionnalités proposées par la plateforme, j&apos;ai décidé de me former pour coder moi-même mes propres fonctionnalités et designs.
                         </TypographyP>
                         <TypographyP>
-                            Dès lors, je mis tout en oeuvre pour percer dans cette voie, tout en prenant du plaisir sur les divers projets développés.
+                            Depuis, j&apos;ai tout mis en œuvre pour progresser et m&apos;épanouir dans ce domaine, en prenant plaisir à chaque projet sur lequel je travaille.
                         </TypographyP>
-                        <Badge className="text-sm font-mono mt-8">Un développeur web passionné</Badge>
+                        <Badge className="text-sm font-mono mt-8 pointer-events-none select-none">Développeur web passionné</Badge>
                     </div>
                     <div>
-                        <TypographyH4 >Expérience en développement</TypographyH4>
+                        <TypographyH4>Pourquoi le web?</TypographyH4>
                         <TypographyP>
-                            Mon expérience acquise au fil des projets me permet de mieux comprendre les attentes d&apos;un client et de répondre précisement au besoin demandé en fonction du domaine d&apos;activité.
+                            Le web permet de faire énormément de choses, de la simple page statique à la plateforme e-commerce complexe, en passant par des applications web et mobiles.
                         </TypographyP>
                         <TypographyP>
-                            Du site vitrine au projet plus complexe, je vous propose une expertise et un développement web qui correspond à vos attentes.
+                            J&apos;ai également un projet personnel (colossal) en cours, dont je garde le secret 😎
                         </TypographyP>
                     </div>
                 </div>
                 <Separator className="my-8" />
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <StatCard icon={<Code2 className="w-6 h-6" />} value={yearsExperience} label="Années d'expérience" />
-                    <StatCard icon={<Briefcase className="w-6 h-6" />} value={projectsCompleted} label="Projets réalisés" />
+                    <StatCard icon={<Briefcase className="w-6 h-6" />} value={projectsCompleted} label="Projets menés" />
                     <StatCard icon={<Scissors className="w-6 h-6" />} value={0} label="Cheveux" />
                     <StatCard icon={<Rocket className="w-6 h-6" />} value="∞" label="Passion" />
                 </div>
             </CardContent>
         </Card>
+
     )
 }
 

@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { Card, CardContent } from "@/components/ui/card"
 import { ChevronRight } from "lucide-react"
 import clsx from 'clsx'
@@ -56,13 +55,7 @@ export function MesServices() {
                     {/* illustration */}
                     <div className="hidden xl:flex xl:items-center xl:justify-center">
                         <div className="sticky top-8">
-                            <Image
-                                src="https://picsum.photos/400/700"
-                                alt="Services illustration"
-                                width={500}
-                                height={700}
-                                className="rounded-lg object-cover w-full h-64 shadow-xl"
-                            />
+
                         </div>
                     </div>
 

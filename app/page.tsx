@@ -8,7 +8,7 @@ import Divider from "@/components/blocks/Divider";
 import Title from "@/components/blocks/Title";
 import { Header } from "@/components/blocks/Header";
 import { Footer } from "@/components/blocks/Footer";
-import { Pricing } from "@/components/blocks/Pricing";
+// import { Pricing } from "@/components/blocks/Pricing";
 import IconSection from "@/components/blocks/IconSection";
 import TechMarquee from "@/components/blocks/Marquee";
 import CTA from "@/components/blocks/CTA";
@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="mx-auto">
+      <main className="relative">
 
         {/* HERO */}
         <Hero textLead="Emeric MATHIS" textSubLead="Développeur web" textSublead2="indépendant" />
@@ -38,9 +38,9 @@ export default function Home() {
         <Divider />
 
         {/* TARIFS */}
-        <Title title="Tarifs" subtitle="Des tarifs adaptés à votre budget et à vos idées" />
+        {/* <Title title="Tarifs" subtitle="Des tarifs adaptés à votre budget et à vos idées" />
         <Pricing />
-        <Divider />
+        <Divider /> */}
 
         {/* à PROPOS */}
         <Title title="À propos" subtitle="Qui suis-je ?" />

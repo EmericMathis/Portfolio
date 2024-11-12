@@ -12,7 +12,7 @@ export default function Parcours() {
     return (
         <div>
             <Header />
-            <main className="mx-auto">
+            <main>
 
                 {/* HERO */}
                 <Hero textLead="Parcours" textSubLead="Découvrez" textSublead2="mon parcours" />

@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import Link from "next/link"
-
 import { cn } from "@/lib/utils"
 import {
     NavigationMenu,
@@ -23,50 +22,61 @@ const portfolio: { title: string; href: string; description: string }[] = [
         description:
             "A modal dialog that interrupts the user with important content and expects a response.",
     },
-    {
-        title: "Hover Card",
-        href: "/docs/primitives/hover-card",
-        description:
-            "For sighted users to preview content available behind a link.",
-    },
-    {
-        title: "Progress",
-        href: "/docs/primitives/progress",
-        description:
-            "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-    },
-    {
-        title: "Scroll-area",
-        href: "/docs/primitives/scroll-area",
-        description: "Visually or semantically separates content.",
-    },
-    {
-        title: "Tabs",
-        href: "/docs/primitives/tabs",
-        description:
-            "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-    },
-    {
-        title: "Tooltip",
-        href: "/docs/primitives/tooltip",
-        description:
-            "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-    },
 ]
 
-export function Navigation({ className }: { className?: string }) {
+export function Navigation({ className, currentPath }: { className?: string, currentPath: string }) {
+
     return (
         <NavigationMenu className={clsx(className)}>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <NavigationMenuLink href="/" className={"hover:text-primary"}>
-                        <HomeSVG className="w-5 h-5 hover:text-primary mr-1" />
-                    </NavigationMenuLink>
+                    <NavigationMenuTrigger className={currentPath === "/" ? "text-primary/80" : ""}>
+                        <Link href="/" className={"hover:text-primary"} tabIndex={-1} >
+                            <HomeSVG className="w-5 h-5 hover:text-primary mr-1" />
+                        </Link>
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                        <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                            <ListItem href="/portfolio" title="Portfolio">
+                                Découvrez mes projets et réalisations.
+                            </ListItem>
+                            <ListItem
+                                title="Mes services"
+                                href="/#services"
+                            >
+                                Découvrez mes services et prestations
+                            </ListItem>
+                            <ListItem
+                                title="Mes compétences"
+                                href="/#skills"
+                            >
+                                Découvrez mes compétences et technologies
+                            </ListItem>
+                            <ListItem
+                                title="Tarifs"
+                                href="/#pricing"
+                            >
+                                Découvrez mes tarifs et prestations
+                            </ListItem>
+                            <ListItem
+                                title="À propos"
+                                href="/#about"
+                            >
+                                Découvrez qui je suis et mon parcours
+                            </ListItem>
+                            <ListItem
+                                title="Contact"
+                                href="/#contact"
+                            >
+                                Contactez-moi pour toute demande
+                            </ListItem>
+                        </ul>
+                    </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
 
                     {/* Portfolio */}
-                    <NavigationMenuTrigger>Portfolio</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className={currentPath === "/portfolio" ? "text-primary/80" : ""}><Link href="/portfolio" tabIndex={-1}>Portfolio</Link></NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                             <ListItem href="/portfolio" title="Portfolio">
@@ -87,7 +97,7 @@ export function Navigation({ className }: { className?: string }) {
                 <NavigationMenuItem>
 
                     {/* Mon parcours */}
-                    <NavigationMenuTrigger>Mon parcours</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className={currentPath === "/parcours" ? "text-primary/80" : ""}><Link href="parcours" tabIndex={-1}>Mon parcours</Link></NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                             <ListItem href="/parcours" title="Mon parcours">
@@ -97,8 +107,8 @@ export function Navigation({ className }: { className?: string }) {
                     </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                <NavigationMenuItem>
-                    <Link href="/#contact" legacyBehavior passHref>
+                <NavigationMenuItem >
+                    <Link href="/#contact" tabIndex={-1} legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             Contact
                         </NavigationMenuLink>
@@ -109,28 +119,31 @@ export function Navigation({ className }: { className?: string }) {
     )
 }
 
-const ListItem = React.forwardRef<
-    React.ElementRef<"a">,
-    React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
+const ListItem: React.FC<{
+    className?: string;
+    title: string;
+    children: React.ReactNode;
+    href: string;
+}> = ({ className, title, children, href }) => {
+    if (!href) {
+        return null; // ou vous pouvez gérer ce cas différemment
+    }
     return (
         <li>
-            <NavigationMenuLink asChild>
-                <a
-                    ref={ref}
+            <Link href={href} passHref>
+                <div
                     className={cn(
                         "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
                         className
                     )}
-                    {...props}
                 >
                     <div className="text-sm font-medium leading-none">{title}</div>
                     <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                         {children}
                     </p>
-                </a>
-            </NavigationMenuLink>
+                </div>
+            </Link>
         </li>
-    )
-})
+    );
+};
 ListItem.displayName = "ListItem"

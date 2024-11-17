@@ -1,7 +1,6 @@
 "use client"
 
 import { Hero } from "@/components/blocks/Hero";
-import Contact from "@/components/blocks/Contact";
 import { MesServices } from "@/components/blocks/MesServices";
 import Skills from "@/components/blocks/Skills";
 import Divider from "@/components/blocks/Divider";
@@ -13,6 +12,7 @@ import IconSection from "@/components/blocks/IconSection";
 import TechMarquee from "@/components/blocks/Marquee";
 import CTA from "@/components/blocks/CTA";
 import About from "@/components/blocks/Apropos";
+import ContactForm from "@/components/blocks/Contact";
 
 export default function Home() {
   return (
@@ -49,7 +49,7 @@ export default function Home() {
 
         {/* CONTACT */}
         <Title id="contact" title="Contact" subtitle="Une question, un projet ? Contactez-moi !" />
-        <Contact />
+        <ContactForm />
         <Divider />
 
       </main>

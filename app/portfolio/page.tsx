@@ -2,6 +2,8 @@ import Divider from "@/components/blocks/Divider";
 import { Footer } from "@/components/blocks/Footer"
 import { Header } from "@/components/blocks/Header"
 import { Hero } from "@/components/blocks/Hero";
+import PortfolioCards from "@/components/blocks/Portfolio";
+
 
 export default function Portfolio() {
 
@@ -16,7 +18,7 @@ export default function Portfolio() {
                 <Divider />
 
                 {/* PORTFOLIO */}
-                <h1>Portfolio</h1>
+                <PortfolioCards />
             </main>
             <Footer />
         </div>

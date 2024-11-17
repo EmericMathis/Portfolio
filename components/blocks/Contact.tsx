@@ -1,86 +1,91 @@
 'use client'
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { MapPin, Phone, Mail, Clock } from 'lucide-react'
-import { TypographyP } from '../typography/TypographyP'
+import { useState } from 'react'
+import { useForm, SubmitHandler } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as z from 'zod'
+import { Label } from '@radix-ui/react-label'
+import { Button } from '../ui/button'
+import { Card, CardHeader, CardContent, CardFooter } from '../ui/card'
+import { Input } from '../ui/input'
+import { Textarea } from '../ui/textarea'
 
-export default function Contact() {
+const formSchema = z.object({
+    name: z.string().min(1, { message: "Le nom est obligatoire" }),
+    email: z.string().email({ message: "Email invalide" }),
+    phone: z.string().optional(),
+    message: z.string().min(30, { message: "Le message doit contenir au moins 30 caractères" })
+        .max(2000, { message: "Le message ne doit pas dépasser 2000 caractères" }),
+})
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
-        // Handle form submission here
-        console.log('Form submitted')
-    }
+type FormData = z.infer<typeof formSchema>;
+
+export default function ContactForm() {
+    const [isSubmitting, setIsSubmitting] = useState(false)
+    const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null)
+
+    const { register, handleSubmit, reset, trigger, formState: { errors } } = useForm<FormData>({
+        resolver: zodResolver(formSchema)
+    })
+
+    const onSubmit: SubmitHandler<FormData> = async (data) => {
+        setIsSubmitting(true);
+        try {
+            const response = await fetch('/api/send', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) throw new Error('Erreur lors de l\'envoi de l\'email')
+            setSubmitStatus('success');
+            reset();
+        } catch (error) { setSubmitStatus('error') }
+        setIsSubmitting(false);
+    };
+
+    const renderInputField = (id: keyof FormData, label: string, type: string = "text", isRequired: boolean = false) => (
+        <div>
+            <Label htmlFor={id}>{label} {isRequired && '*'}</Label>
+            <Input
+                id={id}
+                type={type}
+                {...register(id)}
+                className="w-full mt-1"
+                onBlur={() => trigger(id)} // Force revalidation on blur
+            />
+            {errors[id] && <p className="text-destructive text-sm mt-1">{errors[id]?.message as React.ReactNode}</p>}
+        </div>
+    );
 
     return (
-        <div className="container mx-auto px-4 py-8">
-            <div className="grid md:grid-cols-2 gap-8">
-                <Card>
-                    <CardHeader>
-                        <CardTitle>Formulaire de contact</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <form onSubmit={handleSubmit} className="space-y-4">
-                            <div>
-                                <Label htmlFor="name">Nom / Prénom *</Label>
-                                <Input id="name" required />
-                            </div>
-                            <div>
-                                <Label htmlFor="email">E-mail *</Label>
-                                <Input id="email" type="email" required />
-                            </div>
-                            <div>
-                                <Label htmlFor="phone">Téléphone</Label>
-                                <Input id="phone" type="tel" />
-                            </div>
-                            <div>
-                                <Label htmlFor="message">Message</Label>
-                                <Textarea id="message" required />
-                            </div>
-                            <div>
-                                <Label htmlFor="file">Pièce jointe</Label>
-                            </div>
-                            <Button type="submit" className="w-full">Envoyer</Button>
-                        </form>
-                    </CardContent>
-                </Card>
-
-                <Card className='bg-inherit border-none'>
-                    <CardHeader>
-                        <CardTitle>Coordonnées</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                        <div className="flex items-center space-x-2">
-                            <MapPin className="h-5 w-5 flex-shrink-0" />
-                            <p>43330 Pont-Salomon FRANCE, Auvergne-Rhône-Alpes, Haute-loire</p>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                            <Phone className="h-5 w-5 flex-shrink-0" />
-                            <p>(+33) 6.09.13.82.79</p>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                            <Mail className="h-5 w-5 flex-shrink-0" />
-                            <p>contact@emericmathis.com</p>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                            <Clock className="h-5 w-5 flex-shrink-0" />
-                            <div>
-                                <p>Lundi - Vendredi</p>
-                                <p>12H00 - 18H00</p>
-                            </div>
-                        </div>
-                        <TypographyP className='text-sm' >(De préférence, premier contact par mail c&apos;est plus pratique pour mon organisation)</TypographyP>
+        <div className="w-full px-4 md:px-0 md:max-w-4xl mx-auto mt-16">
+            <Card className="w-full">
+                <CardHeader />
+                <CardContent>
+                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                        {renderInputField('name', 'Nom', 'text', true)}
+                        {renderInputField('email', 'Email', 'email', true)}
+                        {renderInputField('phone', 'Téléphone', 'tel')}
                         <div>
-                            <p>S.I.R.E.N</p>
-                            <p>932 467 939</p>
+                            <Label htmlFor="message">Message *</Label>
+                            <Textarea id="message" {...register('message')} className="w-full mt-1 h-32" onBlur={() => trigger('message')} />
+                            {errors.message && <p className="text-destructive text-sm mt-1">{errors.message.message as React.ReactNode}</p>}
                         </div>
-                    </CardContent>
-                </Card>
-            </div>
+                        <Button type="submit" className="w-full" disabled={isSubmitting}>
+                            {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
+                        </Button>
+                    </form>
+                </CardContent>
+                <CardFooter>
+                    {submitStatus === 'success' && (
+                        <p className="text-green-600 text-center w-full">Message envoyé avec succès!</p>
+                    )}
+                    {submitStatus === 'error' && (
+                        <p className="text-destructive text-center w-full">Une erreur est survenue. Veuillez réessayer.</p>
+                    )}
+                </CardFooter>
+            </Card>
         </div>
     )
 }

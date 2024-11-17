@@ -40,7 +40,10 @@ export default function ContactForm() {
             if (!response.ok) throw new Error('Erreur lors de l\'envoi de l\'email')
             setSubmitStatus('success');
             reset();
-        } catch (error) { setSubmitStatus('error') }
+        } catch (error) {
+            console.error('Erreur lors de l\'envoi de l\'email:', error)
+            setSubmitStatus('error')
+        }
         setIsSubmitting(false);
     };
 

@@ -1,5 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-    siteUrl: 'localhost:3000',
+    siteUrl: 'https://www.emericmathis.com',
     generateRobotsTxt: true,
+    generateIndexSitemap: false
 }

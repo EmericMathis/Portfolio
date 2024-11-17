@@ -4,7 +4,7 @@ import MessageSVG from "../svg/Message";
 import PortfolioSVG from "../svg/Portfolio";
 import TimelineSVG from "../svg/Timeline";
 import { TypographySmall } from "../typography/TypographySmall";
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink } from "../ui/navigation-menu";
+import { NavigationMenu, NavigationMenuItem } from "../ui/navigation-menu";
 
 export function MobileNavigation({ className, currentPath }: { className?: string, currentPath: string }) {
 

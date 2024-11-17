@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { Volume2, Play, Pause, SkipForward, SkipBack, Volume } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Slider } from "@/components/ui/slider"
@@ -19,6 +19,7 @@ export default function MusicPlayer({ className = "" }: { className?: string }) 
   const [progress, setProgress] = useState(0)
   const [isExpanded, setIsExpanded] = useState(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
+  const animationFrameRef = useRef<number | null>(null)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -36,16 +37,33 @@ export default function MusicPlayer({ className = "" }: { className?: string }) 
         audioRef.current.volume = volume
       }
 
-      // Mettre à jour la progression toutes les secondes
-      const interval = setInterval(() => {
+      // Mettre à jour la progression en utilisant requestAnimationFrame
+      const updateProgress = () => {
         if (audioRef.current && !audioRef.current.paused) {
           setProgress(audioRef.current.currentTime)
         }
-      }, 1000)
+        animationFrameRef.current = requestAnimationFrame(updateProgress)
+      }
 
-      return () => clearInterval(interval)
+      animationFrameRef.current = requestAnimationFrame(updateProgress)
+
+      return () => {
+        if (animationFrameRef.current) {
+          cancelAnimationFrame(animationFrameRef.current)
+        }
+      }
     }
   }, [])
+
+  const changeSong = useCallback((direction: number) => {
+    if (audioRef.current) {
+      const newSong = (currentSong + direction + songs.length) % songs.length
+      setCurrentSong(newSong)
+      audioRef.current.src = songs[newSong].url
+      audioRef.current.play()
+      setIsPlaying(true)
+    }
+  }, [currentSong])
 
   useEffect(() => {
     if (audioRef.current) {
@@ -60,35 +78,20 @@ export default function MusicPlayer({ className = "" }: { className?: string }) 
 
   useEffect(() => {
     if (audioRef.current) {
-      const handleEnded = () => {
-        changeSong(1)
-      }
+      const handleEnded = () => { changeSong(1) }
 
       audioRef.current.addEventListener('ended', handleEnded)
       return () => {
         audioRef.current?.removeEventListener('ended', handleEnded)
       }
     }
-  }, [currentSong])
+  }, [changeSong])
 
   const togglePlay = () => {
     if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause()
-      } else {
-        audioRef.current.play()
-      }
+      if (isPlaying) audioRef.current.pause()
+      else audioRef.current.play()
       setIsPlaying(!isPlaying)
-    }
-  }
-
-  const changeSong = (direction: number) => {
-    if (audioRef.current) {
-      const newSong = (currentSong + direction + songs.length) % songs.length
-      setCurrentSong(newSong)
-      audioRef.current.src = songs[newSong].url
-      audioRef.current.play()
-      setIsPlaying(true)
     }
   }
 
@@ -99,9 +102,7 @@ export default function MusicPlayer({ className = "" }: { className?: string }) 
     }
   }
 
-  const toggleExpand = () => {
-    setIsExpanded(!isExpanded);
-  };
+  const toggleExpand = () => { setIsExpanded(!isExpanded) }
 
   return (
     <div className={`relative ${className}`}>

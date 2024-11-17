@@ -2,7 +2,6 @@ import Divider from "@/components/blocks/Divider";
 import { Footer } from "@/components/blocks/Footer"
 import { Header } from "@/components/blocks/Header"
 import { Hero } from "@/components/blocks/Hero";
-import Title from "@/components/blocks/Title";
 import { Timeline } from "@/components/ui/timeline";
 import data from "@/data/timeline-data"
 

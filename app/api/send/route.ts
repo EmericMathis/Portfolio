@@ -1,24 +1,35 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import nodemailer from "nodemailer";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: parseInt(process.env.SMTP_PORT || '465'),
+    secure: process.env.SMTP_SECURE === 'true',
+    auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+    },
+});
 
 export async function POST(req: NextRequest) {
     try {
         const { name, email, phone, message } = await req.json();
         console.log('Données reçues:', { name, email, phone, message });
 
-        const { data, error } = await resend.emails.send({
+        const mailOptions = {
             from: 'contact@emericmathis.com',
-            to: ['contact@emericmathis.com'],
+            to: 'contact@emericmathis.com',
             subject: 'Nouveau message de contact',
-            text: `Nom: ${name}\nEmail: ${email}\nTéléphone: ${phone}\n\n Message: \n ${message}`,
-        });
+            text: `Nom: ${name}\nEmail: ${email}\nTéléphone: ${phone}\n\nMessage:\n${message}`,
+        };
 
-        if (error) return NextResponse.json(error, { status: 400 })
+        const info = await transporter.sendMail(mailOptions);
 
-        return NextResponse.json(data, { status: 200 });
-    } catch (error) { return NextResponse.json({ error: 'Erreur interne du serveur' }, { status: 500 }) }
+        return NextResponse.json({ message: 'Email envoyé avec succès', info }, { status: 200 });
+    } catch (error) {
+        console.error('Erreur lors de l\'envoi de l\'email:', error);
+        return NextResponse.json({ error: 'Erreur interne du serveur' }, { status: 500 });
+    }
 }
 
 export async function GET() {

@@ -35,7 +35,7 @@ export default function About() {
                     <div>
                         <TypographyH4>Ma passion</TypographyH4>
                         <TypographyP>
-                            Ma passion pour le développement web est née lorsque j&apos;ai créé un site à l'aide de shopify pour un ami. <br /> Limité par les fonctionnalités proposées par la plateforme, j&apos;ai décidé de me former pour coder moi-même mes propres fonctionnalités et designs.
+                            Ma passion pour le développement web est née lorsque j&apos;ai créé un site à l&apos;aide de shopify pour un ami. <br /> Limité par les fonctionnalités proposées par la plateforme, j&apos;ai décidé de me former pour coder moi-même mes propres fonctionnalités et designs.
                         </TypographyP>
                         <TypographyP>
                             Depuis, j&apos;ai tout mis en œuvre pour progresser et m&apos;épanouir dans ce domaine, en prenant plaisir à chaque projet sur lequel je travaille.
@@ -45,7 +45,7 @@ export default function About() {
                     <div>
                         <TypographyH4>Pourquoi le web?</TypographyH4>
                         <TypographyP>
-                            J&apos;ai commencé par créer un jeu mobile pour m'amuser le weekend, puis le web m'a paru plus varié et intéressant.
+                            J&apos;ai commencé par créer un jeu mobile pour m&apos;amuser le weekend, puis le web m&apos;a paru plus varié et intéressant.
                         </TypographyP>
                         <TypographyP>
                             Le web permet de faire énormément de choses, de la simple page statique à la plateforme e-commerce complexe, en passant par des applications web et mobiles.

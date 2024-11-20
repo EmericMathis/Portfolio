@@ -11,11 +11,11 @@ export function MarqueeText({ texts }: TextMarqueeProps) {
             <Marquee gradient={true} gradientColor='background' className='h-full'>
                 {texts.map((text, index) => (
                     <div key={index} className="flex items-center">
-                        <p className="mx-4 text-4xl font-bold opacity-30 whitespace-nowrap">
+                        <p className="mx-4 text-4xl font-bold opacity-40 whitespace-nowrap">
                             {text.toUpperCase()}
                         </p>
                         {index < texts.length - 1 && (
-                            <span className="mx-2 text-4xl font-bold opacity-30" aria-hidden="true">-</span>
+                            <span className="mx-2 text-4xl font-bold opacity-40" aria-hidden="true">-</span>
                         )}
                     </div>
                 ))}

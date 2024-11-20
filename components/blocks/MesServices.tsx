@@ -1,7 +1,7 @@
 'use client'
 
 import { Card, CardContent } from "@/components/ui/card"
-import { ChevronRight } from "lucide-react"
+import { ArrowBigRightDashIcon } from "lucide-react"
 import clsx from 'clsx'
 
 export function MesServices() {
@@ -83,7 +83,7 @@ function ServiceCard({ title, description, className }: ServiceCardProps) {
             <CardContent className="p-4 w-full flex items-center">
                 <div className="flex items-center space-x-4">
                     <div className="my-auto">
-                        <ChevronRight className="w-6 h-6 text-primary" />
+                        <ArrowBigRightDashIcon className="w-6 h-6 text-primary" />
                     </div>
                     <div>
                         <h3 className="text-lg font-semibold text-primary mb-2 group-hover:text-primary/80 transition-colors duration-300">{title}</h3>

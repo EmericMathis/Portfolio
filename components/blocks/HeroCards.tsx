@@ -17,7 +17,7 @@ export default function HeroCards() {
         },
         {
             title: "Qui suis-je ?",
-            description: "J'ai 33 ans, un parcours atypique de reconversion qui me donne des compétences différentes, comme la gestion de projet, le service client, et bien d'autres.",
+            description: "J'ai 33 ans, un parcours atypique de reconversion qui me donne des compétences diverses, comme la gestion de projet, le service client, et bien d'autres.",
             icon: User
         },
         {

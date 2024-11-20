@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import Head from "next/head";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -14,10 +15,51 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata: Metadata = {
+
+export const metadata = {
   title: "Développeur web freelance - création de sites internet - Emeric MATHIS",
-  description: "Développeur web freelance et créateur de site internet, création ou refonte de sites web sur mesure, accessibles, performants, SEO (référencement naturel), travaille en remote sur toute la france.",
-};
+  description: "Créateur de sites internet sur mesure, accessibles, performants, SEO. Travaille en remote sur toute la France et pays francophones.",
+  generator: 'Next.js',
+  applicationName: 'emericmathis.com',
+  referrer: 'origin-when-cross-origin',
+  keywords: ['Développeur web', 'indépendant', 'Freelance', 'Portfolio', 'JavaScript', 'React', 'Next.js', 'Création de sites internet', 'SEO', 'Accessibilité', 'Performance', 'Html', 'CSS'],
+  authors: [{ name: 'Emeric Mathis', url: 'https://emericmathis.com' }],
+  creator: 'Emeric Mathis',
+  publisher: 'Emeric Mathis',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    title: 'Développeur web freelance - création de sites internet - Emeric MATHIS',
+    description: 'Créateur de sites internet sur mesure, accessibles, performants, SEO. Travaille en remote sur toute la France et pays francophones.',
+    url: 'https://emericmathis.com',
+    siteName: 'emericmathis.com',
+    images: [
+      {
+        url: 'https://emericmathis.com/images/OGimage.png',
+        width: 1600,
+        height: 840,
+      },
+    ],
+    locale: 'fr_FR',
+    type: 'website',
+  },
+  robots: {
+    index: true, // Permet aux moteurs de recherche d'indexer cette page.
+    follow: true, // Permet aux moteurs de recherche de suivre les liens sur cette page.
+    nocache: false, // Permet aux moteurs de recherche de mettre en cache cette page.
+    googleBot: {
+      index: true, // Permet à Googlebot d'indexer cette page.
+      follow: true, // Permet à Googlebot de suivre les liens sur cette page.
+      noimageindex: false, // Permet à Googlebot d'indexer les images sur cette page.
+      'max-video-preview': -1, // Pas de limite à la taille des aperçus vidéo.
+      'max-image-preview': 'large', // Permet des aperçus d'images de grande taille.
+      'max-snippet': -1, // Pas de limite à la longueur des extraits textuels.
+    },
+  }
+}
 
 export default function RootLayout({
   children,

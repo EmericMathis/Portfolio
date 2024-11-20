@@ -15,7 +15,7 @@ export function MarqueeText({ texts }: TextMarqueeProps) {
                             {text.toUpperCase()}
                         </p>
                         {index < texts.length - 1 && (
-                            <span className="mx-2 text-4xl font-bold opacity-50" aria-hidden="true">-</span>
+                            <span className="mx-2 text-4xl font-bold opacity-30" aria-hidden="true">-</span>
                         )}
                     </div>
                 ))}

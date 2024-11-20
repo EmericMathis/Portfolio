@@ -1,26 +1,25 @@
-'use client'
-
-import AwsSVG from "../svg/Aws"
-import DockerSVG from "../svg/Docker"
-import DockerComposeSVG from "../svg/DockerCompose"
-import GithubSVG from "../svg/Github"
-import GithubCopilotSVG from "../svg/GithubCopilot"
-import GitlabSVG from "../svg/Gitlab"
-import HostingerSVG from "../svg/Hostinger"
-import NestjsSVG from "../svg/Nest"
-import NextjsSVG from "../svg/Nextjs"
-import OpenaiSVG from "../svg/OpenAI"
-import PrismaSVG from "../svg/Prisma"
-import ReactSVG from "../svg/React"
-import TailwindSVG from "../svg/Tailwind"
-import WordpressSVG from "../svg/Wordpress"
+import Marquee from 'react-fast-marquee';
+import AwsSVG from "../svg/Aws";
+import DockerSVG from "../svg/Docker";
+import DockerComposeSVG from "../svg/DockerCompose";
+import GithubSVG from "../svg/Github";
+import GithubCopilotSVG from "../svg/GithubCopilot";
+import GitlabSVG from "../svg/Gitlab";
+import HostingerSVG from "../svg/Hostinger";
+import NestjsSVG from "../svg/Nest";
+import NextjsSVG from "../svg/Nextjs";
+import OpenaiSVG from "../svg/OpenAI";
+import PrismaSVG from "../svg/Prisma";
+import ReactSVG from "../svg/React";
+import TailwindSVG from "../svg/Tailwind";
+import WordpressSVG from "../svg/Wordpress";
 
 interface Technology {
     name: string;
     icon: JSX.Element;
 }
 
-export default function TechMarquee() {
+export default function MarqueeLogos() {
     const technologies: Technology[] = [
         { name: 'Next.js', icon: <NextjsSVG className="w-12 h-12" /> },
         { name: 'React', icon: <ReactSVG className="w-12 h-12" /> },
@@ -36,16 +35,12 @@ export default function TechMarquee() {
         { name: 'Github', icon: <GithubSVG className="w-12 h-12" /> },
         { name: 'Gitlab', icon: <GitlabSVG className="w-12 h-12" /> },
         { name: 'Copilot', icon: <GithubCopilotSVG className="w-12 h-12" /> },
-    ]
-
-    const repeatArray = <T,>(arr: T[], times: number): T[] => {
-        return [].concat(...Array(times).fill(arr));
-    }
+    ];
 
     return (
-        <div className="w-screen text-center overflow-hidden py-16">
-            <div className="marquee" role="marquee">
-                {repeatArray(technologies, 3).map((tech, index) => (
+        <div className="w-screen text-center overflow-hidden py-28">
+            <Marquee gradient={true} gradientColor='background' >
+                {technologies.map((tech, index) => (
                     <div key={index} className="mx-9 w-16">
                         <div className="flex flex-col items-center justify-center hover:text-primary">
                             {tech.icon}
@@ -53,7 +48,7 @@ export default function TechMarquee() {
                         </div>
                     </div>
                 ))}
-            </div>
+            </Marquee>
         </div>
-    )
+    );
 }

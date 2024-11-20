@@ -16,6 +16,7 @@ interface GridPatternProps {
   maxOpacity?: number;
   duration?: number;
   repeatDelay?: number;
+  color?: string; // Ajout de la prop color
 }
 
 export function GridPattern({
@@ -29,6 +30,7 @@ export function GridPattern({
   maxOpacity = 0.5,
   duration = 4,
   repeatDelay = 0.5,
+  color = "currentColor", // Valeur par défaut pour la couleur
   ...props
 }: GridPatternProps) {
   const id = useId();
@@ -43,7 +45,6 @@ export function GridPattern({
     ];
   }
 
-  // Adjust the generateSquares function to return objects with an id, x, and y
   function generateSquares(count: number) {
     return Array.from({ length: count }, (_, i) => ({
       id: i,
@@ -51,7 +52,6 @@ export function GridPattern({
     }));
   }
 
-  // Function to update a single square's position
   const updateSquarePosition = (id: number) => {
     setSquares((currentSquares) =>
       currentSquares.map((sq) =>
@@ -65,14 +65,12 @@ export function GridPattern({
     );
   };
 
-  // Update squares to animate in
   useEffect(() => {
     if (dimensions.width && dimensions.height) {
       setSquares(generateSquares(numSquares));
     }
   }, [dimensions, numSquares]);
 
-  // Resize observer to update container dimensions
   useEffect(() => {
     const resizeObserver = new ResizeObserver((entries) => {
       for (const entry of entries) {
@@ -99,7 +97,7 @@ export function GridPattern({
       ref={containerRef}
       aria-hidden="true"
       className={cn(
-        "pointer-events-none absolute inset-0 h-full w-full fill-primary stroke-primary/20",
+        "pointer-events-none absolute inset-0 h-full w-full stroke-primary/20",
         className,
       )}
       {...props}
@@ -131,7 +129,7 @@ export function GridPattern({
               repeat: 1,
               delay: index * 0.1,
               repeatType: "reverse",
-              repeatDelay, // Utilisation de repeatDelay ici
+              repeatDelay,
             }}
             onAnimationComplete={() => updateSquarePosition(id)}
             key={`${x}-${y}-${index}`}
@@ -139,7 +137,7 @@ export function GridPattern({
             height={height - 1}
             x={x * width + 1}
             y={y * height + 1}
-            fill="currentColor"
+            fill={color}
             strokeWidth="0"
           />
         ))}

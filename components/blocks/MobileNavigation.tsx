@@ -10,7 +10,7 @@ export function MobileNavigation({ className, currentPath }: { className?: strin
 
     return (
         <NavigationMenu className={className} >
-            <div className="flex justify-around w-full list-none">
+            <div className="flex justify-between w-full list-none">
                 <NavigationMenuItem>
                     <Link
                         href="/"

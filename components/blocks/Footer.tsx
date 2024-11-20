@@ -8,7 +8,7 @@ import BackToTopBtn from "./BackToTopBtn"
 
 export function Footer() {
     return (
-        <footer className="bg-primary-foreground border-t py-12 px-3 mt-auto">
+        <footer className="bg-secondary border-t py-12 px-3 mt-auto">
             <div className="container flex flex-col gap-16 lg:flex-row mx-auto md:px-6 lg:max-w-7xl">
                 <div className="flex flex-col items-start gap-4 max-w-96">
                     <HyperText className="font-bold text-xl text-primary" text={"Emeric Mathis"} />

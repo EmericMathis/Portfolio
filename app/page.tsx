@@ -7,12 +7,13 @@ import Divider from "@/components/blocks/Divider";
 import Title from "@/components/blocks/Title";
 import { Header } from "@/components/blocks/Header";
 import { Footer } from "@/components/blocks/Footer";
-// import { Pricing } from "@/components/blocks/Pricing";
 import IconSection from "@/components/blocks/IconSection";
-import TechMarquee from "@/components/blocks/Marquee";
 import CTA from "@/components/blocks/CTA";
 import About from "@/components/blocks/Apropos";
 import ContactForm from "@/components/blocks/Contact";
+import HeroCards from "@/components/blocks/HeroCards";
+import MarqueeLogos from "@/components/blocks/MarqueeLogos";
+import { MarqueeText } from "@/components/blocks/MarqueeText";
 
 export default function Home() {
   return (
@@ -22,6 +23,8 @@ export default function Home() {
 
         {/* HERO */}
         <Hero textLead="Emeric MATHIS" textSubLead="Développeur web" textSublead2="indépendant" />
+        <HeroCards />
+        <MarqueeText texts={['Développeur Web', 'Freelance', 'Indépendant', 'DevOps', 'Interface d\'administration', 'CMS', 'E-commerce', 'Site vitrine', 'Site événementiel', 'Site institutionnel', 'Site associatif', 'Site personnel', 'Site professionnel', 'Site e-commerce', 'JavaScript', 'React', 'Node.js', 'TypeScript', 'Next.js', 'Nestjs', 'Tailwind CSS', 'Prisma', 'Docker', 'AWS', 'GitHub', 'GitLab', 'CI/CD', 'API', 'Microservices', 'Cloud', 'Serverless', 'SEO', 'Responsive Design', 'Frontend', 'Backend', 'Full Stack', 'Agile', 'Scrum', 'TDD', 'BDD', 'REST', 'Web Development', 'Software Engineer', 'Consultant', 'Tests unitaires']} />
         <Divider />
 
         {/* SERVICES */}
@@ -33,14 +36,9 @@ export default function Home() {
         {/* SKILLS */}
         <Title title="Mes compétences" subtitle="Des compétences variées pour répondre à vos besoins" />
         <Skills />
-        <TechMarquee />
+        <MarqueeLogos />
         <CTA />
         <Divider />
-
-        {/* TARIFS */}
-        {/* <Title title="Tarifs" subtitle="Des tarifs adaptés à votre budget et à vos idées" />
-        <Pricing />
-        <Divider /> */}
 
         {/* à PROPOS */}
         <Title title="À propos" subtitle="Qui suis-je ?" />

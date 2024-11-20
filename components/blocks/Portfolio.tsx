@@ -1,14 +1,10 @@
 'use client'
 
-import { useState } from 'react'
 import { ProjectCard } from './ProjectCard'
-import { ProjectModal } from './ProjectModal'
 
 interface Project {
-    id: string
     title: string
     description: string
-    thumbnail: string
     images: string[]
     siteUrl: string
     githubUrl?: string
@@ -16,90 +12,58 @@ interface Project {
 
 const projects: Project[] = [
     {
-        id: '1',
-        title: 'E-commerce Deluxe',
-        description: 'Une plateforme e-commerce moderne avec un design épuré',
-        thumbnail: 'https://picsum.photos/200',
+        title: 'Emeric Mathis - Portfolio',
+        description: 'Conception et développement de mon portfolio. Ce site est mon CV en ligne, il présente mes compétences, mes services, mes réalisations, mon parcours et mes coordonnées. Il est développé avec Next.js, Tailwind CSS et TypeScript.',
         images: [
-            'https://picsum.photos/200',
-            'https://picsum.photos/200',
-            'https://picsum.photos/200',
+            '/images/sites/portfolio2.0/portfolio2-0.webp',
         ],
-        siteUrl: 'https://example-ecommerce.com',
-        githubUrl: 'https://github.com/example/ecommerce-deluxe',
+        siteUrl: 'https://emericmathis.com/',
+        githubUrl: 'https://github.com/EmericMathis/Portfolio',
     },
     {
-        id: '2',
-        title: 'Blog Créatif',
-        description: 'Un blog élégant pour les créateurs de contenu',
-        thumbnail: 'https://picsum.photos/200',
+        title: 'Intuitivibes - Soins énergétiques',
+        description: 'Conception et développement du site vitrine de ma cliente selon ses demandes qui étaient : Un site vitrine qu\'elle puisse modifier elle même (CMS), beaucoup (vraiment beaucoup) de couleurs et de motifs, de l\'originalité, et comme fonctionnalité la prise de rdv en ligne ainsi qu\'un formulaire de Contact.',
         images: [
-            'https://picsum.photos/200',
-            'https://picsum.photos/200',
+            '/images/sites/intuitivibes/intuitivibes.webp',
+            '/images/sites/intuitivibes/intuitivibes-2.webp',
+            '/images/sites/intuitivibes/intuitivibes-3.webp',
         ],
-        siteUrl: 'https://example-blog.com',
+        siteUrl: 'https://intuitivibes.fr/',
     },
     {
-        id: '3',
-        title: 'App Météo',
-        description: 'Application météo avec des prévisions précises',
-        thumbnail: 'https://picsum.photos/200',
+        title: 'Mahvu - Association de malvoyants',
+        description: 'Conception et développement d\'un site 100% accessible pour les malvoyants. Le site propose des articles, des événements, un formulaire de création d\'articles adapté aux aveugles. Selon la demande de l\'association, le site dispose d\'un thème sombre en contraste élevé (jaune sur noir pour améliorer la lisibilité).',
         images: [
-            'https://picsum.photos/200',
-            'https://picsum.photos/400',
-            'https://picsum.photos/200',
+            '/images/sites/mahvu/mahvu.webp',
+            '/images/sites/mahvu/mahvu-2.webp',
         ],
-        siteUrl: 'https://example-weather.com',
-        githubUrl: 'https://github.com/example/weather-app',
+        siteUrl: 'https://mahvu.org/',
+        githubUrl: 'https://github.com/EmericMathis/mahvu',
     },
     {
-        id: '4',
-        title: 'Réseau Social Local',
-        description: 'Plateforme de réseau social pour les communautés locales',
-        thumbnail: 'https://picsum.photos/200',
+        title: 'portfolio 1.0',
+        description: '1ère version de mon portfolio, développé avec next.js et tailwind pour m\'entraîner au cours de ma première formation. Il n\'était pas très complet ^^\' le nouveau est bien mieux !',
         images: [
-            'https://picsum.photos/200',
-            'https://picsum.photos/200',
+            '/images/sites/portfolio/portfolio-2.webp',
         ],
-        siteUrl: 'https://example-social.com',
-    },
-    {
-        id: '5',
-        title: 'Gestionnaire de Tâches',
-        description: 'Application de gestion de tâches simple et efficace',
-        thumbnail: 'https://picsum.photos/200',
-        images: [
-            'https://picsum.photos/200',
-            'https://picsum.photos/200',
-            'https://picsum.photos/200',
-        ],
-        siteUrl: 'https://example-tasks.com',
-        githubUrl: 'https://github.com/example/task-manager',
-    },
+        siteUrl: 'https://portfolio-8jgo4db2u-emericmathis-projects.vercel.app/fr',
+        githubUrl: 'https://github.com/EmericMathis/Portfolio',
+    }
 ]
 
 export default function PortfolioCards() {
-    const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 
     return (
         <div className="container mx-auto px-4 py-12 overflow-hidden">
-            <h1 className="text-4xl font-bold mb-8 text-center">Mon Portfolio</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
                 {projects.map((project) => (
                     <ProjectCard
-                        key={project.id}
+                        key={project.title}
                         project={project}
-                        onClick={() => setSelectedProject(project)}
                         className="w-full"
                     />
                 ))}
             </div>
-            {selectedProject && (
-                <ProjectModal
-                    project={selectedProject}
-                    onClose={() => setSelectedProject(null)}
-                />
-            )}
         </div>
     )
 }

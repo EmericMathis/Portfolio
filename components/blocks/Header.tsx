@@ -29,7 +29,7 @@ export function Header() {
                 className={`
                     md:opacity-0 md:pointer-events-none transition-opacity duration-1000
                     fixed bottom-1 left-1/2 transform -translate-x-1/2 
-                    z-50 h-20 p-5 rounded-2xl w-[95vw] max-w-lg
+                    z-50 py-3 px-5 rounded-3xl
                     border bg-card/90 backdrop-blur
                     `}
             />

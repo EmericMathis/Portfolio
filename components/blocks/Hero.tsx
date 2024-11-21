@@ -7,11 +7,11 @@ export function Hero({ textLead, textSubLead, textSublead2, className }: { textL
     return (
         <>
             <div className={`relative flex flex-col space-y-2 h-[71vh] w-full items-center justify-center text-center rounded-lg ${className}`}>
-                <TypographyLead>
-                    {textLead}
-                </TypographyLead>
                 <TypographyH1>{textSubLead}</TypographyH1>
                 <TypographyH1>{textSublead2}</TypographyH1>
+                <TypographyLead className="pt-3">
+                    {textLead}
+                </TypographyLead>
                 <AnimatedGridPattern
                     numSquares={20}
                     maxOpacity={0.2}

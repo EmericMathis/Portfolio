@@ -10,17 +10,35 @@ import {
 import clsx from "clsx"
 import HomeSVG from "../svg/Home"
 
-export function Navigation({ className }: { className?: string, currentPath: string }) {
-
+export function Navigation({ className, currentPath }: { className?: string, currentPath: string }) {
     return (
-        <NavigationMenu className={clsx(className)}>
-            <NavigationMenuList>
-                <Link href="/" className={"hover:text-primary"} ><HomeSVG className="w-5 h-5 hover:text-primary mr-1" /></Link>
-                <Link href="/portfolio" tabIndex={-1} className={navigationMenuTriggerStyle()}>Portfolio</Link>
-                <Link href="parcours" tabIndex={-1} className={navigationMenuTriggerStyle()}>Mon parcours</Link>
-                <Link href="/#contact" tabIndex={-1} className={navigationMenuTriggerStyle()}>Contact</Link>
-            </NavigationMenuList>
-        </NavigationMenu>
+        <nav aria-label="Main Navigation" className={clsx(className)}>
+            <NavigationMenu>
+                <NavigationMenuList>
+                    <li>
+                        <Link href="/" className={cn(navigationMenuTriggerStyle(), "focus:ring focus:ring-inset focus:ring-primary px-2", { "text-primary": currentPath === "/" })}>
+                            <HomeSVG className="w-5 h-5" aria-hidden="true" />
+                            <span className="sr-only">Home</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/portfolio" className={cn(navigationMenuTriggerStyle(), "focus:ring focus:ring-inset focus:ring-primary", { "text-primary": currentPath === "/portfolio" })}>
+                            Portfolio
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/parcours" className={cn(navigationMenuTriggerStyle(), "focus:ring focus:ring-inset focus:ring-primary", { "text-primary": currentPath === "/parcours" })}>
+                            Mon parcours
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/#contact" className={cn(navigationMenuTriggerStyle(), "focus:ring focus:ring-inset focus:ring-primary", { "text-primary": currentPath === "/#contact" })}>
+                            Contact
+                        </Link>
+                    </li>
+                </NavigationMenuList>
+            </NavigationMenu>
+        </nav>
     )
 }
 
@@ -38,7 +56,7 @@ const ListItem: React.FC<{
             <Link href={href} passHref>
                 <div
                     className={cn(
-                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:ring focus:ring-inset focus:ring-primary",
                         className
                     )}
                 >

@@ -4,13 +4,14 @@ import MessageSVG from "../svg/Message";
 import PortfolioSVG from "../svg/Portfolio";
 import TimelineSVG from "../svg/Timeline";
 import { TypographySmall } from "../typography/TypographySmall";
-import { NavigationMenu, NavigationMenuItem } from "../ui/navigation-menu";
+import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "../ui/navigation-menu";
 
 export function MobileNavigation({ className, currentPath }: { className?: string, currentPath: string }) {
 
     return (
         <NavigationMenu className={className} >
-            <div className="flex justify-between w-full list-none">
+            <NavigationMenuList className="space-x-6">
+
                 <NavigationMenuItem>
                     <Link
                         href="/"
@@ -54,7 +55,7 @@ export function MobileNavigation({ className, currentPath }: { className?: strin
                         <TypographySmall>Contact</TypographySmall>
                     </Link>
                 </NavigationMenuItem>
-            </div>
+            </NavigationMenuList>
         </NavigationMenu>
     );
 }

@@ -33,7 +33,7 @@ export default function HeroCards() {
     ];
 
     return (
-        <div className="relative">
+        <section className="relative">
             <AngularSeparator1 flipVertical={true} className="lg:block absolute bottom-0 left-0 w-screen text-secondary -mb-px" />
             <div className="container mx-auto px-4 py-8 max-w-[65rem]">
                 <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-6 ">
@@ -41,18 +41,23 @@ export default function HeroCards() {
                         <Card
                             key={index}
                             className="group flex flex-col transition-all duration-300 ease-in-out hover:scale-105 hover:bg-primary lg:h-[20rem]"
+                            role="region"
                         >
                             <CardHeader className="space-y-4">
-                                <activity.icon className="w-16 h-16 text-primary group-hover:text-secondary" />
-                                <CardTitle className="text-xl lg:text-2xl inline text-nowrap group-hover:text-secondary">{activity.title}</CardTitle>
+                                <activity.icon className="w-16 h-16 text-primary group-hover:text-secondary" aria-hidden="true" />
+                                <CardTitle id={`card-title-${index}`} className="text-xl lg:text-2xl inline text-nowrap group-hover:text-secondary">
+                                    {activity.title}
+                                </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <TypographyP className="group-hover:text-secondary">{activity.description}</TypographyP>
+                                <TypographyP className="group-hover:text-secondary">
+                                    {activity.description}
+                                </TypographyP>
                             </CardContent>
                         </Card>
                     ))}
                 </div>
             </div>
-        </div>
+        </section>
     )
 }

@@ -38,8 +38,8 @@ export default function MarqueeLogos() {
     ];
 
     return (
-        <div className="w-screen text-center overflow-hidden py-28">
-            <Marquee gradient={true} gradientColor='background' >
+        <div className="max-w-7xl text-center overflow-hidden mx-auto py-28 relative gradient-mask">
+            <Marquee>
                 {technologies.map((tech, index) => (
                     <div key={index} className="mx-9 w-16">
                         <div className="flex flex-col items-center justify-center hover:text-primary">

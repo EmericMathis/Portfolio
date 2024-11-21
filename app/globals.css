@@ -106,4 +106,33 @@ body {
     border-radius: 6px;
     border: 3px solid hsl(var(--background));
   }
+
+  /***  marquee  ***/
+  .gradient-mask::before,
+  .gradient-mask::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 200px; /* Ajustez la largeur selon vos besoins */
+    z-index: 10;
+  }
+
+  .gradient-mask::before {
+    left: 0;
+    background: linear-gradient(
+      to right,
+      hsl(var(--background)),
+      rgba(255, 255, 255, 0)
+    );
+  }
+
+  .gradient-mask::after {
+    right: 0;
+    background: linear-gradient(
+      to left,
+      hsl(var(--background)),
+      rgba(255, 255, 255, 0)
+    );
+  }
 }

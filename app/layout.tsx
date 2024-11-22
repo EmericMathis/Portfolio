@@ -16,7 +16,7 @@ const geistMono = localFont({
 
 
 export const metadata = {
-  title: "Développeur web freelance - création de sites internet - Emeric MATHIS",
+  title: "Développeur web freelance - Emeric MATHIS",
   description: "Créateur de sites internet sur mesure, accessibles, performants, SEO. Travaille en remote sur toute la France et pays francophones.",
   generator: 'Next.js',
   applicationName: 'emericmathis.com',

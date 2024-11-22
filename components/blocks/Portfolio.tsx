@@ -6,7 +6,7 @@ interface Project {
     title: string
     description: string
     images: string[]
-    siteUrl: string
+    siteUrl?: string
     githubUrl?: string
 }
 
@@ -17,7 +17,6 @@ const projects: Project[] = [
         images: [
             '/images/sites/portfolio2.0/portfolio2-0.webp',
         ],
-        siteUrl: 'https://emericmathis.com/',
         githubUrl: 'https://github.com/EmericMathis/Portfolio',
     },
     {

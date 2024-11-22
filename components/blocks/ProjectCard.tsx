@@ -10,7 +10,7 @@ interface ProjectCardProps {
         title: string
         description: string // Change to string to hold markdown content
         images: string[]
-        siteUrl: string
+        siteUrl?: string
         githubUrl?: string
     }
     className?: string
@@ -55,11 +55,11 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
             </CardContent>
 
             <div className="flex flex-row-reverse justify-end space-x-2 absolute bottom-5 right-5">
-                <Button asChild>
+                {project.siteUrl && (<Button asChild>
                     <Link href={project.siteUrl} target="_blank" rel="noopener noreferrer" className="text-primary rounded-xl hover:underline">
                         Voir le site
                     </Link>
-                </Button>
+                </Button>)}
                 {project.githubUrl && (
                     <Button variant={"ghost"} asChild>
                         <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-primary rounded-xl hover:underline">

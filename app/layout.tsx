@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import Head from "next/head";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,7 +31,7 @@ export const metadata = {
     telephone: false,
   },
   openGraph: {
-    title: 'Développeur web freelance - création de sites internet - Emeric MATHIS',
+    title: 'Développeur web freelance - Emeric MATHIS',
     description: 'Créateur de sites internet sur mesure, accessibles, performants, SEO. Travaille en remote sur toute la France et pays francophones.',
     url: 'https://emericmathis.com',
     siteName: 'emericmathis.com',
@@ -66,6 +67,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" suppressHydrationWarning>
+      <Head>
+        <link rel="canonical" href="https://emericmathis.com" />
+        <meta property="og:url" content="https://emericmathis.com" />
+      </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen relative`}
       >

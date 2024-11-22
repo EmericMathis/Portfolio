@@ -24,7 +24,7 @@ export default function Portfolio() {
 
                 {/* PORTFOLIO */}
                 <AngularSeparator1 className="w-screen text-secondary" />
-                <Title title="Portfolio" subtitle="Découvrez mes réalisations" />
+                <Title title="Projets web" subtitle="D" />
                 <PortfolioCards />
                 <Divider />
 

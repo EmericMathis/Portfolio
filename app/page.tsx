@@ -14,14 +14,6 @@ import ContactForm from "@/components/blocks/Contact";
 import HeroCards from "@/components/blocks/HeroCards";
 import MarqueeLogos from "@/components/blocks/MarqueeLogos";
 import { MarqueeText } from "@/components/blocks/MarqueeText";
-import type { Metadata } from 'next'
-
-
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "/",
-  },
-}
 
 export default function Home() {
   return (

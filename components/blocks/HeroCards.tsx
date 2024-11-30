@@ -1,7 +1,8 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Code, Cog, User } from 'lucide-react'
-import { TypographyP } from "../typography/TypographyP"
-import AngularSeparator1 from "../svg/separators/AngularSeparator1"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Code, Cog, User } from 'lucide-react';
+import { TypographyP } from "../typography/TypographyP";
+import AngularSeparator1 from "../svg/separators/AngularSeparator1";
+import { BlurFade } from "../animation/BlurFade";
 
 export default function HeroCards() {
     const activities = [
@@ -38,23 +39,24 @@ export default function HeroCards() {
             <div className="container mx-auto px-4 py-8 max-w-[65rem]">
                 <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-6 ">
                     {activities.map((activity, index) => (
-                        <Card
-                            key={index}
-                            className="group flex flex-col transition-all duration-300 ease-in-out hover:scale-105 hover:bg-primary lg:h-[20rem]"
-                            role="region"
-                        >
-                            <CardHeader className="space-y-4">
-                                <activity.icon className="w-16 h-16 text-primary group-hover:text-secondary" aria-hidden="true" />
-                                <CardTitle id={`card-title-${index}`} className="text-xl lg:text-2xl inline text-nowrap group-hover:text-secondary">
-                                    {activity.title}
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <TypographyP className="group-hover:text-secondary">
-                                    {activity.description}
-                                </TypographyP>
-                            </CardContent>
-                        </Card>
+                        <BlurFade delay={0.2 * index} key={index}>
+                            <Card
+                                className="group flex flex-col transition-all duration-300 ease-in-out hover:scale-105 hover:bg-primary lg:h-[20rem]"
+                                role="region"
+                            >
+                                <CardHeader className="space-y-4">
+                                    <activity.icon className="w-16 h-16 text-primary group-hover:text-secondary" aria-hidden="true" />
+                                    <CardTitle id={`card-title-${index}`} className="text-xl lg:text-2xl inline text-nowrap group-hover:text-secondary">
+                                        {activity.title}
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <TypographyP className="group-hover:text-secondary">
+                                        {activity.description}
+                                    </TypographyP>
+                                </CardContent>
+                            </Card>
+                        </BlurFade>
                     ))}
                 </div>
             </div>

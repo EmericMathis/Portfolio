@@ -32,7 +32,7 @@ export function Navigation({ className, currentPath }: { className?: string, cur
                         </Link>
                     </li>
                     <li>
-                        <Link href="/#contact" className={cn(navigationMenuTriggerStyle(), "focus:ring focus:ring-inset focus:ring-primary", { "text-primary": currentPath === "/#contact" })}>
+                        <Link href="#contact" className={cn(navigationMenuTriggerStyle(), "focus:ring focus:ring-inset focus:ring-primary", { "text-primary": currentPath === "/#contact" })}>
                             Contact
                         </Link>
                     </li>

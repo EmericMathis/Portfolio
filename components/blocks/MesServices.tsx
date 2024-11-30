@@ -1,8 +1,9 @@
 'use client'
 
-import { Card, CardContent } from "@/components/ui/card"
-import { ArrowBigRightDashIcon } from "lucide-react"
-import clsx from 'clsx'
+import { Card, CardContent } from "@/components/ui/card";
+import { ArrowBigRightDashIcon } from "lucide-react";
+import clsx from 'clsx';
+import { FadeX } from "../animation/FadeX";
 
 export function MesServices() {
     const services = [
@@ -48,7 +49,9 @@ export function MesServices() {
                     {/* première colonne */}
                     <div className="lg:space-y-6 flex flex-col items-center justify-center">
                         {services.slice(0, 4).map((service, index) => (
-                            <ServiceCard key={index} {...service} className="w-full md:h-28 lg:h-36" />
+                            <FadeX delay={0.2 * index} key={index}>
+                                <ServiceCard {...service} className="w-full md:h-28 lg:h-36" />
+                            </FadeX>
                         ))}
                     </div>
 
@@ -62,7 +65,9 @@ export function MesServices() {
                     {/* seconde colonne */}
                     <div className="lg:space-y-6 flex flex-col items-center justify-center">
                         {services.slice(4).map((service, index) => (
-                            <ServiceCard key={index + 4} {...service} className="w-full md:h-28 lg:h-36" />
+                            <FadeX isReversed delay={0.2 * index} key={index}>
+                                <ServiceCard {...service} className="w-full md:h-28 lg:h-36" />
+                            </FadeX>
                         ))}
                     </div>
                 </div>
@@ -79,15 +84,15 @@ interface ServiceCardProps {
 
 function ServiceCard({ title, description, className }: ServiceCardProps) {
     return (
-        <Card className={clsx(`group hover:border-primary flex justify-center bg-inherit lg:bg-card border-none lg:border-solid shadow-none`, className)}>
+        <Card className={clsx(`group hover:bg-primary flex justify-center bg-inherit lg:bg-card border-none lg:border-solid shadow-none`, className)}>
             <CardContent className="p-4 w-full flex items-center">
                 <div className="flex items-center space-x-4">
                     <div className="my-auto">
-                        <ArrowBigRightDashIcon className="w-6 h-6 text-primary" />
+                        <ArrowBigRightDashIcon className="w-6 h-6 text-primary group-hover:text-primary-foreground" />
                     </div>
                     <div>
-                        <h3 className="text-lg font-semibold text-primary mb-2 group-hover:text-primary/80 transition-colors duration-300">{title}</h3>
-                        <p className="text-muted-foreground">{description}</p>
+                        <h3 className="text-lg font-semibold text-primary mb-2 group-hover:text-primary-foreground">{title}</h3>
+                        <p className="text-muted-foreground group-hover:text-primary-foreground">{description}</p>
                     </div>
                 </div>
             </CardContent>

@@ -9,6 +9,7 @@ import { Button } from '../ui/button'
 import { Card, CardHeader, CardContent, CardFooter } from '../ui/card'
 import { Input } from '../ui/input'
 import { Textarea } from '../ui/textarea'
+import { BlurFade } from '../animation/BlurFade'
 
 const formSchema = z.object({
     name: z.string().min(1, { message: "Le nom est obligatoire" }),
@@ -62,33 +63,37 @@ export default function ContactForm() {
     );
 
     return (
-        <div className="w-full px-4 md:px-0 md:max-w-4xl mx-auto mt-16">
-            <Card className="w-full">
-                <CardHeader />
-                <CardContent>
-                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                        {renderInputField('name', 'Nom', 'text', true)}
-                        {renderInputField('email', 'Email', 'email', true)}
-                        {renderInputField('phone', 'Téléphone', 'tel')}
-                        <div>
-                            <Label htmlFor="message">Message *</Label>
-                            <Textarea id="message" {...register('message')} className="w-full mt-1 h-32" onBlur={() => trigger('message')} />
-                            {errors.message && <p className="text-destructive text-sm mt-1">{errors.message.message as React.ReactNode}</p>}
-                        </div>
-                        <Button type="submit" className="w-full" disabled={isSubmitting}>
-                            {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
-                        </Button>
-                    </form>
-                </CardContent>
-                <CardFooter>
-                    {submitStatus === 'success' && (
-                        <p className="text-green-600 text-center w-full">Message envoyé avec succès!</p>
-                    )}
-                    {submitStatus === 'error' && (
-                        <p className="text-destructive text-center w-full">Une erreur est survenue. Veuillez réessayer.</p>
-                    )}
-                </CardFooter>
-            </Card>
-        </div>
+        <BlurFade>
+            <div className="w-full px-4 md:px-0 md:max-w-4xl mx-auto mt-16">
+                <Card className="w-full">
+                    <CardHeader />
+                    <CardContent>
+                        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                            {renderInputField('name', 'Nom', 'text', true)}
+                            {renderInputField('email', 'Email', 'email', true)}
+                            {renderInputField('phone', 'Téléphone', 'tel')}
+                            <div>
+                                <Label htmlFor="message">Message *</Label>
+                                <Textarea id="message" {...register('message')} className="w-full mt-1 h-32" onBlur={() => trigger('message')} />
+                                {errors.message && <p className="text-destructive text-sm mt-1">{errors.message.message as React.ReactNode}</p>}
+                            </div>
+                            <div className="flex justify-end">
+                                <Button type="submit" disabled={isSubmitting}>
+                                    {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
+                                </Button>
+                            </div>
+                        </form>
+                    </CardContent>
+                    <CardFooter>
+                        {submitStatus === 'success' && (
+                            <p className="text-green-600 text-center w-full">Message envoyé avec succès!</p>
+                        )}
+                        {submitStatus === 'error' && (
+                            <p className="text-destructive text-center w-full">Une erreur est survenue. Veuillez réessayer.</p>
+                        )}
+                    </CardFooter>
+                </Card>
+            </div>
+        </BlurFade>
     )
 }

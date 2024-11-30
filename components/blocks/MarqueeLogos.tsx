@@ -13,6 +13,7 @@ import PrismaSVG from "../svg/Prisma";
 import ReactSVG from "../svg/React";
 import TailwindSVG from "../svg/Tailwind";
 import WordpressSVG from "../svg/Wordpress";
+import { BlurFade } from '../animation/BlurFade';
 
 interface Technology {
     name: string;
@@ -38,17 +39,19 @@ export default function MarqueeLogos() {
     ];
 
     return (
-        <div className="max-w-7xl text-center overflow-hidden mx-auto py-28 relative gradient-mask">
-            <Marquee>
-                {technologies.map((tech, index) => (
-                    <div key={index} className="mx-9 w-16">
-                        <div className="flex flex-col items-center justify-center hover:text-primary">
-                            {tech.icon}
-                            <span className="mt-2 text-sm font-medium">{tech.name}</span>
+        <BlurFade>
+            <div className="max-w-7xl text-center overflow-hidden mx-auto py-28 relative gradient-mask">
+                <Marquee>
+                    {technologies.map((tech, index) => (
+                        <div key={index} className="mx-9 w-16">
+                            <div className="flex flex-col items-center justify-center hover:text-primary">
+                                {tech.icon}
+                                <span className="mt-2 text-sm font-medium">{tech.name}</span>
+                            </div>
                         </div>
-                    </div>
-                ))}
-            </Marquee>
-        </div>
+                    ))}
+                </Marquee>
+            </div>
+        </BlurFade>
     );
 }

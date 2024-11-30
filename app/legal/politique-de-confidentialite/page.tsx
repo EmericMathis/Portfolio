@@ -1,16 +1,17 @@
 import { Footer } from "@/components/blocks/Footer";
 import { Header } from "@/components/blocks/Header";
+import { TypographyH1 } from "@/components/typography/TypographyH1";
 import { TypographyP } from "@/components/typography/TypographyP";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardContent } from "@/components/ui/card";
 
 const PolitiqueDeConfidentialité: React.FC = () => {
     return (
         <>
             <Header />
-            <div className="container mx-auto my-3 h-full pt-20">
+            <section className="container mx-auto my-3 h-full pt-20">
                 <Card className="bg-inherit border-none">
                     <CardHeader>
-                        <CardTitle className="text-3xl font-bold mb-4">Politique de Confidentialité</CardTitle>
+                        <TypographyH1 className="mb-4">Politique de Confidentialité</TypographyH1>
                     </CardHeader>
                     <CardContent>
                         <TypographyP className="mb-4">
@@ -37,7 +38,7 @@ const PolitiqueDeConfidentialité: React.FC = () => {
                         </TypographyP>
                     </CardContent>
                 </Card>
-            </div>
+            </section>
             <Footer />
         </>
     );

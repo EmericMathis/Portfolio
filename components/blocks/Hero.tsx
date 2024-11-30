@@ -2,15 +2,20 @@ import { cn } from "@/lib/utils";
 import AnimatedGridPattern from "../ui/animated-grid-pattern";
 import { TypographyLead } from "../typography/TypographyLead";
 import { TypographyH1 } from "../typography/TypographyH1";
+import { BlurFade } from "../animation/BlurFade";
+import { FadeX } from "../animation/FadeX";
 
-export function Hero({ textLead, textSubLead, textSublead2, className }: { textLead: string, textSubLead: string, textSublead2: string, className?: string }) {
+
+export function Hero({
+    textLead, textSubLead, textSublead2, className
+}: {
+    textLead: string, textSubLead: string, textSublead2: string, LinkLeftBtn?: string, textLeftBtn?: string, LinkRightBtn?: string, textRightBtn?: string, className?: string
+}) {
     return (
         <>
             <div className={`relative flex flex-col space-y-2 h-[71vh] w-full items-center justify-center text-center rounded-lg ${className}`}>
-                <TypographyH1>{textSubLead}<br />{textSublead2}</TypographyH1>
-                <TypographyLead className="pt-3">
-                    {textLead}
-                </TypographyLead>
+                <TypographyH1><BlurFade>{textSubLead}</BlurFade><BlurFade delay={0.4}>{textSublead2}</BlurFade></TypographyH1>
+                <FadeX delay={0.6}><TypographyLead className="pt-3">{textLead}</TypographyLead></FadeX>
                 <AnimatedGridPattern
                     numSquares={20}
                     maxOpacity={0.2}

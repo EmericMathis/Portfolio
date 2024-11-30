@@ -39,7 +39,7 @@ export default function HeroCards() {
             <div className="container mx-auto px-4 py-8 max-w-[65rem]">
                 <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-6 ">
                     {activities.map((activity, index) => (
-                        <BlurFade delay={0.2 * index} key={index}>
+                        <BlurFade delay={0.7} key={index}>
                             <Card
                                 className="group flex flex-col transition-all duration-300 ease-in-out hover:scale-105 hover:bg-primary lg:h-[20rem]"
                                 role="region"

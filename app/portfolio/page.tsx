@@ -19,7 +19,6 @@ export default function Portfolio() {
                 <Hero textLead="Portfolio" textSubLead="Découvrez" textSublead2="mes réalisations" />
 
                 {/* PORTFOLIO */}
-                <Title title="Projets web" subtitle="" />
                 <PortfolioCards />
                 <Divider />
 

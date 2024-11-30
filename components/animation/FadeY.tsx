@@ -18,7 +18,7 @@ export function FadeY({
     isReversed?: boolean;
 }) {
     const ref = useRef(null);
-    const inView = useInView(ref, { margin: "-100px" });
+    const inView = useInView(ref, { margin: "-10px" });
 
     const variants = {
         hidden: { y: isReversed ? -distance : distance, opacity: 0 },
@@ -31,7 +31,7 @@ export function FadeY({
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
             variants={variants}
-            transition={{ delay: 0 + delay, duration: 0.4, ease: "ease" }}
+            transition={{ delay: 0 + delay, duration: 0.6, ease: "easeInOut" }}
             className={className}
             {...props}
         >

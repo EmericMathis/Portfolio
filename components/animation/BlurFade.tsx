@@ -20,7 +20,7 @@ export function BlurFade({
   ...props
 }: BlurFadeProps) {
   const ref = useRef(null);
-  const inView = useInView(ref, { margin: "-50px" });
+  const inView = useInView(ref, { margin: "-10px" });
 
   const getVariants = (direction: FadeDirection) => {
     switch (direction) {
@@ -45,7 +45,7 @@ export function BlurFade({
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       variants={variants}
-      transition={{ delay: 0 + delay, duration: 0.4, ease: "easeOut" }}
+      transition={{ delay: 0 + delay, duration: 0.6, ease: "easeOut" }}
       className={className}
       {...props} // Passe toutes les props restantes au motion.div
     >

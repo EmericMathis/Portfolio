@@ -14,7 +14,6 @@ import ContactForm from "@/components/blocks/Contact";
 import HeroCards from "@/components/blocks/HeroCards";
 import MarqueeLogos from "@/components/blocks/MarqueeLogos";
 import { MarqueeText } from "@/components/blocks/MarqueeText";
-import { BlurFade } from "@/components/animation/BlurFade";
 
 export default function Home() {
   return (
@@ -25,9 +24,7 @@ export default function Home() {
         {/* HERO */}
         <Hero textLead="Emeric MATHIS" textSubLead="Développeur web" textSublead2="indépendant" LinkLeftBtn="/portfolio" textLeftBtn="Portfolio" LinkRightBtn="https://www.malt.fr/profile/emeric" textRightBtn="Mon profil Malt" />
         <HeroCards />
-        <BlurFade>
-          <MarqueeText texts={['Développeur Web', 'Freelance', 'Indépendant', 'DevOps', 'Interface d\'administration', 'CMS', 'E-commerce', 'Site vitrine', 'Site événementiel', 'Site institutionnel', 'Site associatif', 'Site personnel', 'Site professionnel', 'Site e-commerce', 'JavaScript', 'React', 'Node.js', 'TypeScript', 'Next.js', 'Nestjs', 'Tailwind CSS', 'Prisma', 'Docker', 'AWS', 'GitHub', 'GitLab', 'CI/CD', 'API', 'Microservices', 'Cloud', 'Serverless', 'SEO', 'Responsive Design', 'Frontend', 'Backend', 'Full Stack', 'Agile', 'Scrum', 'TDD', 'BDD', 'REST', 'Web Development', 'Software Engineer', 'Consultant', 'Tests unitaires']} />
-        </BlurFade>
+        <MarqueeText texts={['Développeur Web', 'Freelance', 'Indépendant', 'DevOps', 'Interface d\'administration', 'CMS', 'E-commerce', 'Site vitrine', 'Site événementiel', 'Site institutionnel', 'Site associatif', 'Site personnel', 'Site professionnel', 'Site e-commerce', 'JavaScript', 'React', 'Node.js', 'TypeScript', 'Next.js', 'Nestjs', 'Tailwind CSS', 'Prisma', 'Docker', 'AWS', 'GitHub', 'GitLab', 'CI/CD', 'API', 'Microservices', 'Cloud', 'Serverless', 'SEO', 'Responsive Design', 'Frontend', 'Backend', 'Full Stack', 'Agile', 'Scrum', 'TDD', 'BDD', 'REST', 'Web Development', 'Software Engineer', 'Consultant', 'Tests unitaires']} />
         <Divider />
 
         {/* SERVICES */}

@@ -57,7 +57,7 @@ export default function PortfolioCards() {
         <div className="container mx-auto px-4 py-12 overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
                 {projects.map((project, index) => (
-                    <BlurFade delay={0.2 * index} key={project.title} className="w-full h-full">
+                    <BlurFade delay={0.1 * index} key={project.title} className="w-full h-full">
                         <ProjectCard
                             project={project}
                             className="h-full"

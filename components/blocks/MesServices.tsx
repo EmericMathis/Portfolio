@@ -49,25 +49,20 @@ export function MesServices() {
                     {/* première colonne */}
                     <div className="lg:space-y-6 flex flex-col items-center justify-center">
                         {services.slice(0, 4).map((service, index) => (
-                            <FadeX delay={0.2 * index} key={index}>
-                                <ServiceCard {...service} className="w-full md:h-28 lg:h-36" />
-                            </FadeX>
+                            <ServiceCard key={index} {...service} className="w-full md:h-28 lg:h-36" />
                         ))}
                     </div>
 
                     {/* illustration */}
                     <div className="hidden xl:flex xl:items-center xl:justify-center">
                         <div className="sticky top-8">
-
                         </div>
                     </div>
 
                     {/* seconde colonne */}
                     <div className="lg:space-y-6 flex flex-col items-center justify-center">
                         {services.slice(4).map((service, index) => (
-                            <FadeX isReversed delay={0.2 * index} key={index}>
-                                <ServiceCard {...service} className="w-full md:h-28 lg:h-36" />
-                            </FadeX>
+                            <ServiceCard key={index} {...service} className="w-full md:h-28 lg:h-36" />
                         ))}
                     </div>
                 </div>
@@ -84,18 +79,20 @@ interface ServiceCardProps {
 
 function ServiceCard({ title, description, className }: ServiceCardProps) {
     return (
-        <Card className={clsx(`group hover:bg-primary flex justify-center bg-inherit lg:bg-card border-none lg:border-solid shadow-none`, className)}>
-            <CardContent className="p-4 w-full flex items-center">
-                <div className="flex items-center space-x-4">
-                    <div className="my-auto">
-                        <ArrowBigRightDashIcon className="w-6 h-6 text-primary group-hover:text-primary-foreground" />
+        <FadeX delay={0.2}>
+            <Card className={clsx(`group hover:bg-primary flex justify-center bg-inherit lg:bg-card border-none lg:border-solid shadow-none`, className)}>
+                <CardContent className="p-4 w-full flex items-center">
+                    <div className="flex items-center space-x-4">
+                        <div className="my-auto">
+                            <ArrowBigRightDashIcon className="w-6 h-6 text-primary group-hover:text-primary-foreground" />
+                        </div>
+                        <div>
+                            <h3 className="text-lg font-semibold text-primary mb-2 group-hover:text-primary-foreground">{title}</h3>
+                            <p className="text-muted-foreground group-hover:text-primary-foreground">{description}</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 className="text-lg font-semibold text-primary mb-2 group-hover:text-primary-foreground">{title}</h3>
-                        <p className="text-muted-foreground group-hover:text-primary-foreground">{description}</p>
-                    </div>
-                </div>
-            </CardContent>
-        </Card>
+                </CardContent>
+            </Card>
+        </FadeX>
     )
 }

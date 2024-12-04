@@ -16,6 +16,8 @@ import MarqueeLogos from "@/components/blocks/MarqueeLogos";
 import { MarqueeText } from "@/components/blocks/MarqueeText";
 
 export default function Home() {
+
+
   return (
     <>
       <Header />
@@ -50,7 +52,7 @@ export default function Home() {
         <ContactForm />
         <Divider />
 
-      </main>
+      </main >
       <Footer />
     </>
   );

@@ -20,7 +20,7 @@ const data = [
     ),
   },
   {
-    title: "sept.2021 - sept.2024",
+    title: "juin 2024 - déc.2024",
     content: (
       <>
         <TypographyLead>Développeur web React & NestJS</TypographyLead>

@@ -19,7 +19,7 @@ const projects: Project[] = [
             '/images/sites/MCD-maker/MCD-maker-dark.webp',
             '/images/sites/MCD-maker/MCD-maker.webp',
         ],
-        githubUrl: 'https://github.com/EmericMathis/Portfolio',
+        githubUrl: 'https://github.com/EmericMathis/MCD-maker',
     },
     {
         title: 'Emeric Mathis - Portfolio 2.0',

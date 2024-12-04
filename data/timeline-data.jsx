@@ -24,7 +24,7 @@ const data = [
     content: (
       <>
         <TypographyLead>Développeur web React & NestJS</TypographyLead>
-        <TypographyBlockquote className="mt-0 flex items-center gap-2"><div className="bg-white rounded-full p-2"><Image src="/images/timeline/alt.webp" alt="Alt" width={50} height={50} /></div> Alt | incubateur Tech · apprentissage par immersion</TypographyBlockquote>
+        <TypographyBlockquote className="mt-0 flex items-center gap-2"><div className="bg-white rounded-full p-2"><Image src="/images/timeline/alt-logo.webp" alt="Alt" width={50} height={50} /></div> Alt | incubateur Tech · apprentissage par immersion</TypographyBlockquote>
         <TypographyP>Apprentissage par immersion dans une entreprise de développement web, qui me fait travailler en conditions réelles dans une équipe de développeurs, sur un projet fullstack dans une architecture micro-services.</TypographyP>
 
         <div className="flex flex-wrap lg:flex-row flex-col">

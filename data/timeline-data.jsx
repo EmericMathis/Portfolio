@@ -5,9 +5,10 @@ import { TypographyP } from "@/components/typography/TypographyP";
 import Image from "next/image";
 import Link from "next/link";
 import { ImageGallery } from "@/components/blocks/ImageGallery";
+
 const data = [
   {
-    title: "sept.2024 - aujourd’hui",
+    title: "sept. 2024 - aujourd’hui",
     content: (
       <>
         <TypographyLead>Développeur web freelance Next.js</TypographyLead>
@@ -20,7 +21,7 @@ const data = [
     ),
   },
   {
-    title: "juin 2024 - déc.2024",
+    title: "juin 2024 - déc. 2024",
     content: (
       <>
         <TypographyLead>Développeur web React & NestJS</TypographyLead>
@@ -77,8 +78,8 @@ const data = [
         <TypographyLead>Développeur PHP & Wordpress</TypographyLead>
         <TypographyBlockquote className="mt-0 flex items-center gap-2"><div className="bg-white rounded-full p-1"><Image src="/images/timeline/mahvu.svg" alt="Mahvu" width={50} height={50} /></div> Mahvu (mouvement des aveugles et handicapés unis) · stage</TypographyBlockquote>
         <TypographyP>J&apos;ai passé 2 mois à développer le site de cette association pendant ma première formation. Le but était de créer un site 100% accessible et permettant la publication d&apos;articles par des aveugles.</TypographyP>
-        <TypographyP>Pour cela j&apos;ai créé un thème wordpress en PHP, language que je ne connaissais pas du tout.<br />
-          Cela à été un défi vraiment stimulant d&apos;avoir un délai pour créer un projet dans un language inconnu. J&apos;ai pensé le site avant tout pour l&apos;accessibilité et la visibilité selon leurs demandes, avec de grandes icones et couleurs contrastées, un thème sombre en jaune sur noir pour améliorer la lisibilité. <br />
+        <TypographyP>Pour cela j&apos;ai créé un thème wordpress en PHP, langage que je ne connaissais pas du tout.<br />
+          Cela a été un défi vraiment stimulant d&apos;avoir un délai pour créer un projet dans un langage inconnu. J&apos;ai pensé le site avant tout pour l&apos;accessibilité et la visibilité selon leurs demandes, avec de grandes icônes et couleurs contrastées, un thème sombre en jaune sur noir pour améliorer la lisibilité. <br />
           Le site est disponible sur ce <Link href="https://mahvu.org" target="blank" className="text-primary font-semibold hover:underline">lien</Link></TypographyP>
       </>
     )
@@ -202,7 +203,6 @@ const data = [
         <TypographyBlockquote className="mt-0 flex items-center gap-2">MEINAU SERVICES REGIE DE QUARTIER · Contrat en alternance</TypographyBlockquote>
         <TypographyP>J&apos;ai eu l&apos;occasion de travailler dans une entreprise de service communautaire, j&apos;ai travaillé en équipe, appris à communiquer avec les clients et à répondre à leurs besoins.</TypographyP>
         <TypographyP>J&apos;ai obtenu mon premier diplôme, un BEP travaux paysagers.</TypographyP>
-
       </>
     ),
   },
@@ -211,7 +211,7 @@ const data = [
     content: (
       <>
         <TypographyLead>Naissance</TypographyLead>
-        <TypographyBlockquote className="mt-0 flex items-center gap-2">Hopital de Strabourg, France</TypographyBlockquote>
+        <TypographyBlockquote className="mt-0 flex items-center gap-2">Hôpital de Strasbourg, France</TypographyBlockquote>
       </>
     ),
   },

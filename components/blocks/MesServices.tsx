@@ -2,7 +2,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowBigRightDashIcon } from "lucide-react";
-import clsx from 'clsx';
 import { FadeX } from "../animation/FadeX";
 
 export function MesServices() {
@@ -44,25 +43,21 @@ export function MesServices() {
     return (
         <section className="py-16 px-4 md:px-6">
             <div className="max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 lg:gap-6 items-center mt-8">
-
-                    {/* première colonne */}
-                    <div className="lg:space-y-6 flex flex-col items-center justify-center">
+                <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3 items-start mt-8">
+                    <div className="grid grid-cols-1 gap-6">
                         {services.slice(0, 4).map((service, index) => (
-                            <ServiceCard key={index} {...service} className="w-full md:h-28 lg:h-36" />
+                            <ServiceCard key={index} {...service} />
                         ))}
                     </div>
 
-                    {/* illustration */}
-                    <div className="hidden xl:flex xl:items-center xl:justify-center">
+                    <div className="hidden xl:block">
                         <div className="sticky top-8">
                         </div>
                     </div>
 
-                    {/* seconde colonne */}
-                    <div className="lg:space-y-6 flex flex-col items-center justify-center">
+                    <div className="grid grid-cols-1 gap-6">
                         {services.slice(4).map((service, index) => (
-                            <ServiceCard key={index} {...service} className="w-full md:h-28 lg:h-36" />
+                            <ServiceCard key={index} {...service} />
                         ))}
                     </div>
                 </div>
@@ -74,16 +69,15 @@ export function MesServices() {
 interface ServiceCardProps {
     title: string;
     description: string;
-    className?: string;
 }
 
-function ServiceCard({ title, description, className }: ServiceCardProps) {
+function ServiceCard({ title, description }: ServiceCardProps) {
     return (
         <FadeX delay={0.2}>
-            <Card className={clsx(`group hover:bg-primary flex justify-center bg-inherit lg:bg-card border-none lg:border-solid shadow-none`, className)}>
-                <CardContent className="p-4 w-full flex items-center">
+            <Card className="group hover:bg-primary bg-inherit lg:bg-card border-none lg:border-solid shadow-none lg:h-32 xl:h-40 flex items-center">
+                <CardContent className="p-4 w-full">
                     <div className="flex items-center space-x-4">
-                        <div className="my-auto">
+                        <div>
                             <ArrowBigRightDashIcon className="w-6 h-6 text-primary group-hover:text-primary-foreground" />
                         </div>
                         <div>

@@ -1,71 +1,71 @@
-import { AccessibilityIcon } from "@radix-ui/react-icons";
 import {
-    BookOpenIcon,
-    Settings2Icon,
-    TabletSmartphoneIcon,
+    PenBoxIcon,
+    BrushIcon,
+    CodeIcon,
+    BugIcon
 } from "lucide-react";
+import { FadeX } from "../animation/FadeX";
 
 export default function IconSection() {
     return (
         <>
-            {/* Icon Blocks */}
-            <div className="container  mx-auto mt-14">
+            <FadeX isReversed className="container mx-auto mt-14">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 items-center gap-12">
+
                     {/* Icon Block */}
-                    <div className="text-center">
+                    <div className="text-center h-28">
                         <div className="flex justify-center items-center w-12 h-12 bg-primary border rounded-full mx-auto">
-                            <TabletSmartphoneIcon className="flex-shrink-0 w-5 h-5 text-primary-foreground" />
+                            <PenBoxIcon className="flex-shrink-0 w-5 h-5 text-primary-foreground" />
                         </div>
                         <div className="mt-3">
-                            <h3 className="text-lg font-semibold ">Responsive</h3>
+                            <h3 className="text-lg font-semibold ">Analyse</h3>
                             <p className="mt-1 text-muted-foreground">
-                                Affichage optimisé sur tous les appareils
+                                Analyse du projet et des besoins
                             </p>
                         </div>
                     </div>
-                    {/* End Icon Block */}
+
                     {/* Icon Block */}
-                    <div className="text-center">
+                    <div className="text-center h-28">
                         <div className="flex justify-center items-center w-12 h-12 bg-primary border rounded-full mx-auto">
-                            <Settings2Icon className="flex-shrink-0 w-5 h-5 text-primary-foreground" />
+                            <BrushIcon className="flex-shrink-0 w-5 h-5 text-primary-foreground" />
                         </div>
                         <div className="mt-3">
-                            <h3 className="text-lg font-semibold ">SEO</h3>
+                            <h3 className="text-lg font-semibold ">Design</h3>
                             <p className="mt-1 text-muted-foreground">
-                                Référencement naturel optimisé
+                                Conception de maquette visuelle et de la base de données
                             </p>
                         </div>
                     </div>
-                    {/* End Icon Block */}
+
                     {/* Icon Block */}
-                    <div className="text-center">
+                    <div className="text-center h-28">
                         <div className="flex justify-center items-center w-12 h-12 bg-primary border rounded-full mx-auto">
-                            <BookOpenIcon className="flex-shrink-0 w-5 h-5 text-primary-foreground" />
+                            <CodeIcon className="flex-shrink-0 w-5 h-5 text-primary-foreground" />
                         </div>
                         <div className="mt-3">
-                            <h3 className="text-lg font-semibold ">Conseils</h3>
+                            <h3 className="text-lg font-semibold ">Code</h3>
                             <p className="mt-1 text-muted-foreground">
-                                Je vous conseille pour les choix techniques
+                                Développement du site web
                             </p>
                         </div>
                     </div>
-                    {/* End Icon Block */}
+
                     {/* Icon Block */}
-                    <div className="text-center">
+                    <div className="text-center h-28">
                         <div className="flex justify-center items-center w-12 h-12 bg-primary border rounded-full mx-auto">
-                            <AccessibilityIcon className="flex-shrink-0 w-5 h-5 text-primary-foreground" />
+                            <BugIcon className="flex-shrink-0 w-5 h-5 text-primary-foreground" />
                         </div>
                         <div className="mt-3">
-                            <h3 className="text-lg font-semibold ">Accessibilité</h3>
+                            <h3 className="text-lg font-semibold ">Tests</h3>
                             <p className="mt-1 text-muted-foreground">
-                                naviguable par tous les utilisateurs (handicaps)
+                                Tests unitaires et fonctionnels, tests d&apos;accessibilité
                             </p>
                         </div>
                     </div>
-                    {/* End Icon Block */}
+
                 </div>
-            </div>
-            {/* End Icon Blocks */}
+            </FadeX>
         </>
     );
 }

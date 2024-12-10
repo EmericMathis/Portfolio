@@ -28,7 +28,7 @@ export function MesServices() {
         },
         {
             title: "Conception et design de sites",
-            description: "Création de designs modernes et épurés, autrement je vous suggère de me donner une maquette préparée par un UI/UX designer afin que je la reproduise."
+            description: "Je crée des designs modernes et épurés. Si vous avez déjà une maquette préparée par un UI/UX designer, je peux également la reproduire fidèlement."
         },
         {
             title: "Expérience utilisateur animée",

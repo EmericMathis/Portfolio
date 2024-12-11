@@ -122,56 +122,19 @@ const data = [
             {
               src: "/images/timeline/diplome.webp",
               alt: "Diplôme"
-            },
-            // Ajoutez jusqu'à 4 images ici
+            }
           ]}
         />
       </>
     ),
   },
   {
-    title: "mai 2022 - mai 2023",
+    title: "juin 2018 - mai. 2023",
     content: (
       <>
         <TypographyLead>Conducteur de ligne</TypographyLead>
-        <TypographyBlockquote className="mt-0 flex items-center gap-2">Linamar Montfaucon Transmission · Intérimaire</TypographyBlockquote>
-        <TypographyP>J&apos;ai eu l&apos;occasion de travailler dans une entreprise de production de pièces automobiles, travail sur commande numérique, avec des robots et des machines modernes, c&apos;était très enrichissant.</TypographyP>
-      </>
-    ),
-  },
-  {
-    title: "mars 2022 - avr. 2022",
-    content: (
-      <>
-        <TypographyLead>Opérateur de production</TypographyLead>
-        <TypographyBlockquote className="mt-0 flex items-center gap-2">ALPHA NUTRITION · Intérimaire</TypographyBlockquote>
-      </>
-    ),
-  },
-  {
-    title: "mars 2021 - avr. 2022",
-    content: (
-      <>
-        <TypographyLead>Conducteur de ligne</TypographyLead>
-        <TypographyBlockquote className="mt-0 flex items-center gap-2">GROUPE BARBIER · Intérimaire</TypographyBlockquote>
-      </>
-    ),
-  },
-  {
-    title: "juin 2021 - janv. 2022",
-    content: (
-      <>
-        <TypographyLead>Conducteur de ligne</TypographyLead>
-        <TypographyBlockquote className="mt-0 flex items-center gap-2">JACOBS DOUWE EGBERTS · Intérimaire</TypographyBlockquote>
-      </>
-    ),
-  },
-  {
-    title: "juil. 2018 - mai 2019",
-    content: (
-      <>
-        <TypographyLead>Conducteur de ligne</TypographyLead>
-        <TypographyBlockquote className="mt-0 flex items-center gap-2">NESTLE WATERS SUPPLY SUD (Perrier) · Intérimaire</TypographyBlockquote>
+        <TypographyBlockquote className="mt-0 flex items-center gap-2">Diverses entreprises · Intérimaire</TypographyBlockquote>
+        <TypographyP>Gestion d&apos;une ligne de production automatisée, travail en équipe, travail en conditions difficiles.</TypographyP>
       </>
     ),
   },
@@ -181,7 +144,7 @@ const data = [
       <>
         <TypographyLead>Manager</TypographyLead>
         <TypographyBlockquote className="mt-0 flex items-center gap-2">McDonald&apos;s · CDI</TypographyBlockquote>
-        <TypographyP>J&apos;ai appris à gérer une équipe, à organiser le travail et à répondre aux attentes des clients.</TypographyP>
+        <TypographyP>Gestion d&apos;une équipe, veiller à la qualité des produits, la sécurité et à répondre aux attentes des clients.</TypographyP>
       </>
     ),
   },
@@ -191,7 +154,7 @@ const data = [
       <>
         <TypographyLead>Conducteur de ligne</TypographyLead>
         <TypographyBlockquote className="mt-0 flex items-center gap-2">Alsapan · CDI</TypographyBlockquote>
-        <TypographyP>Travail le plus difficile de ma vie! J&apos;ai dû travailler 48h par semaine la plupart du temps, dans des conditions très difficiles et stressantes. Cela reste une expérience que j&apos;ai vraiment appréciée, surtout d&apos;un point de vue humain.</TypographyP>
+        <TypographyP>Travail très éprouvant, dans des conditions très difficiles et stressantes. Cela reste une expérience que j&apos;ai vraiment appréciée, surtout d&apos;un point de vue humain.</TypographyP>
       </>
     ),
   },

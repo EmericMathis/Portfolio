@@ -8,7 +8,7 @@ import { FadeX } from "../animation/FadeX";
 
 export default function IconSection() {
     return (
-        <>
+        <div className="overflow-hidden">
             <FadeX isReversed className="container mx-auto mt-14">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 items-center gap-12">
 
@@ -66,6 +66,6 @@ export default function IconSection() {
 
                 </div>
             </FadeX>
-        </>
+        </div>
     );
 }

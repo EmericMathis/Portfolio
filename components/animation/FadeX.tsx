@@ -19,7 +19,7 @@ export function FadeX({ children, className, delay = 0, distance = 50, isReverse
             variants={variants}
             viewport={{ margin: "-10px", amount: 0.3 }}
             transition={{ delay: 0.1 + delay, duration: 0.6, ease: "easeInOut" }}
-            className={className}
+            className={`overflow-hidden ${className}`}
             {...props}
         >
             {children}

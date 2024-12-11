@@ -8,11 +8,11 @@ export function ImageGallery({ images }) {
 
     return (
         <>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-w-[800px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 ">
                 {images.slice(0, 4).map((image, index) => (
                     <div
                         key={index}
-                        className="relative h-[200px] cursor-pointer hover:opacity-90 transition-opacity"
+                        className="relative w-[150px] h-[100px] cursor-pointer hover:opacity-90 transition-opacity"
                         onClick={() => setSelectedImage(image)}
                     >
                         <Image

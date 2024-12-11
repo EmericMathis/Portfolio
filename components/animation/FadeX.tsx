@@ -17,7 +17,7 @@ export function FadeX({ children, className, delay = 0, distance = 50, isReverse
             initial="hidden"
             whileInView="visible"
             variants={variants}
-            viewport={{ margin: "-10px", amount: 0.3 }}
+            viewport={{ amount: "some" }}
             transition={{ delay: 0.1 + delay, duration: 0.6, ease: "easeInOut" }}
             className={className}
             {...props}
